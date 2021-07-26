@@ -1,12 +1,15 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T13:09:34.188Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.164 Safari/537.36" etag="nKyOrM4XRxXCQL9T8vPq" version="14.9.2" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T13:42:49.942Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="gPpPMTbyXFOAZwY8Wvs5" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="946" dy="1371" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="CvALPrKDwg2GNkAODaw3-17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-0" target="CvALPrKDwg2GNkAODaw3-18" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="662.5" y="310" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="810" y="374" />
+            </Array>
           </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-0" value="KitchenHelper&lt;br&gt;App" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -70,7 +73,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-18" value="MyRecipeBook" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="682.5" y="110" width="210" height="200" as="geometry" />
+          <mxGeometry x="683.5" y="110" width="210" height="200" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-23" value="Recipe is selectable =&amp;gt; ping repo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-18" vertex="1">
           <mxGeometry x="5" y="50" width="190" height="20" as="geometry" />
@@ -83,11 +86,11 @@
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-33" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="787.5" y="370" as="targetPoint" />
+            <mxPoint x="815" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-33" value="ImportRecipe" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="682.5" y="430" width="210" height="200" as="geometry" />
+          <mxGeometry x="710" y="439" width="210" height="200" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-35" value="Import recipes to your recipe book&lt;br&gt;&amp;nbsp;from the Web" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-33" vertex="1">
           <mxGeometry x="5" y="30" width="200" height="30" as="geometry" />
@@ -100,7 +103,7 @@
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-44" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-39" edge="1">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="790" y="374" as="targetPoint" />
+            <mxPoint x="810" y="374" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-39" value="Nutrition" style="swimlane;fillColor=#d5e8d4;strokeColor=#82b366;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -122,8 +125,16 @@
             <mxPoint x="380" y="370" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0;entryY=0.25;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-45" target="CvALPrKDwg2GNkAODaw3-33" edge="1">
-          <mxGeometry relative="1" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-45" edge="1">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="690" y="600" as="targetPoint" />
+            <Array as="points">
+              <mxPoint x="153" y="640" />
+              <mxPoint x="670" y="640" />
+              <mxPoint x="670" y="600" />
+              <mxPoint x="678" y="600" />
+            </Array>
+          </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-45" value="WhatCanICook?" style="swimlane;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="100" y="240" width="210" height="130" as="geometry" />
@@ -277,13 +288,52 @@
           <mxGeometry x="35" y="65" width="140" height="30" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-113" value="IDEAS" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="10" y="-350" width="210" height="140" as="geometry" />
+          <mxGeometry x="10" y="-350" width="210" height="170" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-114" value="Meal planning" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-113" vertex="1">
           <mxGeometry y="25" width="210" height="26" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-115" value="Family meal filters:&#xa;- kids preferences + nutrition&#xa;- adult spin on the same meal?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-113" vertex="1">
-          <mxGeometry y="51" width="210" height="89" as="geometry" />
+          <mxGeometry y="51" width="210" height="119" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-0" value="Hello" style="whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="610" y="-630" width="120" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.204;entryY=0.863;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-1" target="CvALPrKDwg2GNkAODaw3-0">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-1" value="Community" style="swimlane;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="200" y="430" width="280" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-2" value="top voted community recipes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-1">
+          <mxGeometry x="20" y="45" width="170" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-3" value="Post photos/stories &amp;gt; link to recipe" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-1">
+          <mxGeometry x="5" y="27" width="200" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-4" value="blog/columnists" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-1">
+          <mxGeometry x="20.000000000000014" y="65" width="100" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-5" value="&#39;curated playlists&#39; &amp;gt; spotify for food?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-1">
+          <mxGeometry x="-2" y="82" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-6" value="the Discovery algorithm but for food?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-1">
+          <mxGeometry x="-2" y="102" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-11" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-7" target="SyFIcGwqmmUQhReZ2242-1">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-7" value="LocalOrgs" style="swimlane;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="530" y="430" width="152.14" height="130" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-9" value="Enable local traders&lt;br&gt;/vendors to sign up" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-7">
+          <mxGeometry x="12.86" y="27" width="120" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-10" value="Supporting local&lt;br&gt;&amp;nbsp;independent businesses&lt;br&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-7">
+          <mxGeometry x="-2.1399999999999864" y="60" width="150" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-13" value="Food banks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-7">
+          <mxGeometry x="32.860000000000014" y="100" width="80" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
