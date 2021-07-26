@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T15:35:59.131Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="jWIsO1OGJEboUdsWJwkz" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T16:09:37.203Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="BUVpT9m5EQdWNmsZIUg0" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -112,8 +112,13 @@
             <mxPoint x="810" y="374" as="targetPoint" />
           </mxGeometry>
         </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-40" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;fontSize=32;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-39">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="1117" y="320" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-39" value="Nutrition" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="940" y="309" width="210" height="130" as="geometry" />
+          <mxGeometry x="959" y="350" width="210" height="109" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-40" value="Calculates nutrition of a recipe" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-39" vertex="1">
           <mxGeometry x="10" y="50" width="180" height="20" as="geometry" />
@@ -376,6 +381,15 @@
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-36" value="Dev Roadmap" style="text;html=1;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;whiteSpace=wrap;rounded=0;fontSize=32;fontStyle=1" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="240" y="-530" width="227.5" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-43" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;fontSize=32;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-37" target="SyFIcGwqmmUQhReZ2242-14">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-37" value="HealthFilter" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="990" y="215.5" width="210" height="109" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-38" value="Friendly preference slider for&lt;br&gt;how healthy you&#39;d like to eat&amp;nbsp;&lt;br&gt;=&amp;gt; sets calorie budget BTS&lt;br&gt;&amp;nbsp;weekly/monthly that gets included&lt;br&gt;in recipe algorithm" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-37">
+          <mxGeometry y="20" width="200" height="80" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
