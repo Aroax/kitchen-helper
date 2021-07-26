@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T13:42:49.942Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="gPpPMTbyXFOAZwY8Wvs5" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T13:50:20.495Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="HvWS5ddpKp6bRvWoeV4t" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -67,9 +67,9 @@
             <mxPoint x="457.5" y="239.5" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-61" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-18" edge="1">
+        <mxCell id="SyFIcGwqmmUQhReZ2242-18" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.25;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-18">
           <mxGeometry relative="1" as="geometry">
-            <mxPoint x="787.5" y="70" as="targetPoint" />
+            <mxPoint x="970" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-18" value="MyRecipeBook" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
@@ -115,16 +115,6 @@
         <mxCell id="CvALPrKDwg2GNkAODaw3-41" value="Repo of nutritional info per ingredient" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-39" vertex="1">
           <mxGeometry y="30" width="210" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-45" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="350" y="240" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-55" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-45" edge="1">
-          <mxGeometry relative="1" as="geometry">
-            <mxPoint x="380" y="370" as="targetPoint" />
-          </mxGeometry>
-        </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-101" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-45" edge="1">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="690" y="600" as="targetPoint" />
@@ -136,8 +126,11 @@
             </Array>
           </mxGeometry>
         </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-25" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.079;entryY=-0.01;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-45" target="SyFIcGwqmmUQhReZ2242-22">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-45" value="WhatCanICook?" style="swimlane;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="100" y="240" width="210" height="130" as="geometry" />
+          <mxGeometry x="20" y="60" width="210" height="130" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-46" value="suggests meals cookable with&lt;br&gt;ingredients to hand" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-45" vertex="1">
           <mxGeometry x="20" y="50" width="170" height="30" as="geometry" />
@@ -334,6 +327,44 @@
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-13" value="Food banks" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-7">
           <mxGeometry x="32.860000000000014" y="100" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-19" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0;exitY=0.25;exitDx=0;exitDy=0;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-14" target="CvALPrKDwg2GNkAODaw3-57">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="970" y="45" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-14" value="MealPlanner" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="970" width="270" height="200" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-20" value="&#39;Plan my week&#39; (specify # days?)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
+          <mxGeometry x="29" y="30" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-21" value="Planning family meals:&lt;br&gt;- factoring in kids preferences while&lt;br&gt;ensuring nutritional intake&lt;br&gt;- &#39;grown-up mode&#39; &amp;gt; adult take on same&lt;br&gt;ingredients as kids&#39; meal&lt;br&gt;- date/cheat night &amp;gt; suggest a &#39;naughty&#39; recipe" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
+          <mxGeometry y="50" width="260" height="90" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-22">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="350" y="270" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=1;exitDx=0;exitDy=0;entryX=0.07;entryY=0.4;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-22" target="CvALPrKDwg2GNkAODaw3-0">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="268" y="340" />
+              <mxPoint x="396" y="340" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-22" value="VarietyCheck" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="110" y="220" width="210" height="100" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-23" value="allows for overriding based on&amp;nbsp;&lt;br&gt;&#39;favourited&#39; meals/ingredients&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-22">
+          <mxGeometry x="15" y="52" width="180" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-24" value="prevents repeated similar meals" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-22">
+          <mxGeometry x="10" y="30" width="190" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
