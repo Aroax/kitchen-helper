@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T13:53:17.798Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="Ck8x9zpmWOFLghRBky4F" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T13:56:13.488Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="aAR1dh3FVpRIyqv3D6vB" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -73,7 +73,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-18" value="MyRecipeBook" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="683.5" y="110" width="210" height="200" as="geometry" />
+          <mxGeometry x="683.5" y="110" width="235" height="200" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-23" value="Recipe is selectable =&amp;gt; ping repo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-18" vertex="1">
           <mxGeometry x="5" y="50" width="190" height="20" as="geometry" />
@@ -85,7 +85,10 @@
           <mxGeometry x="-1" y="71" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-31" value="Filterable by time needed&lt;br&gt;- separate by prep vs cook?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="CvALPrKDwg2GNkAODaw3-18">
-          <mxGeometry x="5" y="120" width="160" height="30" as="geometry" />
+          <mxGeometry x="5" y="110" width="160" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-32" value="Additional filters: cuisine, ingredient, &lt;br&gt;diet,&amp;nbsp;etc." style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="CvALPrKDwg2GNkAODaw3-18">
+          <mxGeometry x="15" y="150" width="210" height="30" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-33" edge="1">
           <mxGeometry relative="1" as="geometry">
