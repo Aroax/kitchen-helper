@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T13:56:13.488Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="aAR1dh3FVpRIyqv3D6vB" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T13:57:32.460Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="zuBQ4ssL4lXyxkIzt3F8" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1833" dy="1868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -285,9 +285,6 @@
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-110" value="alerts price drops on &lt;br&gt;&lt;b&gt;favourited&lt;/b&gt;&amp;nbsp;&lt;b&gt;ingredients&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-107" vertex="1">
           <mxGeometry x="35" y="65" width="140" height="30" as="geometry" />
-        </mxCell>
-        <mxCell id="SyFIcGwqmmUQhReZ2242-0" value="Hello" style="whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="610" y="-630" width="120" height="60" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-12" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.204;entryY=0.863;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-1" target="CvALPrKDwg2GNkAODaw3-0">
           <mxGeometry relative="1" as="geometry" />
