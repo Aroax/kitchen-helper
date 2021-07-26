@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T13:50:20.495Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="HvWS5ddpKp6bRvWoeV4t" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T13:53:17.798Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="Ck8x9zpmWOFLghRBky4F" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -83,6 +83,9 @@
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-32" value="&lt;b&gt;Live Cook&lt;/b&gt;&amp;nbsp;mode - cook + take notes&lt;br&gt;&amp;nbsp;in real time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-18" vertex="1">
           <mxGeometry x="-1" y="71" width="210" height="30" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-31" value="Filterable by time needed&lt;br&gt;- separate by prep vs cook?" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="CvALPrKDwg2GNkAODaw3-18">
+          <mxGeometry x="5" y="120" width="160" height="30" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-37" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-33" edge="1">
           <mxGeometry relative="1" as="geometry">
@@ -280,15 +283,6 @@
         <mxCell id="CvALPrKDwg2GNkAODaw3-110" value="alerts price drops on &lt;br&gt;&lt;b&gt;favourited&lt;/b&gt;&amp;nbsp;&lt;b&gt;ingredients&lt;/b&gt;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-107" vertex="1">
           <mxGeometry x="35" y="65" width="140" height="30" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-113" value="IDEAS" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=25;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="10" y="-350" width="210" height="170" as="geometry" />
-        </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-114" value="Meal planning" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-113" vertex="1">
-          <mxGeometry y="25" width="210" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-115" value="Family meal filters:&#xa;- kids preferences + nutrition&#xa;- adult spin on the same meal?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-113" vertex="1">
-          <mxGeometry y="51" width="210" height="119" as="geometry" />
-        </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-0" value="Hello" style="whiteSpace=wrap;html=1;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="610" y="-630" width="120" height="60" as="geometry" />
         </mxCell>
@@ -344,6 +338,12 @@
         <mxCell id="SyFIcGwqmmUQhReZ2242-21" value="Planning family meals:&lt;br&gt;- factoring in kids preferences while&lt;br&gt;ensuring nutritional intake&lt;br&gt;- &#39;grown-up mode&#39; &amp;gt; adult take on same&lt;br&gt;ingredients as kids&#39; meal&lt;br&gt;- date/cheat night &amp;gt; suggest a &#39;naughty&#39; recipe" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
           <mxGeometry y="50" width="260" height="90" as="geometry" />
         </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-29" value="Create custom routines (food nights)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
+          <mxGeometry x="19" y="147" width="210" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-30" value="Weekly/monthly food budget / spend tracker" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
+          <mxGeometry y="167" width="250" height="20" as="geometry" />
+        </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-26" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="SyFIcGwqmmUQhReZ2242-22">
           <mxGeometry relative="1" as="geometry">
             <mxPoint x="350" y="270" as="targetPoint" />
@@ -361,10 +361,13 @@
           <mxGeometry x="110" y="220" width="210" height="100" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-23" value="allows for overriding based on&amp;nbsp;&lt;br&gt;&#39;favourited&#39; meals/ingredients&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-22">
-          <mxGeometry x="15" y="52" width="180" height="30" as="geometry" />
+          <mxGeometry x="15" y="47" width="180" height="30" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-24" value="prevents repeated similar meals" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-22">
-          <mxGeometry x="10" y="30" width="190" height="20" as="geometry" />
+          <mxGeometry x="10" y="27" width="190" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-28" value="/ ROUTINES" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+          <mxGeometry x="190" y="300" width="80" height="20" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
