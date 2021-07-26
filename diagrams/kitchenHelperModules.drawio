@@ -1,6 +1,6 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T13:57:32.460Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="zuBQ4ssL4lXyxkIzt3F8" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T14:29:45.747Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="PprHOnSVFXinni0UD5he" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
-    <mxGraphModel dx="1833" dy="1868" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+    <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
@@ -72,14 +72,14 @@
             <mxPoint x="970" y="160" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-18" value="MyRecipeBook" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-18" value="MyRecipeBook" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="683.5" y="110" width="235" height="200" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-23" value="Recipe is selectable =&amp;gt; ping repo" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-18" vertex="1">
           <mxGeometry x="5" y="50" width="190" height="20" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-20" value="Enter recipes to your recipe book" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-18" vertex="1">
-          <mxGeometry x="-5" y="30" width="190" height="20" as="geometry" />
+          <mxGeometry x="5" y="30" width="190" height="20" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-32" value="&lt;b&gt;Live Cook&lt;/b&gt;&amp;nbsp;mode - cook + take notes&lt;br&gt;&amp;nbsp;in real time" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-18" vertex="1">
           <mxGeometry x="-1" y="71" width="210" height="30" as="geometry" />
@@ -95,7 +95,7 @@
             <mxPoint x="815" y="380" as="targetPoint" />
           </mxGeometry>
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-33" value="ImportRecipe" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-33" value="ImportRecipe" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="710" y="439" width="210" height="200" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-35" value="Import recipes to your recipe book&lt;br&gt;&amp;nbsp;from the Web" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-33" vertex="1">
@@ -144,7 +144,7 @@
         <mxCell id="CvALPrKDwg2GNkAODaw3-47" value="compares iRepo with recipes" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-45" vertex="1">
           <mxGeometry x="20" y="30" width="170" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-48" value="LastChance!" style="swimlane;fillColor=#f8cecc;strokeColor=#b85450;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-48" value="LastChance!" style="swimlane;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="342.5" y="-50" width="210" height="100" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-50" value="warns 3, 2, 1 days before&amp;nbsp;&lt;br&gt;expiry date of fresh produce" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-48" vertex="1">
@@ -217,7 +217,7 @@
         <mxCell id="CvALPrKDwg2GNkAODaw3-111" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.986;entryY=1.02;entryDx=0;entryDy=0;entryPerimeter=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-78" target="CvALPrKDwg2GNkAODaw3-110" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-78" value="ShoppingList" style="swimlane;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-78" value="ShoppingList" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="840" y="-160" width="210" height="130" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-79" value="pings supermarket APIs?&lt;br&gt;- stock availability&lt;br&gt;- best price" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-78" vertex="1">
@@ -226,32 +226,32 @@
         <mxCell id="CvALPrKDwg2GNkAODaw3-80" value="tracks &lt;b&gt;OUT&lt;/b&gt;&amp;nbsp;and &lt;b&gt;LOW&lt;/b&gt;&amp;nbsp;ingredients" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" parent="CvALPrKDwg2GNkAODaw3-78" vertex="1">
           <mxGeometry x="10" y="30" width="190" height="20" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-87" value="MVP" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="47.14" y="-480" width="140" height="104" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-87" value="MVP" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#dae8fc;strokeColor=#6c8ebf;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="47.14" y="-489" width="192.86" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-88" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-87" vertex="1">
-          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-88" value="Build a repo of ingredients" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-87" vertex="1">
+          <mxGeometry y="26" width="192.86" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-89" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-87" vertex="1">
-          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-89" value="Able to enter recipe ingredients&#xa;&#xa;Able to pull recipes from the Web" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-87" vertex="1">
+          <mxGeometry y="52" width="192.86" height="48" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-90" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-87" vertex="1">
-          <mxGeometry y="78" width="140" height="26" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-90" value="Compares with repo and makes&#xa; shopping list of missing items&#xa;&#xa;Flags any ingrs from repo &#xa;running low &amp; adds to shopping&#xa;list" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-87" vertex="1">
+          <mxGeometry y="100" width="192.86" height="100" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-91" value="RELEASE" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="279.64" y="-480" width="140" height="104" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-91" value="RELEASE" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#e1d5e7;strokeColor=#9673a6;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
+          <mxGeometry x="279.64" y="-489" width="160.36" height="200" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-92" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-91" vertex="1">
-          <mxGeometry y="26" width="140" height="26" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-92" value="Flags soon to expire" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-91" vertex="1">
+          <mxGeometry y="26" width="160.36" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-93" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-91" vertex="1">
-          <mxGeometry y="52" width="140" height="26" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-93" value="What Can I Cook Now?" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-91" vertex="1">
+          <mxGeometry y="52" width="160.36" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-94" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-91" vertex="1">
-          <mxGeometry y="78" width="140" height="26" as="geometry" />
+        <mxCell id="CvALPrKDwg2GNkAODaw3-94" value="Recipes have rich content&#xa;&#xa;Recipes are filterable:&#xa;- time requirement&#xa;- cuisine&#xa;- protein?&#xa;- calories (as a recipe field)" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-91" vertex="1">
+          <mxGeometry y="78" width="160.36" height="122" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-95" value="STRETCH" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="527.14" y="-480" width="140" height="104" as="geometry" />
+          <mxGeometry x="527.14" y="-489" width="140" height="104" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-96" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
@@ -261,9 +261,6 @@
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-98" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
-        </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-99" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-89" target="CvALPrKDwg2GNkAODaw3-93" edge="1">
-          <mxGeometry relative="1" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-93" target="CvALPrKDwg2GNkAODaw3-97" edge="1">
           <mxGeometry relative="1" as="geometry" />
@@ -329,7 +326,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="SyFIcGwqmmUQhReZ2242-14" value="MealPlanner" style="swimlane;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="SyFIcGwqmmUQhReZ2242-14" value="MealPlanner" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="970" width="270" height="200" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-20" value="&#39;Plan my week&#39; (specify # days?)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
@@ -368,6 +365,9 @@
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-28" value="/ ROUTINES" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="190" y="300" width="80" height="20" as="geometry" />
+        </mxCell>
+        <mxCell id="SyFIcGwqmmUQhReZ2242-33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=-0.002;entryY=0.91;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-89" target="CvALPrKDwg2GNkAODaw3-93">
+          <mxGeometry relative="1" as="geometry" />
         </mxCell>
       </root>
     </mxGraphModel>
