@@ -1,4 +1,4 @@
-<mxfile host="app.diagrams.net" modified="2021-07-26T14:29:45.747Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="PprHOnSVFXinni0UD5he" version="14.8.0" type="github">
+<mxfile host="app.diagrams.net" modified="2021-07-26T14:32:04.331Z" agent="5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/92.0.4515.107 Safari/537.36" etag="JbgN5f1C_jQBNk7ok5MD" version="14.8.0" type="github">
   <diagram id="C5RBs43oDa-KdzZeNtuy" name="Page-1">
     <mxGraphModel dx="1213" dy="1544" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
       <root>
@@ -253,13 +253,13 @@
         <mxCell id="CvALPrKDwg2GNkAODaw3-95" value="STRETCH" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=26;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;fillColor=#ffe6cc;strokeColor=#d79b00;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="527.14" y="-489" width="140" height="104" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-96" value="Item 1" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-96" value="Variety Filter" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
           <mxGeometry y="26" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-97" value="Item 2" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-97" value="Meal Planner / routines" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
           <mxGeometry y="52" width="140" height="26" as="geometry" />
         </mxCell>
-        <mxCell id="CvALPrKDwg2GNkAODaw3-98" value="Item 3" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
+        <mxCell id="CvALPrKDwg2GNkAODaw3-98" value="AOB" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=top;spacingLeft=4;spacingRight=4;overflow=hidden;rotatable=0;points=[[0,0.5],[1,0.5]];portConstraint=eastwest;" parent="CvALPrKDwg2GNkAODaw3-95" vertex="1">
           <mxGeometry y="78" width="140" height="26" as="geometry" />
         </mxCell>
         <mxCell id="CvALPrKDwg2GNkAODaw3-100" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="CvALPrKDwg2GNkAODaw3-93" target="CvALPrKDwg2GNkAODaw3-97" edge="1">
@@ -326,7 +326,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="SyFIcGwqmmUQhReZ2242-14" value="MealPlanner" style="swimlane;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="SyFIcGwqmmUQhReZ2242-14" value="MealPlanner" style="swimlane;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="970" width="270" height="200" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-20" value="&#39;Plan my week&#39; (specify # days?)" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-14">
@@ -354,7 +354,7 @@
             </Array>
           </mxGeometry>
         </mxCell>
-        <mxCell id="SyFIcGwqmmUQhReZ2242-22" value="VarietyCheck" style="swimlane;fillColor=#f5f5f5;strokeColor=#666666;fontColor=#333333;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
+        <mxCell id="SyFIcGwqmmUQhReZ2242-22" value="VarietyCheck" style="swimlane;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="110" y="220" width="210" height="100" as="geometry" />
         </mxCell>
         <mxCell id="SyFIcGwqmmUQhReZ2242-23" value="allows for overriding based on&amp;nbsp;&lt;br&gt;&#39;favourited&#39; meals/ingredients&amp;nbsp;" style="text;html=1;align=center;verticalAlign=middle;resizable=0;points=[];autosize=1;strokeColor=none;" vertex="1" parent="SyFIcGwqmmUQhReZ2242-22">
