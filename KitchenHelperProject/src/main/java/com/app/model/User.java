@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
-@Document
+@Document(collection="users")
 public class User {
 
 	@Id
@@ -22,7 +22,6 @@ public class User {
 	private Object preferences;
 	
 	private ArrayList<Ingredient> shoppingList;
-	
 
 	public String getId() {
 		return id;
