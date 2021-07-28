@@ -27,6 +27,7 @@ public class UserController {
 	public void addUsers(@RequestBody List<User> users) {
 		userRepository.saveAll(users);
 	}
+
 	
 	@GetMapping("/users")
 	public List<User> findUsers() {

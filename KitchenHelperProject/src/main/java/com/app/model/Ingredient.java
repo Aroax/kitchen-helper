@@ -25,7 +25,7 @@ public class Ingredient {
 	
 	private Float threshold;
 	
-	private Date expiry;
+	private String expiry;
 	
 	private String[] health;
 	
@@ -105,11 +105,11 @@ public class Ingredient {
 		this.threshold = threshold;
 	}
 
-	public Date getExpiry() {
+	public String getExpiry() {
 		return expiry;
 	}
 
-	public void setExpiry(Date expiry) {
+	public void setExpiry(String expiry) {
 		this.expiry = expiry;
 	}
 
