@@ -30,6 +30,7 @@ public class UserController {
 	public void addUser(@RequestBody User user) {
 		userRepository.save(user);
 	}
+
 	
 	@GetMapping("/users")
 	public List<User> findUsers() {

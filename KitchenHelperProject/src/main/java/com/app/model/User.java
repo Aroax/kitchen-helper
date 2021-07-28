@@ -22,6 +22,14 @@ public class User {
 	private Object preferences;
 	
 	private ArrayList<Ingredient> shoppingList;
+	
+//	private User() {};
+//	
+//	public User(String displayName, String email, String password) {
+//		this.displayName = displayName;
+//		this.email = email;
+//		this.password = password;
+//	}
 
 	public String getId() {
 		return id;
