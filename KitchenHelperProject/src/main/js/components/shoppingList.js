@@ -12,7 +12,6 @@ const ShoppingList = (props) => {
   
   return (
     <div className="container">
-      <p>{props.user.displayName}</p>
       <table>
         {getIngredients(ingredientsList)}
       </table>

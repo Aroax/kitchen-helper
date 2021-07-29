@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import axios from "axios";
 import Pantry from "./pantry";
+import ShoppingList from "./shoppingList";
 
 const user = () => {
     const [user, setUser] = React.useState();
@@ -16,11 +17,17 @@ const user = () => {
         })
     }, [])
 
-    const pantry = user ?  <Pantry user={user}></Pantry> : <div>Loading...</div>
+    const userName = user ?  <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
+    const pantry = user ?  <Pantry user={user}></Pantry> : <div></div>
+    const shoppingList = user ?  <ShoppingList user={user}></ShoppingList> : <div></div>
 
     return (
         <div className="container">
-           {pantry}
+          {userName}
+          <hr/>
+          {pantry}
+          <hr/>
+          {shoppingList}
         </div>
     );
 }
