@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.User;
 import com.app.model.Ingredient;
+import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
 
 @RestController
@@ -20,6 +21,9 @@ public class UserController {
 	
 	@Autowired
 	private UserRepository userRepository;
+	
+	@Autowired
+	private UserDAO userDAO;
 
 	@PostMapping("/users")
 	public void addUser(@RequestBody User user) {
@@ -28,12 +32,17 @@ public class UserController {
 
 	@GetMapping("/users")
 	public List<User> findUsers() {
-		return userRepository.findAll();
+		return userDAO.findAll();
 	}
 	
 	@GetMapping("/users/{id}")
 	public User findUserById(@PathVariable final String id) {
 		return userRepository.findById(id).orElseGet(User::new);
+	}
+	
+	@GetMapping("/users/name/{displayName}")
+	public User findUserByDisplayName(@PathVariable final String displayName) {
+		return userDAO.findByDisplayName(displayName);
 	}
 
 	@GetMapping("/users/{displayName}")
