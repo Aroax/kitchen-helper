@@ -6,7 +6,7 @@ function App() {
       <header className="App-header">
         <Drawer />
         <p>
-          Hello All
+          Hello World
         </p>
       </header>
     </div>

@@ -1,0 +1,2 @@
+(this["webpackJsonpkitchen-helper"]=this["webpackJsonpkitchen-helper"]||[]).push([[0],{9:function(e,c,r){"use strict";r.r(c);var t=r(0),n=function(){return Object(t.jsx)("p",{children:"Drawer"})};var s=function(){return Object(t.jsx)("div",{children:Object(t.jsxs)("header",{className:"App-header",children:[Object(t.jsx)(n,{}),Object(t.jsx)("p",{children:"Hello World"})]})})},i=r(2);r(5).render(Object(t.jsx)(i.StrictMode,{children:Object(t.jsx)(s,{})}),document.getElementById("react"))}},[[9,1,2]]]);
+//# sourceMappingURL=main.7be17bc0.chunk.js.map

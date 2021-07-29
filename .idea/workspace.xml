@@ -4,11 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="3fea51f5-8b5c-40b1-a3ab-82b5a4087284" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/KitchenHelperProject/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/KitchenHelperProject/.gitignore" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/KitchenHelperProject/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/KitchenHelperProject/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/diagrams/test.md" beforeDir="false" />
-    </list>
+    <list default="true" id="3fea51f5-8b5c-40b1-a3ab-82b5a4087284" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -21,6 +17,7 @@
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
+    <option name="showVisibilityIcons" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
@@ -50,7 +47,7 @@
       <updated>1627471579251</updated>
       <workItem from="1627471587240" duration="2448000" />
       <workItem from="1627495784412" duration="814000" />
-      <workItem from="1627508571549" duration="323000" />
+      <workItem from="1627508571549" duration="444000" />
     </task>
     <servers />
   </component>
