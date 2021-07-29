@@ -3,19 +3,16 @@ import axios from "axios";
 import Pantry from "./pantry";
 
 const user = () => {
-    const [user, setUser] = React.useState()
+    const [user, setUser] = React.useState();
 
     useEffect(() => {
-        console.log("use effect ran")
-
         axios({
             method: 'get',
             url: `/users/name/mikeyMike`,
             headers: { 'Content-Type': 'application/json' },
 
         }).then((response) => {
-            setUser(response.data)
-            console.log(response.data)
+            setUser(response.data);
         })
     }, [])
 
