@@ -7,7 +7,7 @@ const Ingredient = (props) => {
 
     axios({
       method: 'patch',
-      url: `/users/61010f43206992434aa26ea8/shopping-list/add`,
+      url: `/users/${props.user.id}/shopping-list/add`,
       headers: { 'Content-Type': 'application/json' },
       data: props.data
     }).then((response) => {

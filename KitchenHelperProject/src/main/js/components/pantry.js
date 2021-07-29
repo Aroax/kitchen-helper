@@ -50,7 +50,7 @@ const pantry = (props) => {
   const addToPantry = () => {
     axios({
       method: 'patch',
-      url: `/users/61010f43206992434aa26ea8/pantry/add`,
+      url: `/users/${props.user.id}/pantry/add`,
       headers: { 'Content-Type': 'application/json' },
       data: {
         foodId: '899',
@@ -58,30 +58,31 @@ const pantry = (props) => {
         foodCategory: foodCategory,
         location: location,
         weight: weight,
-        imageUrl: imageUrl,
+        imageUrl: "http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg",
         expiry: new Date(),
       }
     }).then((response) => {
         console.log(response);
-        location.reload();
     })
+    setTimeout(location.reload.bind(location), 3000);
   }
 
   const Form = () => {
+    console.log(props.user.id);
     return (
       <div>
         <form>
-          <input type="text" onChange={handleNameChange}></input>
-          <input type="text" onChange={handleFoodCategoryChange}></input>
-          <input type="text" onChange={handleLocationChange}></input>
-          <input type="text" onChange={handleWeightChange}></input>
-          <input type="text" onChange={handleImageUrlChange}></input>
+          <input type="text" placeholder="Name" onChange={handleNameChange}></input>
+          <input type="text" placeholder="Food Category" onChange={handleFoodCategoryChange}></input>
+          <input type="text" placeholder="Storage Location" onChange={handleLocationChange}></input>
+          <input type="text" placeholder="Weight" onChange={handleWeightChange}></input>
+          <input type="hidden" placeholder="Image URL" onChange={handleImageUrlChange}></input>
         </form>
         <button onClick={addToPantry}>Add To Pantry</button>
       </div>
     )
   }
-  
+
   return (
     <div className="container">
       {showForm ? <Form /> : null}
@@ -92,5 +93,5 @@ const pantry = (props) => {
     </div>
     );
 }
- 
+
 export default pantry;
