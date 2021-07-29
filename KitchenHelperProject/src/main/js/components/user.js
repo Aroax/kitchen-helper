@@ -2,19 +2,21 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 const user = () => {
-    const [user, setUser] = React.useState({})
+    const [user, setUser] = React.useState([])
 
     useEffect(() => {
+        console.log("use effect ran")
+
         axios({
             method: 'get',
-            url: `/users/mikeyMike`,
+            url: `/users/name/mikeyMike`,
             headers: { 'Content-Type': 'application/json' },
 
-        }).then((data) => {
-            // setUser(data)
-            console.log(data)
+        }).then((response) => {
+            console.log(user)
+            setUser(response.data)
         })
-    }, [user])
+    })
 
     return (
         <div className="container">
