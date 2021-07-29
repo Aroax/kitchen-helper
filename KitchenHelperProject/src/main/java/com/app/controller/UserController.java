@@ -36,6 +36,11 @@ public class UserController {
 		return userRepository.findById(id).orElseGet(User::new);
 	}
 
+	@GetMapping("/users/{displayName}")
+	public User findUserByDisplayName(@PathVariable final String displayName) {
+		return userRepository.findByDisplayName(displayName).orElseGet(User::new);
+	}
+
   @PatchMapping("/users/{id}/pantry/add")
 	public void addToPantry(@PathVariable final String id, @RequestBody Ingredient ingredient) {
     User user = userRepository.findById(id).orElseGet(User::new);
