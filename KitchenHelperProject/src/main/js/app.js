@@ -1,7 +1,6 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
-import Pantry from "./components/pantry";
-import User from "./components/user";
+import User from "./components/session";
 
 class App extends React.Component {
 
@@ -9,8 +8,8 @@ class App extends React.Component {
     return (
       <div className="container">
         <h1>Kitchen Helper is Really Awesome</h1>
-        <Pantry />
-        <User />
+        <User >
+        </User>
       </div>
     )
   }

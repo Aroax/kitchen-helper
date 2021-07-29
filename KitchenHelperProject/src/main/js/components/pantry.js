@@ -1,11 +1,9 @@
 import React from "react";
 
-const pantry = () => {
-
-
+const pantry = (props) => {
 
     return ( 
-        <p>Pantry</p>
+        <p>{props.user.displayName}</p>
      );
 }
  

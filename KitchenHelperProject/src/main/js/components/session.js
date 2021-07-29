@@ -1,5 +1,6 @@
 import React, { useEffect } from "react";
 import axios from "axios";
+import Pantry from "./pantry";
 
 const user = () => {
     const [user, setUser] = React.useState()
@@ -18,11 +19,11 @@ const user = () => {
         })
     }, [])
 
-    const userName = user ? user.displayName : ""
+    const pantry = user ?  <Pantry user={user}></Pantry> : <div>Loading...</div>
 
     return (
         <div className="container">
-            {userName}
+           {pantry}
         </div>
     );
 }
