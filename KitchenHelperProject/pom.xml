@@ -78,10 +78,65 @@
 			<artifactId>spring-security-test</artifactId>
 			<scope>test</scope>
 		</dependency>
+
+    <dependency>
+      <groupId>org.thymeleaf</groupId>
+      <artifactId>thymeleaf</artifactId>
+      <version>3.0.12.RELEASE</version>
+    </dependency>
 	</dependencies>
 
 	<build>
 		<plugins>
+      <plugin>
+          <groupId>org.springframework.boot</groupId>
+          <artifactId>spring-boot-maven-plugin</artifactId>
+          <configuration>
+            <excludes>
+              <exclude>
+                <groupId>org.projectlombok</groupId>
+                <artifactId>lombok</artifactId>
+              </exclude>
+            </excludes>
+          </configuration>
+        </plugin>
+
+      <plugin>
+        <groupId>com.github.eirslett</groupId>
+        <artifactId>frontend-maven-plugin</artifactId>
+        <version>1.2</version>
+        <configuration>
+          <installDirectory>target</installDirectory>
+        </configuration>
+        <executions>
+          <execution>
+              <id>install node and npm</id>
+              <goals>
+                  <goal>install-node-and-npm</goal>
+              </goals>
+              <configuration>
+                <nodeVersion>v16.5.0</nodeVersion>
+                <npmVersion>7.19.1</npmVersion>
+              </configuration>
+          </execution>
+          <execution>
+              <id>npm install</id>
+              <goals>
+                    <goal>npm</goal>
+              </goals>
+              <configuration>
+                <arguments>install</arguments>
+              </configuration>
+          </execution>
+          <execution>
+              <id>webpack build</id>
+              <goals>
+                <goal>webpack</goal>
+              </goals>
+          </execution>
+        </executions>
+      </plugin>
+
 			<plugin>
 				<groupId>org.asciidoctor</groupId>
 				<artifactId>asciidoctor-maven-plugin</artifactId>
@@ -107,19 +162,7 @@
 					</dependency>
 				</dependencies>
 			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
-				</configuration>
-			</plugin>
-		</plugins>
+    </plugins>
 	</build>
 
 </project>

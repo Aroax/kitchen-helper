@@ -31,3 +31,11 @@ build/
 
 ### VS Code ###
 .vscode/
+
+/target
+.idea/
+/node_modules
+dependency-reduced-pom.xml
+*.iml
+.log
+/src/main/resources/static/built

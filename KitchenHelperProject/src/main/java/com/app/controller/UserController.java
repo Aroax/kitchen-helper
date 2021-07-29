@@ -26,6 +26,11 @@ public class UserController {
 	@Autowired
 	private UserRepository userRepository;
 
+  @GetMapping("/")
+	public String index() {
+		return "index";
+	}
+
 	@PostMapping("/users")
 	public void addUser(@RequestBody User user) {
 		userRepository.save(user);
