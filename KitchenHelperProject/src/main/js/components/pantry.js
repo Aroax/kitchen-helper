@@ -67,25 +67,26 @@ const pantry = (props) => {
     setTimeout(location.reload.bind(location), 3000);
   }
 
-  const Form = () => {
-    console.log(props.user.id);
-    return (
-      <div>
-        <form>
-          <input type="text" placeholder="Name" onChange={handleNameChange}></input>
-          <input type="text" placeholder="Food Category" onChange={handleFoodCategoryChange}></input>
-          <input type="text" placeholder="Storage Location" onChange={handleLocationChange}></input>
-          <input type="text" placeholder="Weight" onChange={handleWeightChange}></input>
-          <input type="hidden" placeholder="Image URL" onChange={handleImageUrlChange}></input>
-        </form>
-        <button onClick={addToPantry}>Add To Pantry</button>
-      </div>
-    )
-  }
-
   return (
     <div className="container">
-      {showForm ? <Form /> : null}
+      {showForm 
+          ? (
+            <div>
+              <form>
+                <input type="text" placeholder="Name" onChange={handleNameChange}></input>
+                <input type="text" placeholder="Food Category" onChange={handleFoodCategoryChange}></input>
+                <input type="text" placeholder="Storage Location" onChange={handleLocationChange}></input>
+                <input type="text" placeholder="Weight in grams" onChange={handleWeightChange}></input>
+                <input type="hidden" placeholder="Image URL" onChange={handleImageUrlChange}></input>
+              </form>
+              <button onClick={addToPantry}>Add To Pantry</button>
+            </div>
+            ) 
+          : 
+            (
+             null
+            )
+      }
       <button onClick={addIngredient}>Add Ingredient</button>
       <table>
         {getIngredients(ingredientsList)}
