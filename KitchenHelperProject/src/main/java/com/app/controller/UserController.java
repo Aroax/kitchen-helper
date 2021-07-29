@@ -2,7 +2,6 @@ package com.app.controller;
 
 import java.util.List;
 import java.util.ArrayList;
-//import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,24 +18,14 @@ import com.app.repository.UserRepository;
 @RestController
 public class UserController {
 	
-	//  public UserController(UserRepository userRepository) {
-	//         this.userRepository = userRepository;
-	//     }
-	
 	@Autowired
 	private UserRepository userRepository;
-
-  @GetMapping("/")
-	public String index() {
-		return "index";
-	}
 
 	@PostMapping("/users")
 	public void addUser(@RequestBody User user) {
 		userRepository.save(user);
 	}
 
-	
 	@GetMapping("/users")
 	public List<User> findUsers() {
 		return userRepository.findAll();
