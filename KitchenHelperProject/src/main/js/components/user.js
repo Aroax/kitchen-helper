@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 
 const user = () => {
-    const [user, setUser] = React.useState([])
+    const [user, setUser] = React.useState()
 
     useEffect(() => {
         console.log("use effect ran")
@@ -13,14 +13,16 @@ const user = () => {
             headers: { 'Content-Type': 'application/json' },
 
         }).then((response) => {
-            console.log(user)
             setUser(response.data)
+            console.log(response.data)
         })
-    })
+    }, [])
+
+    const userName = user ? user.displayName : ""
 
     return (
         <div className="container">
-            {user}
+            {userName}
         </div>
     );
 }
