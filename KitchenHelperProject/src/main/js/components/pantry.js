@@ -74,16 +74,20 @@ const pantry = (props) => {
     setImageUrl(event.target.value);
   }
 
+  const handleExpiryChange = (event) => {
+    setExpiry(event.target.value);
+  }
+
   const handleLookupNameChange = (event) => {
     // event.preventDefault();
     lookupName = event.target.value;
   }
 
-  const setStoredToState = (e) => {
-    setFoodId(e.foodId);
-    setName(e.label);
-    setFoodCategory(e.category);
-    setImageUrl(e.image);
+  const setStoredToState = (edamamResult) => {
+    setFoodId(edamamResult.foodId);
+    setName(edamamResult.label);
+    setFoodCategory(edamamResult.category);
+    setImageUrl(edamamResult.image);
   }
 
   const addToPantry = () => {
@@ -146,6 +150,7 @@ const pantry = (props) => {
       onLocationChange={handleLocationChange}
       onWeightChange={handleWeightChange}
       onImageUrlChange={handleImageUrlChange}
+      onExpiryChange={handleExpiryChange}
       onButtonClick={addToPantry}
       name={name}
       category={foodCategory}
