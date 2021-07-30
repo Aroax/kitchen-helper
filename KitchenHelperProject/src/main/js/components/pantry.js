@@ -12,6 +12,7 @@ const pantry = (props) => {
   const [foodCategory, setFoodCategory] = useState("test");
   const [location, setLocation] = useState("unknown");
   const [weight, setWeight] = useState("99");
+  const [expiry, setExpiry] = useState(new Date());
   const [imageUrl, setImageUrl] = useState("http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg");
 
   const ingredientsList = props.user.pantry;
@@ -22,8 +23,27 @@ const pantry = (props) => {
 
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
-      return <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+      return (
+        <div>
+        <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+      <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button>
+      </div>
+      )
     });
+  }
+
+  const addToShoppingList = (event, ingredient) => {
+    console.log(ingredient);
+    event.preventDefault();
+    axios({
+      method: 'patch',
+      url: `/users/${props.user.id}/shopping-list/add`,
+      headers: { 'Content-Type': 'application/json' },
+      data: ingredient
+    }).then((response) => {
+        console.log(response);
+        // location.reload();
+    })
   }
 
   const addIngredient = () => {
@@ -79,7 +99,7 @@ const pantry = (props) => {
         location: location,
         weight: weight,
         imageUrl: imageUrl,
-        expiry: new Date(),
+        expiry: expiry,
       }
     }).then((response) => {
         console.log(response);
