@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Ingredient from "./ingredient";
+import Form from "./form";
 import axios from "axios";
 
 const pantry = (props) => {
@@ -67,26 +68,18 @@ const pantry = (props) => {
     setTimeout(location.reload.bind(location), 3000);
   }
 
+  const form = <Form 
+      onNameChange={handleNameChange} 
+      onFoodCategoryChange={handleFoodCategoryChange}
+      onLocationChange={handleLocationChange}
+      onWeightChange={handleWeightChange}
+      onImageUrlChange={handleImageUrlChange}
+      onButtonClick={addToPantry}
+    />
+
   return (
     <div className="container">
-      {showForm 
-          ? (
-            <div>
-              <form>
-                <input type="text" placeholder="Name" onChange={handleNameChange}></input>
-                <input type="text" placeholder="Food Category" onChange={handleFoodCategoryChange}></input>
-                <input type="text" placeholder="Storage Location" onChange={handleLocationChange}></input>
-                <input type="text" placeholder="Weight in grams" onChange={handleWeightChange}></input>
-                <input type="hidden" placeholder="Image URL" onChange={handleImageUrlChange}></input>
-              </form>
-              <button onClick={addToPantry}>Add To Pantry</button>
-            </div>
-            ) 
-          : 
-            (
-             null
-            )
-      }
+      { showForm ? form : null }
       <button onClick={addIngredient}>Add Ingredient</button>
       <table>
         {getIngredients(ingredientsList)}
