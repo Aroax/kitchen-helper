@@ -3,11 +3,11 @@ import axios from "axios";
 
 const Ingredient = (props) => {
   const addToShoppingList = () => {
-    console.log(props.data.foodId);
+    console.log(props);
 
     axios({
       method: 'patch',
-      url: `/users/${props.user.id}/shopping-list/add`,
+      url: `/users/${props.userId}/shopping-list/add`,
       headers: { 'Content-Type': 'application/json' },
       data: props.data
     }).then((response) => {
