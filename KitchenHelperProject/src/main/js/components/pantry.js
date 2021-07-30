@@ -4,7 +4,7 @@ import Form from "./form";
 import axios from "axios";
 
 const pantry = (props) => {
-  const [showForm, setShowForm] = useState(false);
+  const [showLookup, setShowLookup] = useState(false);
   const [storedIngredient, setStoredIngredient] = useState();
 
   const [foodId, setFoodId] = useState("899");
@@ -27,10 +27,10 @@ const pantry = (props) => {
   }
 
   const addIngredient = () => {
-    if (showForm === false) {
-      setShowForm(true);
+    if (showLookup === false) {
+      setShowLookup(true);
     } else {
-      setShowForm(false);
+      setShowLookup(false);
     };
   }
 
@@ -100,8 +100,9 @@ const pantry = (props) => {
           // console.log(response.data.parsed);
           // console.log(response.data.parsed[0]);
           console.log(response.data.parsed[0].food.foodId);
-          setStoredIngredient(response.data.parsed[0].food);
+
           setStoredToState(response.data.parsed[0].food);
+          setStoredIngredient(response.data.parsed[0].food);
           storedIngredient ? console.log(storedIngredient) : console.log("empty");
       });
     // }, [])
@@ -118,31 +119,35 @@ const pantry = (props) => {
     )
   }
 
-  const form = <Form
+  const form =
+  <Form
       onNameChange={handleNameChange}
       onFoodCategoryChange={handleFoodCategoryChange}
       onLocationChange={handleLocationChange}
       onWeightChange={handleWeightChange}
       onImageUrlChange={handleImageUrlChange}
       onButtonClick={addToPantry}
+      name={name}
+      category={foodCategory}
+      weight={weight}
+      imageUrl={imageUrl}
     />
 
-  const LookupDisplayConfirmation = () => {
-    return(
-      <div>
-      <Ingredient data={storedIngredient} />
-        <button onClick={addToPantry}>Add this ingredient to pantry</button>
-      </div>
-    )
-  }
+  // const LookupDisplayConfirmation = () => {
+  //   return(
+  //     <div>
+  //     <Ingredient data={storedIngredient} />
+  //       <button onClick={addToPantry}>Add this ingredient to pantry</button>
+  //     </div>
+  //   )
+  // }
 
   // Render below
 
   return (
     <div className="container">
-      {showForm ? form : null}
-      <p><Lookup /></p>
-      {storedIngredient ? <LookupDisplayConfirmation /> : <div>storage empty</div> }
+      {showLookup ? <Lookup /> : null}
+      {storedIngredient ? form : <div>storage empty</div> }
       <button onClick={addIngredient}>Add Ingredient</button>
       <table>
         {getIngredients(ingredientsList)}
