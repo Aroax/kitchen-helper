@@ -1,6 +1,7 @@
 package com.app.model;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -22,6 +23,8 @@ public class User {
 	private Object preferences;
 	
 	private ArrayList<Ingredient> shoppingList;
+	
+	private ArrayList<Ingredient> myRecipes;
 	
 //	private User() {};
 //	
@@ -85,6 +88,15 @@ public class User {
 
 	public void setShoppingList(ArrayList<Ingredient> shoppingList) {
 		this.shoppingList = shoppingList;
+	}
+
+	public ArrayList<Ingredient> getMyRecipes() {
+		// TODO Auto-generated method stub
+		return myRecipes;
+	}
+	
+	public void setMyRecipes(ArrayList<Ingredient> myRecipes) {
+		this.myRecipes = myRecipes;
 	}
 
 }

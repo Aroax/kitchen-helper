@@ -68,6 +68,13 @@ public class UserController {
 
 		userRepository.save(user);
 	}
+  
+  @PatchMapping("/users/{id}/customrecipes/add")
+	public void addToRecipes(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+  User user = userRepository.findById(id).orElseGet(User::new);
+  user.getMyRecipes().add(ingredient);
+		userRepository.save(user);
+	}
 
   @PatchMapping("/users/{id}/shopping-list/add")
 	public void addToShoppingList(@PathVariable final String id, @RequestBody Ingredient ingredient) {

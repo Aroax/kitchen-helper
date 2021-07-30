@@ -2,9 +2,16 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Pantry from "./pantry";
 import ShoppingList from "./shoppingList";
+import ManualRecipe from "./manualRecipe";
 
 const user = () => {
     const [user, setUser] = React.useState();
+    const [ongoingRecipe, setOngoingRecipe] = React.useState([]);
+    const refresh = (recipe) => {
+      console.log("bananas");
+      console.log(recipe);
+      setOngoingRecipe(recipe)
+    };
 
     useEffect(() => {
         axios({
@@ -21,6 +28,7 @@ const user = () => {
     const pantry = user ?  <Pantry user={user}></Pantry> : <div></div>
     const shoppingList = user ?  <ShoppingList user={user}></ShoppingList> : <div></div>
 
+
     return (
         <div className="container">
           {userName}
@@ -28,6 +36,9 @@ const user = () => {
           {pantry}
           <hr/>
           {shoppingList}
+          <hr/>
+          <h3>recipe</h3>
+          {user ?  <ManualRecipe user={user} updateOngoingRecipe={refresh} ongoingRecipe={ongoingRecipe} ></ManualRecipe> : <div>Loading...</div>}
         </div>
     );
 }
