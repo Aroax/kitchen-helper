@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Ingredient from "./ingredient";
+import Form from "./form";
 import axios from "axios";
 
 const pantry = (props) => {
@@ -117,22 +118,14 @@ const pantry = (props) => {
     )
   }
 
-  const Form = () => {
-    console.log(props.user.id);
-    return (
-      <div>
-        <form>
-          <input type="text" placeholder="Name" onChange={handleNameChange}></input>
-          <input type="text" placeholder="Food Category" onChange={handleFoodCategoryChange}></input>
-          <input type="text" placeholder="Storage Location" onChange={handleLocationChange}></input>
-          <input type="text" placeholder="Weight" onChange={handleWeightChange}></input>
-          <input type="hidden" placeholder="Image URL" onChange={handleImageUrlChange}></input>
-        </form>
-        <button onClick={addToPantry}>Add To Pantry</button>
-
-      </div>
-    )
-  }
+  const form = <Form
+      onNameChange={handleNameChange}
+      onFoodCategoryChange={handleFoodCategoryChange}
+      onLocationChange={handleLocationChange}
+      onWeightChange={handleWeightChange}
+      onImageUrlChange={handleImageUrlChange}
+      onButtonClick={addToPantry}
+    />
 
   const LookupDisplayConfirmation = () => {
     return(
@@ -147,7 +140,7 @@ const pantry = (props) => {
 
   return (
     <div className="container">
-      {showForm ? <Form /> : null}
+      {showForm ? form : null}
       <p><Lookup /></p>
       {storedIngredient ? <LookupDisplayConfirmation /> : <div>storage empty</div> }
       <button onClick={addIngredient}>Add Ingredient</button>
