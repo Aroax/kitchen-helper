@@ -17,7 +17,7 @@ const pantry = (props) => {
   let lookupName;
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
-  let food_api_url = "https://api.edamam.com/api/food-database/v2/parser"
+  let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
 
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
@@ -54,7 +54,7 @@ const pantry = (props) => {
   }
 
   const handleLookupNameChange = (event) => {
-    event.preventDefault();
+    // event.preventDefault();
     lookupName = event.target.value;
   }
 
@@ -83,7 +83,7 @@ const pantry = (props) => {
     }).then((response) => {
         console.log(response);
     })
-    setTimeout(location.reload.bind(location), 3000);
+    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const ingredientLookup = () => {
@@ -104,7 +104,6 @@ const pantry = (props) => {
           storedIngredient ? console.log(storedIngredient) : console.log("empty");
       });
     // }, [])
-
   }
 
   const Lookup = () => {
@@ -139,7 +138,7 @@ const pantry = (props) => {
     return(
       <div>
       <Ingredient data={storedIngredient} />
-      <button onClick={addToPantry}>Add this ingredient to pantry</button>
+        <button onClick={addToPantry}>Add this ingredient to pantry</button>
       </div>
     )
   }
