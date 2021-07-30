@@ -22,7 +22,7 @@ const pantry = (props) => {
 
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
-      return <Ingredient data={ingredient}></Ingredient>
+      return <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
     });
   }
 
