@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Ingredient from "./ingredient";
 import axios from "axios";
 
@@ -88,20 +88,21 @@ const pantry = (props) => {
   }
 
   const ingredientLookup = () => {
-    event.preventDefault();
-    axios({
-      method: 'get',
-      url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
-      headers: { 'Content-Type': 'application/json' },
-    }).then((response) => {
-        // console.log(response);
-        // console.log(response.data);
-        // console.log(response.data.parsed);
-        // console.log(response.data.parsed[0]);
-        console.log(response.data.parsed[0].food);
-        setStoredIngredient(response.data.parsed[0].food.label);
-        console.log(storedIngredient);
-    });
+    useEffect(() => {
+      axios({
+        method: 'get',
+        url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
+        headers: { 'Content-Type': 'application/json' },
+      }).then((response) => {
+          // console.log(response);
+          // console.log(response.data);
+          // console.log(response.data.parsed);
+          // console.log(response.data.parsed[0]);
+          console.log(response.data.parsed[0].food);
+          setStoredIngredient(response.data.parsed[0].food);
+          console.log(storedIngredient);
+      });
+    }, [])
   }
 
   const Lookup = () => {
