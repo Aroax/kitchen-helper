@@ -58,12 +58,11 @@ const pantry = (props) => {
     lookupName = event.target.value;
   }
 
-  const addStoredToPantry = () => {
-    setFoodId(storedIngredient.foodId);
-    setName(storedIngredient.label);
-    setFoodCategory(storedIngredient.category);
-    setImageUrl(storedIngredient.image);
-    addToPantry();
+  const setStoredToState = (e) => {
+    setFoodId(e.foodId);
+    setName(e.label);
+    setFoodCategory(e.category);
+    setImageUrl(e.image);
   }
 
   const addToPantry = () => {
@@ -99,11 +98,13 @@ const pantry = (props) => {
           // console.log(response.data);
           // console.log(response.data.parsed);
           // console.log(response.data.parsed[0]);
-          console.log(response.data.parsed[0].food);
+          console.log(response.data.parsed[0].food.foodId);
           setStoredIngredient(response.data.parsed[0].food);
-          console.log(storedIngredient);
+          setStoredToState(response.data.parsed[0].food);
+          storedIngredient ? console.log(storedIngredient) : console.log("empty");
       });
     // }, [])
+
   }
 
   const Lookup = () => {
@@ -138,7 +139,7 @@ const pantry = (props) => {
     return(
       <div>
       <Ingredient data={storedIngredient} />
-      <button onClick={addStoredToPantry}>Add this ingredient to pantry</button>
+      <button onClick={addToPantry}>Add this ingredient to pantry</button>
       </div>
     )
   }
