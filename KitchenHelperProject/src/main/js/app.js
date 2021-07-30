@@ -1,16 +1,21 @@
 const React = require('react');
 const ReactDOM = require('react-dom');
+import User from "./components/session";
 
 class App extends React.Component {
 
   render() {
     return (
-      <h1>Kitchen Helper is Really Awesome</h1>
+      <div className="container">
+        <h1>Kitchen Helper is Really Awesome</h1>
+        <User />
+        
+      </div>
     )
   }
 }
 
 ReactDOM.render(
-	<App />,
-	document.getElementById('app')
+  <App />,
+  document.getElementById('app')
 )
