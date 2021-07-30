@@ -27,10 +27,13 @@ const user = () => {
     const userName = user ?  <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
     const pantry = user ?  <Pantry user={user}></Pantry> : <div></div>
     const shoppingList = user ?  <ShoppingList user={user}></ShoppingList> : <div></div>
+    const showProps = () => { user ? console.log(user) : null }
 
 
     return (
         <div className="container">
+        <button onClick={showProps}>DEBUG: Show Props</button>
+        <hr/>
           {userName}
           <hr/>
           {pantry}
@@ -38,7 +41,7 @@ const user = () => {
           {shoppingList}
           <hr/>
           <h3>recipe</h3>
-          {user ?  <ManualRecipe user={user} updateOngoingRecipe={refresh} ongoingRecipe={ongoingRecipe} ></ManualRecipe> : <div>Loading...</div>}
+          {user ?  <ManualRecipe user={user} /> : <div>Loading...</div>}
         </div>
     );
 }

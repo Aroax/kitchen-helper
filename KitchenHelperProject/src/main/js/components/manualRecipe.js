@@ -4,7 +4,7 @@ import axios from "axios";
 
 const ManualRecipe = (props) => {
   const [storedIngredient, setStoredIngredient] = useState();
-  const [recipe, setRecipe] = useState([]);
+  const [draftRecipe, setDraftRecipe] = useState(props.user.draftRecipe);
 
   const [foodId, setFoodId] = useState("899");
   const [name, setName] = useState("test_ingredient");
@@ -14,9 +14,10 @@ const ManualRecipe = (props) => {
   const [expiry, setExpiry] = useState(new Date());
   const [imageUrl, setImageUrl] = useState("http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg");
 
-  const ingredientsList = props.user.pantry;
+  const ingredientsList = props.user.draftRecipe;
   let lookupName;
   let currentWeightNeeded;
+  let currentIngredientId;
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
@@ -34,24 +35,15 @@ const ManualRecipe = (props) => {
 
   const ingredientLookup = () => {
     event.preventDefault();
-
       axios({
         method: 'get',
         url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
-        // headers: { 'Content-Type': 'application/json' },
       }).then((response) => {
-          // console.log(response);
-          // console.log(response.data);
-          // console.log(response.data.parsed);
-          // console.log(response.data.parsed[0]);
+          console.log(response);
           console.log(response.data.parsed[0].food);
           let ingredient = response.data.parsed[0].food;
-          ingredient.weightNeeded = currentWeightNeeded;
-          console.log(ingredient);
-          let newRecipe = props.ongoingRecipe;
-          newRecipe.push(ingredient);
-          props.updateOngoingRecipe(newRecipe);
-          console.log(newRecipe);
+          addToDraftRecipeDb(ingredient);
+          // draftRecipe.push(ingredient)
       });
   }
 
@@ -68,26 +60,67 @@ const ManualRecipe = (props) => {
       method: 'patch',
       url: `/users/${props.user.id}/customrecipes/add`,
       headers: { 'Content-Type': 'application/json' },
-      data: currentRecipe
-      }
+      data: draftRecipe
     }).then((response) => {
         console.log(response);
     })
     // setTimeout(location.reload.bind(location), 3000);
   }
 
+  const addToDraftRecipeDb = (ingredient) => {
+    event.preventDefault();
+    console.log(ingredient);
+    axios({
+      method: 'patch',
+      url: `/users/${props.user.id}/draftRecipe/add`,
+      headers: { 'Content-Type': 'application/json' },
+      data: {
+        foodId: ingredient.foodId,
+        name: ingredient.label,
+        foodCategory: ingredient.category,
+        weightNeeded: currentWeightNeeded,
+        imageUrl: ingredient.image
+      }
+    }).then((response) => {
+        console.log(response);
+    })
+    // setTimeout(location.reload.bind(location), 3000);
+  }
+  //
+  // const displayRecipeOld = () => {
+  //   setRecipe(ongoingRecipe);
+  //   return props.ongoingRecipe.map((ingredient) => {
+  //     return (
+  //       <div>
+  //       <tr>
+  //         <td><img src={ingredient.image} height="200px" width="250px"></img></td>
+  //         <td>{ingredient.label}</td>
+  //         <td>{ingredient.category}</td>
+  //         <td>{ingredient.weightNeeded}g</td>
+  //         <td>test</td>
+  //       </tr>
+  //     </div>
+  //     )
+  //   });
+  // }
+
   const displayRecipe = () => {
-    setRecipe(ongoingRecipe);
-    return props.ongoingRecipe.map((ingredient) => {
+    console.log(props.user);
+    return props.user.draftRecipe.map((ingredient) => {
       return (
         <div>
-        <tr>
-          <td><img src={ingredient.image} height="200px" width="250px"></img></td>
-          <td>{ingredient.label}</td>
-          <td>{ingredient.category}</td>
-          <td>{ingredient.weightNeeded}g</td>
-          <td>test</td>
-        </tr>
+        <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+      </div>
+      )
+    });
+  }
+
+  const getIngredients = (recipe) => {
+    return recipe.map((ingredient) => {
+      return (
+        <div>
+        <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+
       </div>
       )
     });
@@ -107,20 +140,26 @@ const ManualRecipe = (props) => {
   }
 
   const RecipeList = () => {
-    setRecipe(props.ongoingRecipe);
+    // setDraftRecipe(draftRecipe);
     return (
-    <table>
-      {recipe.count > 0 ? displayRecipe : "please add more ingredients"}
-      {displayRecipe}
-    </table>
+      <div>
+        <table>
+
+          {displayRecipe}
+        </table>
+        <button onClick={addToMyRecipes}>Save Recipe</button>
+      </div>
     )
   }
+  console.log(props.user.draftRecipe);
 
   return (
     <div className="container">
       <Lookup />
-      <RecipeList />
-
+    
+      <table>
+        {getIngredients(draftRecipe)}
+      </table>
     </div>
   );
 

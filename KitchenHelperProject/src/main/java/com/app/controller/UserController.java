@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.User;
 import com.app.model.Ingredient;
+import com.app.model.Recipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
 
@@ -70,12 +71,20 @@ public class UserController {
 	}
   
   @PatchMapping("/users/{id}/customrecipes/add")
-	public void addToRecipes(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+	public void addToRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
   User user = userRepository.findById(id).orElseGet(User::new);
-  user.getMyRecipes().add(ingredient);
+  user.getMyRecipes().add(recipe);
+		userRepository.save(user);
+	}
+  
+  @PatchMapping("/users/{id}/draftRecipe/add")
+	public void addToDraftRecipe(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+  User user = userRepository.findById(id).orElseGet(User::new);
+  user.getDraftRecipe().add(ingredient);
 		userRepository.save(user);
 	}
 
+  
   @PatchMapping("/users/{id}/shopping-list/add")
 	public void addToShoppingList(@PathVariable final String id, @RequestBody Ingredient ingredient) {
     User user = userRepository.findById(id).orElseGet(User::new);

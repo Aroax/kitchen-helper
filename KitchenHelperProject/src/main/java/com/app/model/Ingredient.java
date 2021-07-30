@@ -31,6 +31,8 @@ public class Ingredient {
 	
 	private String[] diet;
 	
+	private Float weightNeeded;
+	
 	
 
 	public String getFoodId() {
@@ -127,6 +129,14 @@ public class Ingredient {
 
 	public void setDiet(String[] diet) {
 		this.diet = diet;
+	}
+
+	public Float getWeightNeeded() {
+		return weightNeeded;
+	}
+
+	public void setWeightNeeded(Float weightNeeded) {
+		this.weightNeeded = weightNeeded;
 	}
 	
 	

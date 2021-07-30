@@ -24,7 +24,9 @@ public class User {
 	
 	private ArrayList<Ingredient> shoppingList;
 	
-	private ArrayList<Ingredient> myRecipes;
+	private ArrayList<Recipe> myRecipes;
+	
+	private ArrayList<Ingredient> draftRecipe;
 	
 //	private User() {};
 //	
@@ -90,13 +92,20 @@ public class User {
 		this.shoppingList = shoppingList;
 	}
 
-	public ArrayList<Ingredient> getMyRecipes() {
-		// TODO Auto-generated method stub
+	public ArrayList<Recipe> getMyRecipes() {
 		return myRecipes;
 	}
 	
-	public void setMyRecipes(ArrayList<Ingredient> myRecipes) {
+	public void setMyRecipes(ArrayList<Recipe> myRecipes) {
 		this.myRecipes = myRecipes;
+	}
+
+	public ArrayList<Ingredient> getDraftRecipe() {
+		return draftRecipe;
+	}
+	
+	public void setDraftRecipe(ArrayList<Ingredient> draftRecipe) {
+		this.draftRecipe = draftRecipe;
 	}
 
 }

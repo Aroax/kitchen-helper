@@ -23,6 +23,7 @@ const Ingredient = (props) => {
         <td>{props.data.foodCategory}</td>
         <td>{props.data.location}</td>
         <td>{props.data.weight}g</td>
+        <td>{props.data.weightNeeded}g</td>
       </tr>
   )
 }
