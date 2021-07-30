@@ -88,11 +88,12 @@ const pantry = (props) => {
   }
 
   const ingredientLookup = () => {
-    useEffect(() => {
+    event.preventDefault();
+    // useEffect(() => {
       axios({
         method: 'get',
         url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
-        headers: { 'Content-Type': 'application/json' },
+        // headers: { 'Content-Type': 'application/json' },
       }).then((response) => {
           // console.log(response);
           // console.log(response.data);
@@ -102,7 +103,7 @@ const pantry = (props) => {
           setStoredIngredient(response.data.parsed[0].food);
           console.log(storedIngredient);
       });
-    }, [])
+    // }, [])
   }
 
   const Lookup = () => {
