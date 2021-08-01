@@ -45,21 +45,7 @@ public class UserDAO {
 		return users;
 	}
 
-//	public void addToPantry(String id, Ingredient ingr) {
-//		mongoTemplate.update({
-//			_id: id
-//		  },
-//		  {
-//		    $push:
-//		    {
-//		      shoppingList:
-//		      {
-//		        ingr.name
-//				ingr.imageUrl
-//		      }
-//		    }
-//		});
-//	}
+
 
 
 
