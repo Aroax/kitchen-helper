@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.app.model.Ingredient;
+// import com.app.model.Ingredient;
 import com.app.model.User;
 
 @Repository

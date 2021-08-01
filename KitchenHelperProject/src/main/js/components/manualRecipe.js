@@ -58,7 +58,7 @@ const ManualRecipe = (props) => {
     event.preventDefault();
     axios({
       method: 'patch',
-      url: `/users/${props.user.id}/customrecipes/add`,
+      url: `/users/${props.user.id}/recipes/custom/add`,
       headers: { 'Content-Type': 'application/json' },
       data: draftRecipe
     }).then((response) => {
@@ -72,7 +72,7 @@ const ManualRecipe = (props) => {
     console.log(ingredient);
     axios({
       method: 'patch',
-      url: `/users/${props.user.id}/draftRecipe/add`,
+      url: `/users/${props.user.id}/recipes/draft/add`,
       headers: { 'Content-Type': 'application/json' },
       data: {
         foodId: ingredient.foodId,
@@ -86,33 +86,16 @@ const ManualRecipe = (props) => {
     })
     // setTimeout(location.reload.bind(location), 3000);
   }
-  //
-  // const displayRecipeOld = () => {
-  //   setRecipe(ongoingRecipe);
-  //   return props.ongoingRecipe.map((ingredient) => {
-  //     return (
-  //       <div>
-  //       <tr>
-  //         <td><img src={ingredient.image} height="200px" width="250px"></img></td>
-  //         <td>{ingredient.label}</td>
-  //         <td>{ingredient.category}</td>
-  //         <td>{ingredient.weightNeeded}g</td>
-  //         <td>test</td>
-  //       </tr>
-  //     </div>
-  //     )
-  //   });
-  // }
 
-  const displayRecipe = () => {
-    console.log(props.user);
-    return props.user.draftRecipe.map((ingredient) => {
+
+  const DisplayRecipe = () => {
       return (
         <div>
-        <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
-      </div>
+          <table>
+            {getIngredients(draftRecipe)}
+          </table>
+        </div>
       )
-    });
   }
 
   const getIngredients = (recipe) => {
@@ -120,7 +103,7 @@ const ManualRecipe = (props) => {
       return (
         <div>
         <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
-
+        <button onClick="">Remove Ingredient</button>
       </div>
       )
     });
@@ -156,10 +139,9 @@ const ManualRecipe = (props) => {
   return (
     <div className="container">
       <Lookup />
-    
-      <table>
-        {getIngredients(draftRecipe)}
-      </table>
+      <br></br>
+      <DisplayRecipe />
+      
     </div>
   );
 

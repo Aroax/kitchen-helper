@@ -7,8 +7,18 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Document
 public class Recipe {
 	
+	private String recipeId;
+
 	private ArrayList<Ingredient> ingredients;
 	
+	
+	public String getRecipeId() {
+		return recipeId;
+	}
+
+	public void setrecipeId(String recipeId) {
+		this.recipeId = recipeId;
+	}
 
 	public ArrayList<Ingredient> getIngredients() {
 		return ingredients;
@@ -17,4 +27,5 @@ public class Recipe {
 	public void setIngredients(ArrayList<Ingredient> ingredients) {
 		this.ingredients = ingredients;
 	}
+
 }
