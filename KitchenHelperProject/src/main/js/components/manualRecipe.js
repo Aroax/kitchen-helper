@@ -54,13 +54,18 @@ const ManualRecipe = (props) => {
     setImageUrl(edamamResult.image);
   }
 
-  const addToMyRecipes = () => {
+  const addToCustomRecipes = () => {
     event.preventDefault();
+    const newObjectId = new newObjectId();
+    console.log('object id', newObjectId);
     axios({
       method: 'patch',
       url: `/users/${props.user.id}/recipes/custom/add`,
       headers: { 'Content-Type': 'application/json' },
-      data: draftRecipe
+      data: {
+        recipeId: newObjectId, 
+        recipe: draftRecipe
+      }
     }).then((response) => {
         console.log(response);
     })
@@ -87,6 +92,21 @@ const ManualRecipe = (props) => {
     // setTimeout(location.reload.bind(location), 3000);
   }
 
+  const removeIngredientFromDraftRecipe = (ingredient) => {
+    event.preventDefault();
+    console.log(ingredient);
+    axios({
+      method: 'patch',
+      url: `/users/${props.user.id}/recipes/draft/remove`,
+      headers: { 'Content-Type': 'application/json' },
+      data: ingredient
+    }).then((response) => {
+        console.log(response);
+    })
+    // setTimeout(location.reload.bind(location), 3000);
+  }
+  
+
 
   const DisplayRecipe = () => {
       return (
@@ -102,9 +122,9 @@ const ManualRecipe = (props) => {
     return recipe.map((ingredient) => {
       return (
         <div>
-        <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
-        <button onClick="">Remove Ingredient</button>
-      </div>
+          <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+          <button onClick={() => {removeIngredientFromDraftRecipe(ingredient)} }>Remove Ingredient</button>
+        </div>
       )
     });
   }
@@ -130,7 +150,7 @@ const ManualRecipe = (props) => {
 
           {displayRecipe}
         </table>
-        <button onClick={addToMyRecipes}>Save Recipe</button>
+        <button onClick={addToCustomRecipes}>Save Recipe</button>
       </div>
     )
   }
