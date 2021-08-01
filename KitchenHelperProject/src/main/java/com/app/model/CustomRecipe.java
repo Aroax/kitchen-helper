@@ -3,10 +3,12 @@ package com.app.model;
 import java.util.ArrayList;
 
 import org.springframework.data.mongodb.core.mapping.Document;
+import org.springframework.data.annotation.Id;
 
 @Document
-public class Recipe {
+public class CustomRecipe {
 	
+	// @Id
 	private String recipeId;
 
 	private ArrayList<Ingredient> ingredients;

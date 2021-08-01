@@ -54,17 +54,17 @@ const ManualRecipe = (props) => {
     setImageUrl(edamamResult.image);
   }
 
-  const addToCustomRecipes = () => {
+  const addDraftToCustomRecipes = () => {
     event.preventDefault();
-    const newObjectId = new newObjectId();
-    console.log('object id', newObjectId);
+    // const newObjectId = new newObjectId();
+    // console.log('object id', newObjectId);
     axios({
       method: 'patch',
       url: `/users/${props.user.id}/recipes/custom/add`,
       headers: { 'Content-Type': 'application/json' },
       data: {
-        recipeId: newObjectId, 
-        recipe: draftRecipe
+        // recipeId: newObjectId, 
+        ingredients: draftRecipe
       }
     }).then((response) => {
         console.log(response);
@@ -124,6 +124,8 @@ const ManualRecipe = (props) => {
         <div>
           <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
           <button onClick={() => {removeIngredientFromDraftRecipe(ingredient)} }>Remove Ingredient</button>
+          {/* Edit quantity button function required: */}
+          <button onClick="">Change Quantity</button>
         </div>
       )
     });
@@ -142,26 +144,34 @@ const ManualRecipe = (props) => {
     )
   }
 
-  const RecipeList = () => {
-    // setDraftRecipe(draftRecipe);
-    return (
+  const SaveRecipeButton = () => {
+    return ( 
       <div>
-        <table>
-
-          {displayRecipe}
-        </table>
-        <button onClick={addToCustomRecipes}>Save Recipe</button>
+        <button onClick={addDraftToCustomRecipes}>Save Recipe</button>
       </div>
-    )
+     );
   }
-  console.log(props.user.draftRecipe);
+
+  // const RecipeList = () => {
+  //   // setDraftRecipe(draftRecipe);
+  //   return (
+  //     <div>
+  //       <table>
+
+  //         {displayRecipe}
+  //       </table>
+  //       <button onClick={addToCustomRecipes}>Save Recipe</button>
+  //     </div>
+  //   )
+  // }
+  // console.log(props.user.draftRecipe);
 
   return (
     <div className="container">
       <Lookup />
       <br></br>
       <DisplayRecipe />
-      
+      <SaveRecipeButton />
     </div>
   );
 

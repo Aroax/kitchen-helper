@@ -24,9 +24,9 @@ public class User {
 	
 	private ArrayList<Ingredient> shoppingList;
 	
-	private ArrayList<Recipe> customRecipes;
+	private ArrayList<CustomRecipe> customRecipes;
 
-	private ArrayList<Recipe> savedRecipes;
+	private ArrayList<CustomRecipe> savedRecipes;
 	
 	private ArrayList<Ingredient> draftRecipe;
 	
@@ -94,19 +94,19 @@ public class User {
 		this.shoppingList = shoppingList;
 	}
 
-	public ArrayList<Recipe> getCustomRecipes() {
+	public ArrayList<CustomRecipe> getCustomRecipes() {
 		return customRecipes;
 	}
 	
-	public void setCustomRecipes(ArrayList<Recipe> customRecipes) {
+	public void setCustomRecipes(ArrayList<CustomRecipe> customRecipes) {
 		this.customRecipes = customRecipes;
 	}
 
-	public ArrayList<Recipe> getSavedRecipes() {
+	public ArrayList<CustomRecipe> getSavedRecipes() {
 		return savedRecipes;
 	}
 	
-	public void setSavedRecipes(ArrayList<Recipe> savedRecipes) {
+	public void setSavedRecipes(ArrayList<CustomRecipe> savedRecipes) {
 		this.savedRecipes = savedRecipes;
 	}
 

@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.User;
 import com.app.model.Ingredient;
-import com.app.model.Recipe;
+import com.app.model.CustomRecipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
 
@@ -120,19 +120,19 @@ public class UserController {
 	}
 
 	@PatchMapping("/users/{id}/recipes/custom/add")
-	public void addToCustomRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+	public void addToCustomRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
   User user = userRepository.findById(id).orElseGet(User::new);
   user.getCustomRecipes().add(recipe);
 		userRepository.save(user);
 	}
 
 	@PatchMapping("/users/{id}/recipes/custom/remove")
-	public void removeFromCustomRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+	public void removeFromCustomRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
     User user = userRepository.findById(id).orElseGet(User::new);
-    ArrayList<Recipe> customRecipes = user.getCustomRecipes();
+    ArrayList<CustomRecipe> customRecipes = user.getCustomRecipes();
     int index = -1;
     
-    for (Recipe rep : customRecipes) {
+    for (CustomRecipe rep : customRecipes) {
         if (rep.getRecipeId().equals(recipe.getRecipeId())) {
             index = customRecipes.indexOf(rep);   
         }
@@ -144,19 +144,19 @@ public class UserController {
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/add")
-	public void addToSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+	public void addToSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
   User user = userRepository.findById(id).orElseGet(User::new);
   user.getCustomRecipes().add(recipe);
 		userRepository.save(user);
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/remove")
-	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
     User user = userRepository.findById(id).orElseGet(User::new);
-    ArrayList<Recipe> savedRecipes = user.getSavedRecipes();
+    ArrayList<CustomRecipe> savedRecipes = user.getSavedRecipes();
     int index = -1;
     
-    for (Recipe rep : savedRecipes) {
+    for (CustomRecipe rep : savedRecipes) {
         if (rep.getRecipeId().equals(recipe.getRecipeId())) {
             index = savedRecipes.indexOf(rep);   
         }
