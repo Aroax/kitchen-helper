@@ -1,6 +1,6 @@
 package com.app.model;
 
-import java.util.Date;
+// import java.util.Date;
 
 import org.springframework.data.mongodb.core.mapping.Document;
 
@@ -30,6 +30,8 @@ public class Ingredient {
 	private String[] health;
 	
 	private String[] diet;
+	
+	private Float weightNeeded;
 	
 	
 
@@ -127,6 +129,14 @@ public class Ingredient {
 
 	public void setDiet(String[] diet) {
 		this.diet = diet;
+	}
+
+	public Float getWeightNeeded() {
+		return weightNeeded;
+	}
+
+	public void setWeightNeeded(Float weightNeeded) {
+		this.weightNeeded = weightNeeded;
 	}
 	
 	

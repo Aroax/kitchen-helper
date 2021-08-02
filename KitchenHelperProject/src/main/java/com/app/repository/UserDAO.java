@@ -8,7 +8,7 @@ import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Repository;
 
-import com.app.model.Ingredient;
+// import com.app.model.Ingredient;
 import com.app.model.User;
 
 @Repository
@@ -45,21 +45,7 @@ public class UserDAO {
 		return users;
 	}
 
-//	public void addToPantry(String id, Ingredient ingr) {
-//		mongoTemplate.update({
-//			_id: id
-//		  },
-//		  {
-//		    $push:
-//		    {
-//		      shoppingList:
-//		      {
-//		        ingr.name
-//				ingr.imageUrl
-//		      }
-//		    }
-//		});
-//	}
+
 
 
 

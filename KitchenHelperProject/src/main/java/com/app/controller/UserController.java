@@ -3,6 +3,7 @@ package com.app.controller;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,8 +14,11 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.User;
 import com.app.model.Ingredient;
+import com.app.model.Recipe;
+import com.app.model.CustomRecipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
+import com.app.utilities.*;
 
 @RestController
 public class UserController {
@@ -48,9 +52,16 @@ public class UserController {
   @PatchMapping("/users/{id}/pantry/add")
 	public void addToPantry(@PathVariable final String id, @RequestBody Ingredient ingredient) {
     User user = userRepository.findById(id).orElseGet(User::new);
-    user.getPantry().add(ingredient);
-		userRepository.save(user);
+    if (user.isIngredientInPantry(ingredient.getFoodId())) {
+    	user.increasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeight());
+    }
+    else {
+    	user.getPantry().add(ingredient);
+    }
+		
+    userRepository.save(user);
 	}
+  
 
   @PatchMapping("/users/{id}/pantry/remove")
 	public void removeFromPantry(@PathVariable final String id, @RequestBody Ingredient ingredient) {
@@ -68,13 +79,53 @@ public class UserController {
 
 		userRepository.save(user);
 	}
+  
+  @PatchMapping("/users/{id}/pantry/add-from-shopping-list")
+  public void addAllToPantry(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredientList) {
+	  User user = userRepository.findById(id).orElseGet(User::new);
 
+	  for (Ingredient ingredient : ingredientList) {
+		  System.out.println(ingredient.getWeightNeeded());
+		  ingredient.setWeight(ingredient.getWeightNeeded());
+		  System.out.println(ingredient.getWeight());
+
+		  if (user.isIngredientInPantry(ingredient.getFoodId())) {
+			  user.increasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeight());
+		  }
+		  else {
+			  user.getPantry().add(ingredient);
+		  }
+	  }
+	  user.setShoppingList(new ArrayList<Ingredient>());
+	  userRepository.save(user);
+  }
+  
+  @PatchMapping("/users/{id}/pantry/subtract-by-recipe")
+  public void subtractAllFromPantry(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	  System.out.println(recipe);
+	  recipe.showStats();
+	  User user = userRepository.findById(id).orElseGet(User::new);
+
+	  for (Ingredient ingredient : recipe.getIngredients()) {
+		  user.decreasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeightNeeded());
+	  }
+	  user.getRecentRecipes().add(recipe);
+	  userRepository.save(user);
+  }
+  
   @PatchMapping("/users/{id}/shopping-list/add")
 	public void addToShoppingList(@PathVariable final String id, @RequestBody Ingredient ingredient) {
     User user = userRepository.findById(id).orElseGet(User::new);
     user.getShoppingList().add(ingredient);
 		userRepository.save(user);
 	}
+  
+  @PatchMapping("/users/{id}/shopping-list/add-multiple")
+ 	public void addAllToShoppingList(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredients) {
+     User user = userRepository.findById(id).orElseGet(User::new);
+     user.getShoppingList().addAll(ingredients);
+ 		userRepository.save(user);
+ 	}
 
   @PatchMapping("/users/{id}/shopping-list/remove")
 	public void removeFromShoppingList(@PathVariable final String id, @RequestBody Ingredient ingredient) {
@@ -92,4 +143,91 @@ public class UserController {
 
 		userRepository.save(user);
 	}
+	
+  
+  @PatchMapping("/users/{id}/recipes/draft/add")
+	public void addToDraftRecipe(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+  User user = userRepository.findById(id).orElseGet(User::new);
+  System.out.println(ingredient);
+  user.getDraftRecipe().add(ingredient);
+		userRepository.save(user);
+	}
+
+	@PatchMapping("/users/{id}/recipes/draft/remove")
+	public void removeFromDraftRecipe(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+    ArrayList<Ingredient> draftRecipe = user.getDraftRecipe();
+    int index = -1;
+    
+    for (Ingredient ing : draftRecipe) {
+        if (ing.getName().equals(ingredient.getName())) {
+            index = draftRecipe.indexOf(ing);   
+        }
+    }
+
+    user.getDraftRecipe().remove(index);
+
+		userRepository.save(user);
+	}
+
+	@PatchMapping("/users/{id}/recipes/custom/add")
+	public void addToCustomRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+  User user = userRepository.findById(id).orElseGet(User::new);
+  ObjectId objectId = new ObjectId();
+  recipe.setRecipeId(objectId.toString());
+//  System.out.println(recipe);
+//  recipe.showStats();
+//  System.out.println(user.getCustomRecipes());
+  user.getCustomRecipes().add(recipe);
+  ArrayList<Ingredient> clearDrafts = new ArrayList<Ingredient>();
+  user.setDraftRecipe(clearDrafts);
+  
+		userRepository.save(user);
+	}
+
+	@PatchMapping("/users/{id}/recipes/custom/remove")
+	public void removeFromCustomRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+    ArrayList<CustomRecipe> customRecipes = user.getCustomRecipes();
+    int index = -1;
+    
+    for (CustomRecipe rep : customRecipes) {
+        if (rep.getRecipeId().equals(recipe.getRecipeId())) {
+            index = customRecipes.indexOf(rep);   
+        }
+    }
+
+    user.getCustomRecipes().remove(index);
+
+		userRepository.save(user);
+	}
+
+	@PatchMapping("/users/{id}/recipes/saved/add")
+	public void addToSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+  User user = userRepository.findById(id).orElseGet(User::new);
+  user.getSavedRecipes().add(recipe);
+		userRepository.save(user);
+	}
+
+	@PatchMapping("/users/{id}/recipes/saved/remove")
+	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+    ArrayList<Recipe> savedRecipes = user.getSavedRecipes();
+    int index = -1;
+    
+    for (Recipe rep : savedRecipes) {
+        if (rep.getRecipeId().equals(recipe.getRecipeId())) {
+            index = savedRecipes.indexOf(rep);   
+        }
+    }
+
+    user.getSavedRecipes().remove(index);
+
+		userRepository.save(user);
+	}
+	
+//	@PatchMapping("/users/{id}/recipes/favourite-recipes/add")
+//	
+//	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove")
+ 
 }
