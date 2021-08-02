@@ -118,5 +118,23 @@ public class User {
 	public void setDraftRecipe(ArrayList<Ingredient> draftRecipe) {
 		this.draftRecipe = draftRecipe;
 	}
+	
+	public Boolean isIngredientInPantry(String foodId) {
+		Boolean found = false;
+		for (Ingredient ing : pantry) {
+			if (ing.getFoodId().equals(foodId)) {
+				found = true;
+			}
+		}
+		return found;
+	}
+	
+	public void increasePantryIngredientAmount(String foodId, Float amount) {
+			for (Ingredient ing : pantry) {
+				if (ing.getFoodId().equals(foodId)) {
+					ing.setWeight(ing.getWeight() + amount);
+				}
+			}
+	}
 
 }

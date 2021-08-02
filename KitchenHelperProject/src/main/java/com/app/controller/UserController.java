@@ -18,6 +18,7 @@ import com.app.model.Recipe;
 import com.app.model.CustomRecipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
+import com.app.utilities.*;
 
 @RestController
 public class UserController {
@@ -51,7 +52,20 @@ public class UserController {
   @PatchMapping("/users/{id}/pantry/add")
 	public void addToPantry(@PathVariable final String id, @RequestBody Ingredient ingredient) {
     User user = userRepository.findById(id).orElseGet(User::new);
-    user.getPantry().add(ingredient);
+    if (user.isIngredientInPantry(ingredient.getFoodId())) {
+    	user.increasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeight());
+    }
+    else {
+    	user.getPantry().add(ingredient);
+    }
+//    user.getPantry() => find(ingredient)
+//    		if null user.add(ingredient)
+//    		else user.increaseIngredientWeight(ingredient)
+    
+    
+    
+    
+    
 		userRepository.save(user);
 	}
 
