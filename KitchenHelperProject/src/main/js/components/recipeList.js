@@ -25,14 +25,24 @@ const RecipeList = (props) => {
             </table>
         
       <button onClick={ () => { compareIngredientsAndBuild(recipe) } }>Add Recipe to Shopping List</button>
+      <button onClick={ () => { cookRecipe(recipe) } }>Cook Now! (subtract items)</button>
       </div>
       )
     });
   }
 
-//   const getRecipeIngredients = () => {
-
-//   }
+  const cookRecipe = (recipe) => {
+      console.log(recipe);
+    axios({
+        method: 'patch',
+        url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
+        headers: { 'Content-Type': 'application/json' },
+        data: recipe
+      }).then((response) => {
+          console.log(response);
+          // location.reload();
+      });
+  }
 
   const compareIngredientsAndBuild = (recipe) => {
     let found;

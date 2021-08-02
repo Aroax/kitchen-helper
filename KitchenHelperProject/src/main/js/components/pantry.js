@@ -26,7 +26,7 @@ const pantry = (props) => {
       return (
         <div>
         <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
-      <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button>
+      {/* <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button> */}
       </div>
       )
     });

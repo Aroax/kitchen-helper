@@ -2,6 +2,7 @@ package com.app.model;
 
 import java.util.ArrayList;
 // import java.util.List;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -30,13 +31,11 @@ public class User {
 	
 	private ArrayList<Ingredient> draftRecipe;
 	
-//	private User() {};
-//	
-//	public User(String displayName, String email, String password) {
-//		this.displayName = displayName;
-//		this.email = email;
-//		this.password = password;
-//	}
+	private ArrayList<CustomRecipe> recentRecipes;
+	
+//	private ArrayList<Object> recipes;
+	
+
 
 	public String getId() {
 		return id;
@@ -135,6 +134,22 @@ public class User {
 					ing.setWeight(ing.getWeight() + amount);
 				}
 			}
+	}
+	
+	public void decreasePantryIngredientAmount(String foodId, Float amount) {
+		for (Ingredient ing : pantry) {
+			if (ing.getFoodId().equals(foodId)) {
+				ing.setWeight(ing.getWeight() - amount);
+			}
+		}
+}
+
+	public ArrayList<CustomRecipe> getRecentRecipes() {
+		return recentRecipes;
+	}
+	
+	public void setRecentRecipes(ArrayList<CustomRecipe> recentRecipes) {
+		this.recentRecipes = recentRecipes;
 	}
 
 }
