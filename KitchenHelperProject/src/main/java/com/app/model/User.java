@@ -128,6 +128,29 @@ public class User {
 		return found;
 	}
 	
+	public Boolean isIngredientInPantryRunOut(String foodId) {
+		Boolean runOut = false;
+		for (Ingredient ing : pantry) {
+			if (ing.getFoodId().equals(foodId)) {
+				if (ing.getWeight() <= 0) {
+					runOut = true;
+				}
+			}
+		}
+		return runOut;
+	}
+	
+	public void pantrySpringClean() {
+		ArrayList<Ingredient> runOut = new ArrayList<Ingredient>();
+		for (Ingredient ing : pantry) {
+				if (ing.getWeight() <= 0.0) {
+					System.out.println("Cleaning empty item from Pantry: " + ing.getName());
+					runOut.add(ing);
+			}
+		}
+		pantry.removeAll(runOut);
+	}
+	
 	public void increasePantryIngredientAmount(String foodId, Float amount) {
 			for (Ingredient ing : pantry) {
 				if (ing.getFoodId().equals(foodId)) {
