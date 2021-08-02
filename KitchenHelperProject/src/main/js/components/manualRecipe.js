@@ -18,6 +18,7 @@ const ManualRecipe = (props) => {
   let lookupName;
   let currentWeightNeeded;
   let currentIngredientId;
+  let draftRecipeName;
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
@@ -33,6 +34,10 @@ const ManualRecipe = (props) => {
     currentWeightNeeded = event.target.value;
   }
 
+  const handleDraftRecipeNameChange = (event) => {
+    draftRecipeName = event.target.value;
+  }
+
   const ingredientLookup = () => {
     event.preventDefault();
       axios({
@@ -42,6 +47,7 @@ const ManualRecipe = (props) => {
           console.log(response);
           console.log(response.data.parsed[0].food);
           let ingredient = response.data.parsed[0].food;
+          setStoredIngredient(ingredient);
           addToDraftRecipeDb(ingredient);
           // draftRecipe.push(ingredient)
       });
@@ -57,15 +63,17 @@ const ManualRecipe = (props) => {
   const addDraftToCustomRecipes = () => {
     event.preventDefault();
     // const newObjectId = new newObjectId();
-    // console.log('object id', newObjectId);
+    console.log('storedIngredient', storedIngredient);
+    console.log('draftRecipe', draftRecipe);
+    let customRecipe = {
+      recipeName : draftRecipeName,
+      ingredients : draftRecipe
+    };
     axios({
       method: 'patch',
       url: `/users/${props.user.id}/recipes/custom/add`,
       headers: { 'Content-Type': 'application/json' },
-      data: {
-        // recipeId: newObjectId, 
-        ingredients: draftRecipe
-      }
+      data: customRecipe
     }).then((response) => {
         console.log(response);
     })
@@ -123,6 +131,7 @@ const ManualRecipe = (props) => {
       return (
         <div>
           <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+          {console.log(ingredient)}
           <button onClick={() => {removeIngredientFromDraftRecipe(ingredient)} }>Remove Ingredient</button>
           {/* Edit quantity button function required: */}
           <button onClick="">Change Quantity</button>
@@ -147,8 +156,16 @@ const ManualRecipe = (props) => {
   const SaveRecipeButton = () => {
     return ( 
       <div>
-        <button onClick={addDraftToCustomRecipes}>Save Recipe</button>
-      </div>
+      <form onSubmit={addDraftToCustomRecipes}>
+        <input type="text" placeholder="Give your recipe a name" onChange={handleDraftRecipeNameChange}></input>
+        {/* <input type="text" placeholder="Weight required (in grams)" onChange={handleWeightNeededChange}></input> */}
+        <input type="submit" value="Save Recipe" />
+      </form>
+    </div>
+      
+      // <div>
+      //   <button onClick={addDraftToCustomRecipes}>Save Recipe</button>
+      // </div>
      );
   }
 

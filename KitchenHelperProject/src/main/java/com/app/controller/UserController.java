@@ -3,6 +3,7 @@ package com.app.controller;
 import java.util.List;
 import java.util.ArrayList;
 
+import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.User;
 import com.app.model.Ingredient;
+import com.app.model.Recipe;
 import com.app.model.CustomRecipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
@@ -98,6 +100,7 @@ public class UserController {
   @PatchMapping("/users/{id}/recipes/draft/add")
 	public void addToDraftRecipe(@PathVariable final String id, @RequestBody Ingredient ingredient) {
   User user = userRepository.findById(id).orElseGet(User::new);
+  System.out.println(ingredient);
   user.getDraftRecipe().add(ingredient);
 		userRepository.save(user);
 	}
@@ -122,7 +125,15 @@ public class UserController {
 	@PatchMapping("/users/{id}/recipes/custom/add")
 	public void addToCustomRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
   User user = userRepository.findById(id).orElseGet(User::new);
+  ObjectId objectId = new ObjectId();
+  recipe.setRecipeId(objectId.toString());
+//  System.out.println(recipe);
+//  recipe.showStats();
+//  System.out.println(user.getCustomRecipes());
   user.getCustomRecipes().add(recipe);
+  ArrayList<Ingredient> clearDrafts = new ArrayList<Ingredient>();
+  user.setDraftRecipe(clearDrafts);
+  
 		userRepository.save(user);
 	}
 
@@ -144,19 +155,19 @@ public class UserController {
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/add")
-	public void addToSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	public void addToSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
   User user = userRepository.findById(id).orElseGet(User::new);
-  user.getCustomRecipes().add(recipe);
+  user.getSavedRecipes().add(recipe);
 		userRepository.save(user);
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/remove")
-	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
     User user = userRepository.findById(id).orElseGet(User::new);
-    ArrayList<CustomRecipe> savedRecipes = user.getSavedRecipes();
+    ArrayList<Recipe> savedRecipes = user.getSavedRecipes();
     int index = -1;
     
-    for (CustomRecipe rep : savedRecipes) {
+    for (Recipe rep : savedRecipes) {
         if (rep.getRecipeId().equals(recipe.getRecipeId())) {
             index = savedRecipes.indexOf(rep);   
         }
@@ -166,5 +177,9 @@ public class UserController {
 
 		userRepository.save(user);
 	}
+	
+//	@PatchMapping("/users/{id}/recipes/favourite-recipes/add")
+//	
+//	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove")
  
 }

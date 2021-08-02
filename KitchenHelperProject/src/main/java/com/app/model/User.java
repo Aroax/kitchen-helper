@@ -26,7 +26,7 @@ public class User {
 	
 	private ArrayList<CustomRecipe> customRecipes;
 
-	private ArrayList<CustomRecipe> savedRecipes;
+	private ArrayList<Recipe> savedRecipes;
 	
 	private ArrayList<Ingredient> draftRecipe;
 	
@@ -102,11 +102,11 @@ public class User {
 		this.customRecipes = customRecipes;
 	}
 
-	public ArrayList<CustomRecipe> getSavedRecipes() {
+	public ArrayList<Recipe> getSavedRecipes() {
 		return savedRecipes;
 	}
 	
-	public void setSavedRecipes(ArrayList<CustomRecipe> savedRecipes) {
+	public void setSavedRecipes(ArrayList<Recipe> savedRecipes) {
 		this.savedRecipes = savedRecipes;
 	}
 
