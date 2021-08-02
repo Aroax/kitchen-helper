@@ -1,4 +1,5 @@
 import React from "react";
+import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import clsx from "clsx";
 import Grid from "@material-ui/core/Grid";
@@ -65,6 +66,19 @@ const recipeCard = (props)  =>{
   };
   const ingredients = props.data.recipe.ingredients;
 
+  const addToFavourites = () => {
+    event.preventDefault();
+    axios({
+      method: 'patch',
+      url: `/users/${props.userId}/recipes/favourite-recipes/add`,
+      headers: { 'Content-Type': 'application/json' },
+      data: props.data
+    }).then((response) => {
+        console.log(response);
+    })
+    // setTimeout(location.reload.bind(location), 3000);
+  }
+
   return (
     <Card className={classes.recipeCardContainer}>
       <CardMedia
@@ -118,7 +132,7 @@ const recipeCard = (props)  =>{
         </Grid>
       </Grid>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites">
+        <IconButton aria-label="add to favorites" onClick={addToFavourites}>
           <FavoriteIcon color="#ff0000" />
         </IconButton>
         <IconButton aria-label="add to favorites">
@@ -149,7 +163,8 @@ const recipeCard = (props)  =>{
               ingredients.map((ingr) => (
                 <ListItem>
                   <ListItemIcon>-</ListItemIcon>
-                  <Typography variant="subtitle2">{ingr.text}: {ingr.foodId} - {ingr.weight}</Typography>
+                  <Typography variant="subtitle2">{ingr.text}: {Math.round(ingr.weight)}g</Typography>
+                  {/* foodID = {ingr.foodId} */}
                 </ListItem>
               ))
             }

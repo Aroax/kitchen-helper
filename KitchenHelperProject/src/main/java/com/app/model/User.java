@@ -22,6 +22,9 @@ public class User {
 	private Object preferences;
 	
 	private ArrayList<Ingredient> shoppingList;
+
+	private ArrayList<CustomRecipe> favouriteRecipes;
+
 	
 //	private User() {};
 //	
@@ -85,6 +88,14 @@ public class User {
 
 	public void setShoppingList(ArrayList<Ingredient> shoppingList) {
 		this.shoppingList = shoppingList;
+	}
+
+	public ArrayList<CustomRecipe> getFavouriteRecipes() {
+		return favouriteRecipes;
+	}
+	
+	public void setFavouriteRecipes(ArrayList<CustomRecipe> favouriteRecipes) {
+		this.favouriteRecipes = favouriteRecipes;
 	}
 
 }

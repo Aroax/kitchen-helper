@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import Recipe from "./recipe"
 
-const recipes = () => {
+const recipes = (props) => {
 
   const [searchedRecipe, setSearchedRecipe] = React.useState();
 
@@ -37,7 +37,7 @@ const recipes = () => {
     return recipes.map((recipe) => {
       return (
         <div>
-          <Recipe data={recipe} ></Recipe>
+          <Recipe data={recipe} userId={props.user.id}></Recipe>
         </div>
       )
     });
