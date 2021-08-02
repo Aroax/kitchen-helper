@@ -58,15 +58,28 @@ public class UserController {
     else {
     	user.getPantry().add(ingredient);
     }
-//    user.getPantry() => find(ingredient)
-//    		if null user.add(ingredient)
-//    		else user.increaseIngredientWeight(ingredient)
-    
-    
-    
-    
-    
-		userRepository.save(user);
+		
+    userRepository.save(user);
+	}
+  
+  @PatchMapping("/users/{id}/pantry/add-from-shopping-list")
+	public void addAllToPantry(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredientList) {
+  User user = userRepository.findById(id).orElseGet(User::new);
+  
+  for (Ingredient ingredient : ingredientList) {
+	  System.out.println(ingredient.getWeightNeeded());
+	  ingredient.setWeight(ingredient.getWeightNeeded());
+	  System.out.println(ingredient.getWeight());
+	  
+	  if (user.isIngredientInPantry(ingredient.getFoodId())) {
+	  	user.increasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeight());
+	  }
+	  else {
+	  	user.getPantry().add(ingredient);
+	  }
+  }
+  user.setShoppingList(new ArrayList<Ingredient>());
+  userRepository.save(user);
 	}
 
   @PatchMapping("/users/{id}/pantry/remove")
