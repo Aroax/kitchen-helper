@@ -7,7 +7,7 @@ class App extends React.Component {
   render() {
     return (
       <div className="container">
-        <h1>Kitchen Helper is Really Awesome</h1>
+        {/* <h1>Kitchen Helper </h1> */}
         <User />
         
       </div>
