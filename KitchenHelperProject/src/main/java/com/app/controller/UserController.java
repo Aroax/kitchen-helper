@@ -110,6 +110,7 @@ public class UserController {
 		  user.decreasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeightNeeded());
 	  }
 	  user.getRecentRecipes().add(recipe);
+	  user.pantrySpringClean();
 	  userRepository.save(user);
   }
   
