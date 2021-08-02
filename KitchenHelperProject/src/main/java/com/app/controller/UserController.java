@@ -78,6 +78,13 @@ public class UserController {
     user.getShoppingList().add(ingredient);
 		userRepository.save(user);
 	}
+  
+  @PatchMapping("/users/{id}/shopping-list/add-multiple")
+ 	public void addAllToShoppingList(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredients) {
+     User user = userRepository.findById(id).orElseGet(User::new);
+     user.getShoppingList().addAll(ingredients);
+ 		userRepository.save(user);
+ 	}
 
   @PatchMapping("/users/{id}/shopping-list/remove")
 	public void removeFromShoppingList(@PathVariable final String id, @RequestBody Ingredient ingredient) {

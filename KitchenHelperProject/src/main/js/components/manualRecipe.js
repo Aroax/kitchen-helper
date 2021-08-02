@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Ingredient from "./ingredient";
+import RecipeList from "./recipeList";
 import axios from "axios";
 
 const ManualRecipe = (props) => {
@@ -189,6 +190,8 @@ const ManualRecipe = (props) => {
       <br></br>
       <DisplayRecipe />
       <SaveRecipeButton />
+      <hr />
+      <RecipeList user={props.user} />
     </div>
   );
 
