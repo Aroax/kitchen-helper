@@ -55,7 +55,7 @@ const Ingredient = (props) => {
     }
 
   }
-  const foodCategory = FoodCategory ? props.foodCategory : null;
+  const foodCategory = props.foodCategory ? props.foodCategory : null;
   const location = props.location ? props.location : null; 
   const weight = props.weight ? `${props.weight}g total` : null; 
   const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;  
