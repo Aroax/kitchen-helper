@@ -3,11 +3,21 @@ import Ingredient from "./ingredient";
 import axios from "axios";
 
 const ShoppingList = (props) => {
-  const ingredientsList = props.user.shoppingList;
+  const [ingredientsList, setIngredientsList] = React.useState(props.user.shoppingList);
+
+  const updateWeightNeeded = (foodId, weightNeeded) => {
+    const updatedIngredientsList = ingredientsList;
+    updatedIngredientsList.forEach((ingredient) => {
+      if (ingredient.foodId === foodId) {
+        ingredient.weightNeeded = weightNeeded;
+      }
+    });
+    setIngredientsList(updatedIngredientsList);
+  }
 
   const getIngredients = (shoppingList) => {
     return shoppingList.map((ingredient) => {
-      return <Ingredient data={ingredient}></Ingredient>
+      return <Ingredient data={ingredient} type="shopping-list" updateWeightNeeded={updateWeightNeeded}></Ingredient>
     });
   }
 
