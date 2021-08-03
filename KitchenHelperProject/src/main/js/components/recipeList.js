@@ -7,6 +7,7 @@ const RecipeList = (props) => {
 
     // console.log('props', props);
   const customRecipes = props.user.customRecipes;
+  
 //   console.log('customRecipes', customRecipes)
   let requiredIngredients = [];
   let pantry = props.user.pantry;
@@ -26,6 +27,7 @@ const RecipeList = (props) => {
         
       <button onClick={ () => { compareIngredientsAndBuild(recipe) } }>Add Recipe to Shopping List</button>
       <button onClick={ () => { cookRecipe(recipe) } }>Cook Now! (subtract items)</button>
+      <button onClick={ () => { addRecipeToMealPlanner(recipe) } }>Add to meal planner</button>
       </div>
       )
     });
@@ -49,14 +51,16 @@ const RecipeList = (props) => {
     console.log('recipe', recipe);
     console.log('pantry', pantry);
     console.log('top of compare', requiredIngredients);
+    console.log('recipe ingredients', recipe.ingredients);
     
     recipe.ingredients.map((recipeIngredient) => {
         found = false;
         pantry.forEach((pantryIngredient) => {
-            // console.log('recipe Ing', recipeIngredient);
+            console.log('recipe Ing', recipeIngredient);
             // console.log('pantry Ing', pantryIngredient);
             if (recipeIngredient.foodId === pantryIngredient.foodId) {
                 found = true;
+                console.log(found, recipeIngredient);
                 addRequiredAmount(recipeIngredient, pantryIngredient);
             }; 
         });
@@ -78,7 +82,7 @@ const RecipeList = (props) => {
         let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
         let modifiedIngredient = recipeIng;
         modifiedIngredient.weightNeeded = weightNeeded;
-        // console.log('mod Ing inside anon', modifiedIngredient);
+        console.log('mod Ing inside anon', modifiedIngredient);
         requiredIngredients.push(modifiedIngredient);
     }
         
@@ -108,7 +112,7 @@ const RecipeList = (props) => {
 
   const addToShoppingList = () => {
     // event.preventDefault();
-    console.log(requiredIngredients);
+    console.log('required ingredients in addToShoppingList', requiredIngredients);
     axios({
       method: 'patch',
       url: `/users/${props.user.id}/shopping-list/add-multiple`,
@@ -120,10 +124,25 @@ const RecipeList = (props) => {
     })
   }
 
+  const addRecipeToMealPlanner = (recipe) => {
+    console.log('recipe', recipe);
+    axios({
+        method: 'patch',
+        url: `/users/${props.user.id}/mealplanner/add`,
+        headers: { 'Content-Type': 'application/json' },
+        data: recipe
+      }).then((response) => {
+          console.log(response);
+          // location.reload();
+      });
+}
+
   const View = () => {
     return (
         <div>
+          <h2>My Custom Recipes</h2>
           {getCustomRecipes()}
+          <br></br>
         </div>
       );
   }

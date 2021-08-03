@@ -145,6 +145,7 @@ const ManualRecipe = (props) => {
   const Lookup = () => {
     return (
       <div>
+        <h3>Enter each ingredient for the recipe</h3>
         <form onSubmit={ingredientLookup}>
           <input type="text" placeholder="Enter ingredient" onChange={handleLookupNameChange}></input>
           <input type="text" placeholder="Weight required (in grams)" onChange={handleWeightNeededChange}></input>
@@ -163,35 +164,19 @@ const ManualRecipe = (props) => {
         <input type="submit" value="Save Recipe" />
       </form>
     </div>
-      
-      // <div>
-      //   <button onClick={addDraftToCustomRecipes}>Save Recipe</button>
-      // </div>
      );
   }
 
-  // const RecipeList = () => {
-  //   // setDraftRecipe(draftRecipe);
-  //   return (
-  //     <div>
-  //       <table>
-
-  //         {displayRecipe}
-  //       </table>
-  //       <button onClick={addToCustomRecipes}>Save Recipe</button>
-  //     </div>
-  //   )
-  // }
-  // console.log(props.user.draftRecipe);
 
   return (
     <div className="container">
+      <h2>Add a Custom Recipe</h2>
       <Lookup />
       <br></br>
       <DisplayRecipe />
       <SaveRecipeButton />
       <hr />
-      <RecipeList user={props.user} />
+      
     </div>
   );
 

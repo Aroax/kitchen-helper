@@ -147,6 +147,24 @@ public class User {
 		return runOut;
 	}
 	
+	public Boolean isIngredientOnShoppingList(String foodId) {
+		Boolean found = false;
+		for (Ingredient ing : shoppingList) {
+			if (ing.getFoodId().equals(foodId)) {
+				found = true;
+			}
+		}
+		return found;
+	}
+	
+	public void increaseShoppingListIngredientAmount(String foodId, Float amount) {
+		for (Ingredient ing : shoppingList) {
+			if (ing.getFoodId().equals(foodId)) {
+				ing.setWeightNeeded(ing.getWeightNeeded() + amount);
+			}
+		}
+	}
+	
 	public void pantrySpringClean() {
 		removeEmptyPantryIngredients();
 	}
