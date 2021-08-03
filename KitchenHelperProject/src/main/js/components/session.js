@@ -3,6 +3,10 @@ import axios from "axios";
 import Pantry from "./pantry";
 import ShoppingList from "./shoppingList";
 import ManualRecipe from "./manualRecipe";
+import Recipes from "./recipes";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { HashRouter as Router, Route, Switch } from "react-router-dom";
+import NavBar from './navBar';
 
 const user = () => {
     const [user, setUser] = React.useState();
@@ -24,24 +28,31 @@ const user = () => {
         })
     }, [])
 
-    const userName = user ?  <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
-    const pantry = user ?  <Pantry user={user}></Pantry> : <div></div>
-    const shoppingList = user ?  <ShoppingList user={user}></ShoppingList> : <div></div>
+    const userName = user ? <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
+    const pantry = user ? <Pantry user={user}></Pantry> : <div></div>
+    const shoppingList = user ? <ShoppingList user={user}></ShoppingList> : <div></div>
+    const recipes = user ? <Recipes user={user} /> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
-
 
     return (
         <div className="container">
         <button onClick={showProps}>DEBUG: Show Props</button>
-        <hr/>
-          {userName}
-          <hr/>
-          {pantry}
-          <hr/>
-          {shoppingList}
-          <hr/>
-          <h3>recipe</h3>
-          {user ?  <ManualRecipe user={user} /> : <div>Loading...</div>}
+            <Router>
+                <NavBar/>
+                <Switch>
+                    <Route exact path="/">
+                        {userName}
+                        {pantry}
+                    </Route>
+                    <Route path="/recipes">
+                        {recipes}
+                        {user ?  <ManualRecipe user={user} /> : <div>Loading...</div>}
+                    </Route>
+                    <Route path="/shopping-list">
+                        {shoppingList}
+                    </Route>
+                </Switch>
+            </Router>
         </div>
     );
 }
