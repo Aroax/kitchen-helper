@@ -18,8 +18,8 @@ const RecipesHub = (props) => {
             <ExternalRecipeLookup user={props.user}/>
             <hr />
             {props.user ?  <ManualRecipe user={props.user} /> : <div>Loading...</div>}
-            <savedRecipes />
-            <customRecipes  />
+            {/* <savedRecipes />
+            <customRecipes /> */}
         </div>
      );
 }

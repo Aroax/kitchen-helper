@@ -1,5 +1,5 @@
 import React from "react";
-import Ingredient from "./ingredient";
+import Ingredient from "./pantry/ingredient";
 import axios from "axios";
 
 const ShoppingList = (props) => {

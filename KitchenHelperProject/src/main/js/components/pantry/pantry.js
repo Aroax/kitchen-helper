@@ -25,7 +25,7 @@ const pantry = (props) => {
     return pantry.map((ingredient) => {
       return (
         <div>
-        <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} foodCategory={ingredient.foodCategory} weight={ingredient.weight}></Ingredient>
+        <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} foodCategory={ingredient.foodCategory}></Ingredient>
       {/* <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button> */}
       </div>
       )

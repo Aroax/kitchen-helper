@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import Ingredient from "./ingredient";
+import Ingredient from "../pantry/ingredient";
+import recipeCard from "./recipe"
 import axios from "axios";
 
 const RecipeList = (props) => {

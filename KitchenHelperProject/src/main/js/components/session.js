@@ -1,8 +1,8 @@
 import React, { useEffect } from "react";
 import axios from "axios";
-import Pantry from "./pantry";
+import Pantry from "./pantry/pantry";
 import ShoppingList from "./shoppingList";
-import RecipesHub from "./recipesHub"
+import RecipesHub from "./recipes/recipesHub"
 
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -31,7 +31,7 @@ const user = () => {
     const userName = user ? <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
     const pantry = user ? <Pantry user={user}></Pantry> : <div></div>
     const shoppingList = user ? <ShoppingList user={user}></ShoppingList> : <div></div>
-    const recipes = user ? <RecipesHub user={user} /> : <div></div>
+    const recipesHub = user ? <RecipesHub user={user} /> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
 
     return (
@@ -46,7 +46,7 @@ const user = () => {
                         {pantry}
                     </Route>
                     <Route path="/recipes">
-                        {recipes}
+                        {recipesHub}
                     </Route>
                     <Route path="/shopping-list">
                         {shoppingList}

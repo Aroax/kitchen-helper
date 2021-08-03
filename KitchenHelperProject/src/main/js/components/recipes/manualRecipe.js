@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import Ingredient from "./ingredient";
+import Ingredient from "../pantry/ingredient";
 import RecipeList from "./recipeList";
 import axios from "axios";
 
