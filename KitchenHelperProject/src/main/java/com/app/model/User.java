@@ -1,6 +1,8 @@
 package com.app.model;
 
 import java.util.ArrayList;
+// import java.util.List;
+import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -23,13 +25,17 @@ public class User {
 	
 	private ArrayList<Ingredient> shoppingList;
 	
-//	private User() {};
-//	
-//	public User(String displayName, String email, String password) {
-//		this.displayName = displayName;
-//		this.email = email;
-//		this.password = password;
-//	}
+	private ArrayList<CustomRecipe> customRecipes;
+
+	private ArrayList<Recipe> savedRecipes;
+	
+	private ArrayList<Ingredient> draftRecipe;
+	
+	private ArrayList<CustomRecipe> recentRecipes;
+	
+//	private ArrayList<Object> recipes;
+	
+
 
 	public String getId() {
 		return id;
@@ -85,6 +91,88 @@ public class User {
 
 	public void setShoppingList(ArrayList<Ingredient> shoppingList) {
 		this.shoppingList = shoppingList;
+	}
+
+	public ArrayList<CustomRecipe> getCustomRecipes() {
+		return customRecipes;
+	}
+	
+	public void setCustomRecipes(ArrayList<CustomRecipe> customRecipes) {
+		this.customRecipes = customRecipes;
+	}
+
+	public ArrayList<Recipe> getSavedRecipes() {
+		return savedRecipes;
+	}
+	
+	public void setSavedRecipes(ArrayList<Recipe> savedRecipes) {
+		this.savedRecipes = savedRecipes;
+	}
+
+
+	public ArrayList<Ingredient> getDraftRecipe() {
+		return draftRecipe;
+	}
+	
+	public void setDraftRecipe(ArrayList<Ingredient> draftRecipe) {
+		this.draftRecipe = draftRecipe;
+	}
+	
+	public Boolean isIngredientInPantry(String foodId) {
+		Boolean found = false;
+		for (Ingredient ing : pantry) {
+			if (ing.getFoodId().equals(foodId)) {
+				found = true;
+			}
+		}
+		return found;
+	}
+	
+	public Boolean isIngredientInPantryRunOut(String foodId) {
+		Boolean runOut = false;
+		for (Ingredient ing : pantry) {
+			if (ing.getFoodId().equals(foodId)) {
+				if (ing.getWeight() <= 0) {
+					runOut = true;
+				}
+			}
+		}
+		return runOut;
+	}
+	
+	public void pantrySpringClean() {
+		ArrayList<Ingredient> runOut = new ArrayList<Ingredient>();
+		for (Ingredient ing : pantry) {
+				if (ing.getWeight() <= 0.0) {
+					System.out.println("Cleaning empty item from Pantry: " + ing.getName());
+					runOut.add(ing);
+			}
+		}
+		pantry.removeAll(runOut);
+	}
+	
+	public void increasePantryIngredientAmount(String foodId, Float amount) {
+			for (Ingredient ing : pantry) {
+				if (ing.getFoodId().equals(foodId)) {
+					ing.setWeight(ing.getWeight() + amount);
+				}
+			}
+	}
+	
+	public void decreasePantryIngredientAmount(String foodId, Float amount) {
+		for (Ingredient ing : pantry) {
+			if (ing.getFoodId().equals(foodId)) {
+				ing.setWeight(ing.getWeight() - amount);
+			}
+		}
+}
+
+	public ArrayList<CustomRecipe> getRecentRecipes() {
+		return recentRecipes;
+	}
+	
+	public void setRecentRecipes(ArrayList<CustomRecipe> recentRecipes) {
+		this.recentRecipes = recentRecipes;
 	}
 
 }

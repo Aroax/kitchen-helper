@@ -4,7 +4,7 @@ import Form from "./form";
 import axios from "axios";
 
 const pantry = (props) => {
-  const [showForm, setShowForm] = useState(false);
+  const [showLookup, setShowLookup] = useState(false);
   const [storedIngredient, setStoredIngredient] = useState();
 
   const [foodId, setFoodId] = useState("899");
@@ -12,6 +12,7 @@ const pantry = (props) => {
   const [foodCategory, setFoodCategory] = useState("test");
   const [location, setLocation] = useState("unknown");
   const [weight, setWeight] = useState("99");
+  const [expiry, setExpiry] = useState(new Date());
   const [imageUrl, setImageUrl] = useState("http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg");
 
   const ingredientsList = props.user.pantry;
@@ -22,15 +23,34 @@ const pantry = (props) => {
 
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
-      return <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+      return (
+        <div>
+        <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+      {/* <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button> */}
+      </div>
+      )
     });
   }
 
+  const addToShoppingList = (event, ingredient) => {
+    console.log(ingredient);
+    event.preventDefault();
+    axios({
+      method: 'patch',
+      url: `/users/${props.user.id}/shopping-list/add`,
+      headers: { 'Content-Type': 'application/json' },
+      data: ingredient
+    }).then((response) => {
+        console.log(response);
+        // location.reload();
+    })
+  }
+
   const addIngredient = () => {
-    if (showForm === false) {
-      setShowForm(true);
+    if (showLookup === false) {
+      setShowLookup(true);
     } else {
-      setShowForm(false);
+      setShowLookup(false);
     };
   }
 
@@ -54,16 +74,20 @@ const pantry = (props) => {
     setImageUrl(event.target.value);
   }
 
+  const handleExpiryChange = (event) => {
+    setExpiry(event.target.value);
+  }
+
   const handleLookupNameChange = (event) => {
     // event.preventDefault();
     lookupName = event.target.value;
   }
 
-  const setStoredToState = (e) => {
-    setFoodId(e.foodId);
-    setName(e.label);
-    setFoodCategory(e.category);
-    setImageUrl(e.image);
+  const setStoredToState = (edamamResult) => {
+    setFoodId(edamamResult.foodId);
+    setName(edamamResult.label);
+    setFoodCategory(edamamResult.category);
+    setImageUrl(edamamResult.image);
   }
 
   const addToPantry = () => {
@@ -79,7 +103,7 @@ const pantry = (props) => {
         location: location,
         weight: weight,
         imageUrl: imageUrl,
-        expiry: new Date(),
+        expiry: expiry,
       }
     }).then((response) => {
         console.log(response);
@@ -100,8 +124,9 @@ const pantry = (props) => {
           // console.log(response.data.parsed);
           // console.log(response.data.parsed[0]);
           console.log(response.data.parsed[0].food.foodId);
-          setStoredIngredient(response.data.parsed[0].food);
+
           setStoredToState(response.data.parsed[0].food);
+          setStoredIngredient(response.data.parsed[0].food);
           storedIngredient ? console.log(storedIngredient) : console.log("empty");
       });
     // }, [])
@@ -118,31 +143,36 @@ const pantry = (props) => {
     )
   }
 
-  const form = <Form
+  const form =
+  <Form
       onNameChange={handleNameChange}
       onFoodCategoryChange={handleFoodCategoryChange}
       onLocationChange={handleLocationChange}
       onWeightChange={handleWeightChange}
       onImageUrlChange={handleImageUrlChange}
+      onExpiryChange={handleExpiryChange}
       onButtonClick={addToPantry}
+      name={name}
+      category={foodCategory}
+      weight={weight}
+      imageUrl={imageUrl}
     />
 
-  const LookupDisplayConfirmation = () => {
-    return(
-      <div>
-      <Ingredient data={storedIngredient} />
-        <button onClick={addToPantry}>Add this ingredient to pantry</button>
-      </div>
-    )
-  }
+  // const LookupDisplayConfirmation = () => {
+  //   return(
+  //     <div>
+  //     <Ingredient data={storedIngredient} />
+  //       <button onClick={addToPantry}>Add this ingredient to pantry</button>
+  //     </div>
+  //   )
+  // }
 
   // Render below
 
   return (
     <div className="container">
-      {showForm ? form : null}
-      <p><Lookup /></p>
-      {storedIngredient ? <LookupDisplayConfirmation /> : <div>storage empty</div> }
+      {showLookup ? <Lookup /> : null}
+      {storedIngredient ? form : <div>storage empty</div> }
       <button onClick={addIngredient}>Add Ingredient</button>
       <table>
         {getIngredients(ingredientsList)}
