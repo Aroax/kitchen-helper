@@ -201,9 +201,9 @@ public class UserController {
 
 	@PatchMapping("/users/{id}/recipes/saved/add")
 	public void addToSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
-  User user = userRepository.findById(id).orElseGet(User::new);
-  user.getSavedRecipes().add(recipe);
-		userRepository.save(user);
+	User user = userRepository.findById(id).orElseGet(User::new);
+  	user.getSavedRecipes().add(recipe);
+	userRepository.save(user);
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/remove")
@@ -222,34 +222,22 @@ public class UserController {
 
 		userRepository.save(user);
 	}
-	
-//	@PatchMapping("/users/{id}/recipes/favourite-recipes/add")
-//	
-//	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove")
- 
 
-	@PatchMapping("/users/{id}/recipes/favourite-recipes/add") 
-		public void addToFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
-	    User user = userRepository.findById(id).orElseGet(User::new);
-		user.getFavouriteRecipes().add(recipe);
-		userRepository.save(user);
-	}
-
-	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove") 
-		public void removeFromFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
-	    User user = userRepository.findById(id).orElseGet(User::new);
-		ArrayList<CustomRecipe> favouriteList = user.getFavouriteRecipes();
-		int index = -1;
+	// @PatchMapping("/users/{id}/recipes/favourite-recipes/remove") 
+	// 	public void removeFromFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	//     User user = userRepository.findById(id).orElseGet(User::new);
+	// 	ArrayList<CustomRecipe> favouriteList = user.getFavouriteRecipes();
+	// 	int index = -1;
 		
-		for (CustomRecipe rec : favouriteList) {
-			if (rec.getRecipeId().equals(recipe.getRecipeId())) {
-				index = favouriteList.indexOf(rec);   
-			}
-		}
+	// 	for (CustomRecipe rec : favouriteList) {
+	// 		if (rec.getRecipeId().equals(recipe.getRecipeId())) {
+	// 			index = favouriteList.indexOf(rec);   
+	// 		}
+	// 	}
 
-		user.getFavouriteRecipes().remove(index);
+	// 	user.getFavouriteRecipes().remove(index);
 
-			userRepository.save(user);
-		}
+	// 		userRepository.save(user);
+	// 	}
 
 }

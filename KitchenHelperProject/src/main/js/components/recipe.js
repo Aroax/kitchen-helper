@@ -14,6 +14,7 @@ import Button from "@material-ui/core/Button";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
+import PostAddIcon from '@material-ui/icons/PostAdd';
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
@@ -64,15 +65,27 @@ const recipeCard = (props)  =>{
   const handleExpandClick = () => {
     setExpanded(!expanded);
   };
-  const ingredients = props.data.recipe.ingredients;
 
-  const addToFavourites = () => {
+const ingredients = props.data.recipe.ingredients;
+
+  const getEdamamRecipeId = () => {
+    let edamamRecipeUri = props.data.recipe.uri;
+    let splitUri = edamamRecipeUri.split("_");
+    return splitUri[1];
+  }
+
+  const addToSavedRecipes = () => {
     event.preventDefault();
+    console.log(props.data.recipe);
     axios({
       method: 'patch',
-      url: `/users/${props.userId}/recipes/favourite-recipes/add`,
+      url: `/users/${props.userId}/recipes/saved/add`,
       headers: { 'Content-Type': 'application/json' },
-      data: props.data
+      data: {
+          recipeName: props.data.recipe.label,
+          recipeId: getEdamamRecipeId(),
+          ingredients: props.data.recipe.ingredients
+      }
     }).then((response) => {
         console.log(response);
     })
@@ -132,8 +145,8 @@ const recipeCard = (props)  =>{
         </Grid>
       </Grid>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to favorites" onClick={addToFavourites}>
-          <FavoriteIcon color="#ff0000" />
+        <IconButton aria-label="add to my recipes" onClick={addToSavedRecipes}>
+          <PostAddIcon color="#secondary" />
         </IconButton>
         <IconButton aria-label="add to favorites">
           <AddShoppingCartIcon color="secondary" />
