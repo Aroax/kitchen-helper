@@ -1,9 +1,21 @@
 import React from "react";
 import axios from "axios";
 import Recipe from "./recipe"
+import Grid from "@material-ui/core/Grid";
+import SearchBar from "./searchBar";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+  recipes: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3)
+  }
+}));
 
 const externalRecipeLookup = (props) => {
-
+  const classes = useStyles();
   const [searchedRecipe, setSearchedRecipe] = React.useState();
 
   // let recipeList;
@@ -14,19 +26,16 @@ const externalRecipeLookup = (props) => {
 
   const recipeLookup = (event) => {
     event.preventDefault();
-    // useEffect(() => {
+
     axios({
       method: 'get',
       url: `${recipe_api_url}&q=${recipeSearch}&app_id=${recipe_app_ID}&app_key=${recipe_app_key}`
       // headers: { 'Content-Type': 'application/json' },
     }).then((response) => {
-      console.log(response.data.hits);
+      // console.log(response.data.hits);
       setSearchedRecipe(response.data.hits);
-      // recipeList = response.data.hits;
       // getRecipes(response.data.hits);
-
     });
-    // }, [])
   }
 
   const handleRecipeLookupNameChange = (event) => {
@@ -36,26 +45,27 @@ const externalRecipeLookup = (props) => {
   const getRecipes = (recipes) => {
     return recipes.map((recipe) => {
       return (
-        <div>
+        <Grid item xs={12} sm={6} md={3}>
           <Recipe data={recipe} userId={props.user.id}></Recipe>
-        </div>
+        </Grid>
       )
     });
   }
 
   return (
-    <div>
-      <form onSubmit={recipeLookup}>
-        <input type="text" placeholder="Search recipes" onChange={handleRecipeLookupNameChange}></input>
-        <input type="submit" value="search" />
-      </form>
+    <main className={classes.recipes}>
+      <SearchBar
+        color="secondary"
+        label="Search for recipes"
+        onClick={recipeLookup}
+        onChange={handleRecipeLookupNameChange}
+      />
       {searchedRecipe ?
-        (<table>
+        (<Grid container direction="row" alignItems="flex-start" spacing={2}>
           {getRecipes(searchedRecipe)}
-        </table>)
-        :
-        <div></div>}
-    </div>
+        </Grid>)
+        : <div></div>}
+    </main>
   )
 
 }
