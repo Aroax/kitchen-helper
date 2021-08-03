@@ -33,6 +33,10 @@ public class User {
 	
 	private ArrayList<CustomRecipe> recentRecipes;
 	
+	private ArrayList<Ingredient> restockList;
+	
+//	private ArrayList<Ingredient> belowThresholdIngredients;
+	
 //	private ArrayList<Object> recipes;
 	
 
@@ -141,6 +145,10 @@ public class User {
 	}
 	
 	public void pantrySpringClean() {
+		removeEmptyPantryIngredients();
+	}
+	
+	public void removeEmptyPantryIngredients() {
 		ArrayList<Ingredient> runOut = new ArrayList<Ingredient>();
 		for (Ingredient ing : pantry) {
 				if (ing.getWeight() <= 0.0) {
@@ -149,7 +157,23 @@ public class User {
 			}
 		}
 		pantry.removeAll(runOut);
+		restockList.addAll(runOut);
 	}
+	
+	public void checkPantryIngredientThresholds() {
+		ArrayList<Ingredient> thresholdAlert = new ArrayList<Ingredient>();
+		for (Ingredient ing : pantry) {
+			Float threshold = ing.getWeight() * ing.getThreshold();
+
+				if (ing.getWeight() <= threshold ) {
+					System.out.println("Threshold alert: " + ing.getName());
+					thresholdAlert.add(ing);
+			}
+		}
+		// to be replaced with functional alerting (push to new array field to add to a shopping list tab?)
+		System.out.println(thresholdAlert);
+	}
+	
 	
 	public void increasePantryIngredientAmount(String foodId, Float amount) {
 			for (Ingredient ing : pantry) {
@@ -173,6 +197,14 @@ public class User {
 	
 	public void setRecentRecipes(ArrayList<CustomRecipe> recentRecipes) {
 		this.recentRecipes = recentRecipes;
+	}
+
+	public ArrayList<Ingredient> getRestockList() {
+		return restockList;
+	}
+
+	public void setRestockList(ArrayList<Ingredient> restockList) {
+		this.restockList = restockList;
 	}
 
 }
