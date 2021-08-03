@@ -33,6 +33,8 @@ public class User {
 	
 	private ArrayList<CustomRecipe> recentRecipes;
 	
+	private ArrayList<Ingredient> restockList;
+	
 //	private ArrayList<Ingredient> belowThresholdIngredients;
 	
 //	private ArrayList<Object> recipes;
@@ -155,6 +157,7 @@ public class User {
 			}
 		}
 		pantry.removeAll(runOut);
+		restockList.addAll(runOut);
 	}
 	
 	public void checkPantryIngredientThresholds() {
@@ -194,6 +197,14 @@ public class User {
 	
 	public void setRecentRecipes(ArrayList<CustomRecipe> recentRecipes) {
 		this.recentRecipes = recentRecipes;
+	}
+
+	public ArrayList<Ingredient> getRestockList() {
+		return restockList;
+	}
+
+	public void setRestockList(ArrayList<Ingredient> restockList) {
+		this.restockList = restockList;
 	}
 
 }
