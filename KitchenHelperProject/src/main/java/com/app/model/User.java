@@ -1,8 +1,6 @@
 package com.app.model;
 
 import java.util.ArrayList;
-// import java.util.List;
-import java.util.List;
 
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -24,10 +22,13 @@ public class User {
 	private Object preferences;
 	
 	private ArrayList<Ingredient> shoppingList;
+
+	private ArrayList<CustomRecipe> favouriteRecipes;
+
 	
 	private ArrayList<CustomRecipe> customRecipes;
 
-	private ArrayList<Recipe> savedRecipes;
+	private ArrayList<CustomRecipe> savedRecipes;
 	
 	private ArrayList<Ingredient> draftRecipe;
 	
@@ -105,11 +106,11 @@ public class User {
 		this.customRecipes = customRecipes;
 	}
 
-	public ArrayList<Recipe> getSavedRecipes() {
+	public ArrayList<CustomRecipe> getSavedRecipes() {
 		return savedRecipes;
 	}
 	
-	public void setSavedRecipes(ArrayList<Recipe> savedRecipes) {
+	public void setSavedRecipes(ArrayList<CustomRecipe> savedRecipes) {
 		this.savedRecipes = savedRecipes;
 	}
 
@@ -205,6 +206,14 @@ public class User {
 
 	public void setRestockList(ArrayList<Ingredient> restockList) {
 		this.restockList = restockList;
+	}
+
+	public ArrayList<CustomRecipe> getFavouriteRecipes() {
+		return favouriteRecipes;
+	}
+	
+	public void setFavouriteRecipes(ArrayList<CustomRecipe> favouriteRecipes) {
+		this.favouriteRecipes = favouriteRecipes;
 	}
 
 }

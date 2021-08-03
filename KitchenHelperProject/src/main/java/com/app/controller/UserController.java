@@ -14,7 +14,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.app.model.User;
 import com.app.model.Ingredient;
-import com.app.model.Recipe;
 import com.app.model.CustomRecipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
@@ -176,9 +175,6 @@ public class UserController {
   User user = userRepository.findById(id).orElseGet(User::new);
   ObjectId objectId = new ObjectId();
   recipe.setRecipeId(objectId.toString());
-//  System.out.println(recipe);
-//  recipe.showStats();
-//  System.out.println(user.getCustomRecipes());
   user.getCustomRecipes().add(recipe);
   ArrayList<Ingredient> clearDrafts = new ArrayList<Ingredient>();
   user.setDraftRecipe(clearDrafts);
@@ -204,19 +200,19 @@ public class UserController {
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/add")
-	public void addToSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+	public void addToSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
   User user = userRepository.findById(id).orElseGet(User::new);
   user.getSavedRecipes().add(recipe);
 		userRepository.save(user);
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/remove")
-	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody Recipe recipe) {
+	public void removeFromSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
     User user = userRepository.findById(id).orElseGet(User::new);
-    ArrayList<Recipe> savedRecipes = user.getSavedRecipes();
+    ArrayList<CustomRecipe> savedRecipes = user.getSavedRecipes();
     int index = -1;
     
-    for (Recipe rep : savedRecipes) {
+    for (CustomRecipe rep : savedRecipes) {
         if (rep.getRecipeId().equals(recipe.getRecipeId())) {
             index = savedRecipes.indexOf(rep);   
         }
@@ -231,4 +227,29 @@ public class UserController {
 //	
 //	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove")
  
+
+	@PatchMapping("/users/{id}/recipes/favourite-recipes/add") 
+		public void addToFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	    User user = userRepository.findById(id).orElseGet(User::new);
+		user.getFavouriteRecipes().add(recipe);
+		userRepository.save(user);
+	}
+
+	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove") 
+		public void removeFromFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	    User user = userRepository.findById(id).orElseGet(User::new);
+		ArrayList<CustomRecipe> favouriteList = user.getFavouriteRecipes();
+		int index = -1;
+		
+		for (CustomRecipe rec : favouriteList) {
+			if (rec.getRecipeId().equals(recipe.getRecipeId())) {
+				index = favouriteList.indexOf(rec);   
+			}
+		}
+
+		user.getFavouriteRecipes().remove(index);
+
+			userRepository.save(user);
+		}
+
 }
