@@ -38,20 +38,7 @@ db.users.insert({
       health: '',
       diet: ''
     },
-    {
-      foodId: '',
-      name: '',
-      foodCategory: '',
-      location: '',
-      unit: '',
-      quantity: '',
-      weight: '',
-      imageUrl: '',
-      threshold: '',
-      expiry: '',
-      health: '',
-      diet: ''
-    }],
+    ],
   preferences: {
     allergies: [''],
     dietaryRequirements: [''],
@@ -68,7 +55,13 @@ db.users.insert({
     quantityNeeded: '',
     weightNeeded: '',
     imageUrl: ''
-  }]
+  }],
+  <!-- recipes: { -->
+    customRecipes: [''],
+    draftRecipe: [''],
+    recentRecipes: [''],
+    favouriteRecipes: ['']
+  <!-- } -->
 })
 
 ```
