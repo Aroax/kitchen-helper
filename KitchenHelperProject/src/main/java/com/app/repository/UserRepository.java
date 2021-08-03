@@ -7,6 +7,9 @@ import com.app.model.User;
 
 @Repository
 public interface UserRepository extends MongoRepository<User, String> {
-
+	
+	User findByDisplayName(String displayName);
+	
+	User findByEmail(String email);
 
 }
