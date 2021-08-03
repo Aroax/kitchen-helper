@@ -222,10 +222,6 @@ public class UserController {
 
 		userRepository.save(user);
 	}
-	
-//	@PatchMapping("/users/{id}/recipes/favourite-recipes/add")
-//	
-//	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove")
  
 
 	@PatchMapping("/users/{id}/recipes/favourite-recipes/add") 
@@ -251,5 +247,30 @@ public class UserController {
 
 			userRepository.save(user);
 		}
+	
+	@PatchMapping("/users/{id}/mealplanner/add")
+	public void addRecipetoMealPlanner(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+		User user = userRepository.findById(id).orElseGet(User::new);
+		user.getMealPlanner().add(recipe);
+		userRepository.save(user);
+	}
+	
+	@PatchMapping("/users/{id}/mealplanner/remove") 
+	public void removeRecipeFromMealPlanner(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+	ArrayList<CustomRecipe> mealPlanner = user.getMealPlanner();
+	int index = -1;
+	
+	for (CustomRecipe rec : mealPlanner) {
+		if (rec.getRecipeId().equals(recipe.getRecipeId())) {
+			index = mealPlanner.indexOf(rec);   
+		}
+	}
 
+	user.getMealPlanner().remove(index);
+
+		userRepository.save(user);
+	}
+	
+	
 }
