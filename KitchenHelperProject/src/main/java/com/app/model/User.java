@@ -36,6 +36,8 @@ public class User {
 	
 	private ArrayList<Ingredient> restockList;
 	
+	private ArrayList<CustomRecipe> mealPlanner;
+	
 //	private ArrayList<Ingredient> belowThresholdIngredients;
 	
 //	private ArrayList<Object> recipes;
@@ -214,6 +216,14 @@ public class User {
 	
 	public void setFavouriteRecipes(ArrayList<CustomRecipe> favouriteRecipes) {
 		this.favouriteRecipes = favouriteRecipes;
+	}
+
+	public ArrayList<CustomRecipe> getMealPlanner() {
+		return mealPlanner;
+	}
+
+	public void setMealPlanner(ArrayList<CustomRecipe> mealPlanner) {
+		this.mealPlanner = mealPlanner;
 	}
 
 }
