@@ -56,7 +56,7 @@ const RecipeList = (props) => {
     recipe.ingredients.map((recipeIngredient) => {
         found = false;
         pantry.forEach((pantryIngredient) => {
-            console.log('recipe Ing', recipeIngredient);
+            // console.log('recipe Ing', recipeIngredient);
             // console.log('pantry Ing', pantryIngredient);
             if (recipeIngredient.foodId === pantryIngredient.foodId) {
                 found = true;
@@ -65,6 +65,7 @@ const RecipeList = (props) => {
             }; 
         });
         found ? null : requiredIngredients.push(recipeIngredient);
+        console.log('at ternary', recipeIngredient);
 
     })
     console.log('end of compare', requiredIngredients);
