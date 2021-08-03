@@ -131,7 +131,7 @@ const ManualRecipe = (props) => {
     return recipe.map((ingredient) => {
       return (
         <div>
-          <Ingredient data={ingredient} userId={props.user.id}></Ingredient>
+          <Ingredient data={ingredient} userId={props.user.id} weightNeeded={ingredient.weightNeeded}></Ingredient>
           {console.log(ingredient)}
           <button onClick={() => {removeIngredientFromDraftRecipe(ingredient)} }>Remove Ingredient</button>
           {/* Edit quantity button function required: */}

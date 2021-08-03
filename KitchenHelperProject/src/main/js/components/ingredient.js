@@ -55,16 +55,26 @@ const Ingredient = (props) => {
     }
 
   }
+  const foodCategory = FoodCategory ? props.foodCategory : null;
+  const location = props.location ? props.location : null; 
+  const weight = props.weight ? `${props.weight}g total` : null; 
+  const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;  
 
+  console.log('ing props', props)
   return (
     <tr>
       <td><img src={props.data.imageUrl} height="200px" width="250px"></img></td>
       <td>{props.data.name}</td>
-      <td>{props.data.foodCategory}</td>
+      {/* <td>{props.data.foodCategory}</td> */}
       <td>{expiryCalculator()}</td>
-      <td>{props.data.location}</td>
+      {/* <td>{props.data.location}</td>
       <td>{props.data.weight}g</td>
-      <td>{props.data.weightNeeded}g</td>
+      <td>{props.data.weightNeeded}g</td> */}
+
+      <td>{foodCategory}</td>
+      <td>{location}</td>
+      <td>{weight}</td>
+      <td>{weightNeeded}</td>
     </tr>
   )
 }

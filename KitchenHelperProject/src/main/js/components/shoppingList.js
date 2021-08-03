@@ -7,7 +7,7 @@ const ShoppingList = (props) => {
 
   const getIngredients = (shoppingList) => {
     return shoppingList.map((ingredient) => {
-      return <Ingredient data={ingredient}></Ingredient>
+      return <Ingredient data={ingredient} weightNeeded={ingredient.weightNeeded}></Ingredient>
     });
   }
 
