@@ -3,6 +3,7 @@ import axios from "axios";
 import Pantry from "./pantry";
 import ShoppingList from "./shoppingList";
 import ManualRecipe from "./manualRecipe";
+import SavedRecipes from "./savedRecipes";
 import Recipes from "./recipes";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -33,6 +34,7 @@ const user = () => {
     const shoppingList = user ? <ShoppingList user={user}></ShoppingList> : <div></div>
     const recipes = user ? <Recipes user={user} /> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
+    const savedRecipes = user ? <SavedRecipes user={user}></SavedRecipes> : <div></div>
 
     return (
         <div className="container">
@@ -50,6 +52,9 @@ const user = () => {
                     </Route>
                     <Route path="/shopping-list">
                         {shoppingList}
+                    </Route>
+                    <Route path="/saved">
+                        {savedRecipes}
                     </Route>
                 </Switch>
             </Router>
