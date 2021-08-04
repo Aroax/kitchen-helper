@@ -1,20 +1,12 @@
 import React from "react";
-import axios from "axios";
 
 const Ingredient = (props) => {
-  // const addToShoppingList = () => {
-  //   console.log(props);
-  //
-  //   axios({
-  //     method: 'patch',
-  //     url: `/users/${props.userId}/shopping-list/add`,
-  //     headers: { 'Content-Type': 'application/json' },
-  //     data: props.data
-  //   }).then((response) => {
-  //       console.log(response);
-  //       location.reload();
-  //   })
-  // }
+  const [weightNeeded, setWeightNeeded] = React.useState(props.data.weightNeeded);
+
+  const handleWeightNeededChange = (event) => {
+    props.updateWeightNeeded(props.data.foodId, event.target.value);
+    setWeightNeeded(event.target.value);
+  };
 
   const expiryCalculator = () => {
     const expiryDate = new Date(props.data.expiry)
@@ -58,7 +50,7 @@ const Ingredient = (props) => {
   const foodCategory = props.foodCategory ? props.foodCategory : null;
   const location = props.location ? props.location : null; 
   const weight = props.weight ? `${props.weight}g total` : null; 
-  const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;  
+  // const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;  
 
   console.log('ing props', props)
   return (
@@ -74,7 +66,15 @@ const Ingredient = (props) => {
       <td>{foodCategory}</td>
       <td>{location}</td>
       <td>{weight}</td>
-      <td>{weightNeeded}</td>
+      {/* <td>{weightNeeded}</td> */}
+      { props.type === "shopping-list" 
+          ? (
+            <td><input value={weightNeeded} onChange={handleWeightNeededChange}></input>g</td>
+          ) 
+          : (
+            <td>{props.data.weightNeeded}g</td>
+          )
+        }     
     </tr>
   )
 }

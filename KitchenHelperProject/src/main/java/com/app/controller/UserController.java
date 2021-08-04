@@ -17,7 +17,7 @@ import com.app.model.Ingredient;
 import com.app.model.CustomRecipe;
 import com.app.repository.UserDAO;
 import com.app.repository.UserRepository;
-import com.app.utilities.*;
+// import com.app.utilities.*;
 
 @RestController
 public class UserController {
@@ -216,9 +216,9 @@ public class UserController {
 
 	@PatchMapping("/users/{id}/recipes/saved/add")
 	public void addToSavedRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
-  User user = userRepository.findById(id).orElseGet(User::new);
-  user.getSavedRecipes().add(recipe);
-		userRepository.save(user);
+	User user = userRepository.findById(id).orElseGet(User::new);
+  	user.getSavedRecipes().add(recipe);
+	userRepository.save(user);
 	}
 
 	@PatchMapping("/users/{id}/recipes/saved/remove")
@@ -237,31 +237,30 @@ public class UserController {
 
 		userRepository.save(user);
 	}
- 
 
-	@PatchMapping("/users/{id}/recipes/favourite-recipes/add") 
-		public void addToFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
-	    User user = userRepository.findById(id).orElseGet(User::new);
-		user.getFavouriteRecipes().add(recipe);
-		userRepository.save(user);
+	@PatchMapping("/users/{id}/recipes/favourites/add")
+	public void addToFavouriteRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	User user = userRepository.findById(id).orElseGet(User::new);
+  	user.getFavouriteRecipes().add(recipe);
+	userRepository.save(user);
 	}
 
-	@PatchMapping("/users/{id}/recipes/favourite-recipes/remove") 
-		public void removeFromFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
-	    User user = userRepository.findById(id).orElseGet(User::new);
-		ArrayList<CustomRecipe> favouriteList = user.getFavouriteRecipes();
-		int index = -1;
+	// @PatchMapping("/users/{id}/recipes/favourite-recipes/remove") 
+	// 	public void removeFromFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	//     User user = userRepository.findById(id).orElseGet(User::new);
+	// 	ArrayList<CustomRecipe> favouriteList = user.getFavouriteRecipes();
+	// 	int index = -1;
 		
-		for (CustomRecipe rec : favouriteList) {
-			if (rec.getRecipeId().equals(recipe.getRecipeId())) {
-				index = favouriteList.indexOf(rec);   
-			}
-		}
+	// 	for (CustomRecipe rec : favouriteList) {
+	// 		if (rec.getRecipeId().equals(recipe.getRecipeId())) {
+	// 			index = favouriteList.indexOf(rec);   
+	// 		}
+	// 	}
 
-		user.getFavouriteRecipes().remove(index);
+	// 	user.getFavouriteRecipes().remove(index);
 
-			userRepository.save(user);
-		}
+		// 	userRepository.save(user);
+		// }
 	
 	@PatchMapping("/users/{id}/mealplanner/add")
 	public void addRecipetoMealPlanner(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
