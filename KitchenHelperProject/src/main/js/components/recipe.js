@@ -78,8 +78,6 @@ const recipeCard = (props)  =>{
     })
   })
   
-  console.log(ingredients);
-
   const getEdamamRecipeId = () => {
     let edamamRecipeUri = props.data.recipe.uri;
     let splitUri = edamamRecipeUri.split("_");
@@ -88,7 +86,6 @@ const recipeCard = (props)  =>{
 
   const addToSavedRecipes = () => {
     event.preventDefault();
-    console.log(props.data.recipe);
     axios({
       method: 'patch',
       url: `/users/${props.userId}/recipes/saved/add`,
