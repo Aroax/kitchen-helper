@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 import compareIngredientsArrayAndBuild from "./compareIngredientsArrayAndBuild";
+import { getShoppingList, buildShoppingListFromMealPlanner }from "./amalgamate";
 
 
 const MealPlanner = (props) => {
@@ -195,16 +196,18 @@ const MealPlanner = (props) => {
 
       const addAllRecipesToShoppingList = () => {
         let total = [];
-        mealPlanner.map((recipe) => {  
+        let result = [];
+        mealPlanner.forEach((recipe) => {  
           // console.log(`top of map, ${allMealPlanIngredients}`);
-           total = compareIngredientsArrayAndBuild(total, recipe.ingredients, true);
-          // console.log('comparison', comparison);
-          // total.forEach((ingredient) => {
-          //   // console.log('ingredient', ingredient);
-          //   allMealPlanIngredients.push(ingredient);
-          // });
-            // console.log(`in loop, ${allMealPlanIngredients}`);
+           total = buildShoppingListFromMealPlanner(total, recipe.ingredients);
+          //  console.log('result now:', total);
+
+           result.forEach((ingredient) => {
+             total.push(ingredient);
+              console.log('total now:', total);
+           });
           });
+          // total = getShoppingList();
         console.log('finished iterating total', total);
   
 
