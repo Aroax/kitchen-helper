@@ -66,12 +66,11 @@ const recipeCard = (props)  =>{
     setExpanded(!expanded);
   };
 
-  const ingredients = props.data.ingredients.map((ingredient) => {
-    console.log("Another ingredient log:", ingredient)
+  const ingredients = props.data.recipe.ingredients.map((ingredient) => {
     return(
     {
       foodId: ingredient.foodId,
-      name: "placeholderName",
+      name: ingredient.text,
       weight: ingredient.weight,
       imageUrl: ingredient.image,
       foodCategory: ingredient.foodCategory,
@@ -97,7 +96,11 @@ const recipeCard = (props)  =>{
       data: {
           recipeName: props.data.recipe.label,
           recipeId: getEdamamRecipeId(),
-          ingredients: ingredients
+          ingredients: ingredients,
+          image: props.data.recipe.image,
+          yield: props.data.recipe.yield,
+          url: props.data.recipe.url,
+          source: props.data.recipe.source,
       }
     }).then((response) => {
         console.log(response);
