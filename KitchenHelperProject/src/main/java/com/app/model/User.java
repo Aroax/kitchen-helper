@@ -25,7 +25,6 @@ public class User {
 
 	private ArrayList<CustomRecipe> favouriteRecipes;
 
-	
 	private ArrayList<CustomRecipe> customRecipes;
 
 	private ArrayList<CustomRecipe> savedRecipes;

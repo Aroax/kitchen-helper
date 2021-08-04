@@ -66,8 +66,19 @@ const recipeCard = (props)  =>{
     setExpanded(!expanded);
   };
 
-const ingredients = props.data.recipe.ingredients;
-
+  const ingredients = props.data.recipe.ingredients.map((ingredient) => {
+    return(
+    {
+      foodId: ingredient.foodId,
+      name: ingredient.text,
+      weight: Math.ceil(ingredient.weight),
+      weightNeeded: Math.ceil(ingredient.weight),
+      imageUrl: ingredient.image,
+      foodCategory: ingredient.foodCategory,
+      text: ingredient.text
+    })
+  })
+  
   const getEdamamRecipeId = () => {
     let edamamRecipeUri = props.data.recipe.uri;
     let splitUri = edamamRecipeUri.split("_");
@@ -84,7 +95,11 @@ const ingredients = props.data.recipe.ingredients;
       data: {
           recipeName: props.data.recipe.label,
           recipeId: getEdamamRecipeId(),
-          ingredients: props.data.recipe.ingredients
+          ingredients: ingredients,
+          image: props.data.recipe.image,
+          yield: props.data.recipe.yield,
+          url: props.data.recipe.url,
+          source: props.data.recipe.source,
       }
     }).then((response) => {
         console.log(response);
@@ -145,12 +160,21 @@ const ingredients = props.data.recipe.ingredients;
         </Grid>
       </Grid>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to my recipes" onClick={addToSavedRecipes}>
-          <PostAddIcon color="#secondary" />
-        </IconButton>
-        <IconButton aria-label="add to favorites">
+        {(props.button ? 
+        props.button 
+        :
+          <IconButton aria-label="add to saved recipes" onClick={addToSavedRecipes}>
+              <PostAddIcon color="#secondary" />
+          </IconButton>
+        )}
+        {/* <IconButton aria-label="add to shopping list">
           <AddShoppingCartIcon color="secondary" />
-        </IconButton>
+        </IconButton> */}
+        {(props.actionButtons ?
+        props.actionButtons
+        :
+        null
+        )}
         <Button href={props.data.recipe.url} size="small" color="secondary" disableElevation>
           view source
         </Button>
