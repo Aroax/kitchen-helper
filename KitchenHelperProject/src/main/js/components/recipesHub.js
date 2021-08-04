@@ -18,7 +18,7 @@ const RecipesHub = (props) => {
             <hr />
             {props.user ?  <ManualRecipe user={props.user} /> : <div>Loading...</div>}
             <hr />
-            <RecipeList user={props.user} />
+            
             <hr />
             <MealPlanner user={props.user} />
             {/* <savedRecipes />

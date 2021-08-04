@@ -6,6 +6,7 @@ import axios from "axios";
 const MealPlanner = (props) => {
     // const mealPlanner = props.user.mealPlanner;
     const [mealPlanner, setMealPlanner] = useState(props.user.mealPlanner);
+    let allMealPlanIngredients = [];
 
     const getMealPlannerRecipes = () => {
         return mealPlanner.map((recipe) => {
@@ -50,7 +51,22 @@ const MealPlanner = (props) => {
       
        
       const addAllRecipesToShoppingList = () => {
-          console.log("add all recipes to shopping list");
+        mealPlanner.map((recipe) => {
+          recipe.ingredients.forEach((ingredient) => {
+            allMealPlanIngredients.push(ingredient);
+            console.log(`added ${ingredient.name} to array`);
+          })
+        })
+        console.log('allMealPlanIngredients', allMealPlanIngredients);
+        axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/shopping-list/add-multiple`,
+          headers: { 'Content-Type': 'application/json' },
+          data: allMealPlanIngredients
+        }).then((response) => {
+            console.log(response);
+            // location.reload();
+        })
       }
      
 
