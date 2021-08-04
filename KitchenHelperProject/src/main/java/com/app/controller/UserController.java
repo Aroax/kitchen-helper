@@ -287,5 +287,22 @@ public class UserController {
 		userRepository.save(user);
 	}
 	
+	@PatchMapping("/users/{id}/mealplanner/update-recipe") 
+	public void updateRecipeFromMealPlanner(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+	ArrayList<CustomRecipe> mealPlanner = user.getMealPlanner();
+	int index = -1;
+	
+	for (CustomRecipe rec : mealPlanner) {
+		if (rec.getRecipeId().equals(recipe.getRecipeId())) {
+			index = mealPlanner.indexOf(rec);   
+		}
+	}
+
+	user.getMealPlanner().remove(index);
+	user.getMealPlanner().add(recipe);
+
+		userRepository.save(user);
+	}
 	
 }
