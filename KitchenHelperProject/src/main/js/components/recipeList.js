@@ -126,7 +126,8 @@ const RecipeList = (props) => {
   }
 
   const addRecipeToMealPlanner = (recipe) => {
-    console.log('recipe', recipe);
+    // console.log('recipe', recipe);
+    recipe.mealPlannerDay = "Unassigned";
     axios({
         method: 'patch',
         url: `/users/${props.user.id}/mealplanner/add`,

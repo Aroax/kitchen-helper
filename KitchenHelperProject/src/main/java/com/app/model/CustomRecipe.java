@@ -15,6 +15,8 @@ public class CustomRecipe {
 
 	private ArrayList<Ingredient> ingredients;
 	
+	private String mealPlannerDay;
+	
 	
 	public void showStats() {
 		System.out.println(this.recipeId);
@@ -45,6 +47,16 @@ public class CustomRecipe {
 
 	public void setRecipeName(String recipeName) {
 		this.recipeName = recipeName;
+	}
+
+
+	public String getMealPlannerDay() {
+		return mealPlannerDay;
+	}
+
+
+	public void setMealPlannerDay(String mealPlannerDay) {
+		this.mealPlannerDay = mealPlannerDay;
 	}
 
 }
