@@ -207,12 +207,12 @@ public class User {
 		this.restockList = restockList;
 	}
 
-	// public ArrayList<CustomRecipe> getFavouriteRecipes() {
-	// 	return favouriteRecipes;
-	// }
+	public ArrayList<CustomRecipe> getFavouriteRecipes() {
+		return favouriteRecipes;
+	}
 	
-	// public void setFavouriteRecipes(ArrayList<CustomRecipe> favouriteRecipes) {
-	// 	this.favouriteRecipes = favouriteRecipes;
-	// }
+	public void setFavouriteRecipes(ArrayList<CustomRecipe> favouriteRecipes) {
+		this.favouriteRecipes = favouriteRecipes;
+	}
 
 }

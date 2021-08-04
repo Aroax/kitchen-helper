@@ -223,6 +223,13 @@ public class UserController {
 		userRepository.save(user);
 	}
 
+	@PatchMapping("/users/{id}/recipes/favourites/add")
+	public void addToFavouriteRecipes(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+	User user = userRepository.findById(id).orElseGet(User::new);
+  	user.getFavouriteRecipes().add(recipe);
+	userRepository.save(user);
+	}
+
 	// @PatchMapping("/users/{id}/recipes/favourite-recipes/remove") 
 	// 	public void removeFromFavourites(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
 	//     User user = userRepository.findById(id).orElseGet(User::new);

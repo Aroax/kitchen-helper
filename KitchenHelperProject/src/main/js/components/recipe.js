@@ -158,12 +158,16 @@ const recipeCard = (props)  =>{
         </Grid>
       </Grid>
       <CardActions disableSpacing>
-        <IconButton aria-label="add to my recipes" onClick={addToSavedRecipes}>
-          <PostAddIcon color="#secondary" />
-        </IconButton>
-        <IconButton aria-label="add to favorites">
+        {(props.button ? 
+        props.button 
+        :
+          <IconButton aria-label="add to saved recipes" onClick={addToSavedRecipes}>
+              <PostAddIcon color="#secondary" />
+          </IconButton>
+        )}
+        {/* <IconButton aria-label="add to shopping list">
           <AddShoppingCartIcon color="secondary" />
-        </IconButton>
+        </IconButton> */}
         <Button href={props.data.recipe.url} size="small" color="secondary" disableElevation>
           view recipe
         </Button>
