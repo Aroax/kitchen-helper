@@ -195,20 +195,22 @@ const MealPlanner = (props) => {
 
 
       const addAllRecipesToShoppingList = () => {
-        let total = [];
+        let current = [];
         let result = [];
         mealPlanner.forEach((recipe) => {  
-          // console.log(`top of map, ${allMealPlanIngredients}`);
-           total = buildShoppingListFromMealPlanner(total, recipe.ingredients);
-          //  console.log('result now:', total);
+          console.log('top of map', current);
+           result = buildShoppingListFromMealPlanner(current, recipe.ingredients);
+           console.log('result after call:', result);
 
            result.forEach((ingredient) => {
-             total.push(ingredient);
-              console.log('total now:', total);
-           });
+            current.push(ingredient);
+           console.log('total after second iteration:', current);
           });
+        
+           });
+           
           // total = getShoppingList();
-        console.log('finished iterating total', total);
+        console.log('finished iterating total', current);
   
 
 
