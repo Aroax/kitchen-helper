@@ -45,6 +45,7 @@ const externalRecipeLookup = (props) => {
 
   return (
     <div>
+      <h2>Search Recipe API</h2>
       <form onSubmit={recipeLookup}>
         <input type="text" placeholder="Search recipes" onChange={handleRecipeLookupNameChange}></input>
         <input type="submit" value="search" />

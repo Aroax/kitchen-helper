@@ -99,6 +99,8 @@ public class UserController {
 	  userRepository.save(user);
   }
   
+  
+  
   @PatchMapping("/users/{id}/pantry/subtract-by-recipe")
   public void subtractAllFromPantry(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
 	  System.out.println(recipe);
@@ -123,7 +125,20 @@ public class UserController {
   @PatchMapping("/users/{id}/shopping-list/add-multiple")
  	public void addAllToShoppingList(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredients) {
      User user = userRepository.findById(id).orElseGet(User::new);
-     user.getShoppingList().addAll(ingredients);
+//     ArrayList<Ingredient> shoppingList = user.getShoppingList();
+     for (Ingredient ingredient : ingredients) {
+		  System.out.println(ingredient.getWeightNeeded());
+		  ingredient.setWeight(ingredient.getWeightNeeded());
+		  System.out.println(ingredient.getWeight());
+
+		  if (user.isIngredientOnShoppingList(ingredient.getFoodId())) {
+			  user.increaseShoppingListIngredientAmount(ingredient.getFoodId(), ingredient.getWeightNeeded());
+		  }
+		  else {
+			  user.getShoppingList().add(ingredient);
+		  }
+	  }
+//     user.getShoppingList().addAll(ingredients);
  		userRepository.save(user);
  	}
 

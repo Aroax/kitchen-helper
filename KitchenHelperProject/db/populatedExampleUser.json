@@ -1,0 +1,1026 @@
+/** 
+* Paste one or more documents here
+*/
+{
+    "email": "mike@example.com",
+    "displayName": "mikeyMike",
+    "password": "123",
+    "pantry": [{
+        "foodId": "food_b00mwy0bne9gs4au15ja8ab10h0e",
+        "name": "Sage",
+        "foodCategory": "Condiments and Sauces",
+        "location": "Cupboard",
+        "unit": "Sprig",
+        "quantity": 1,
+        "weight": 10,
+        "imageUrl": "https://www.edamam.com/food-img/509/50984580e9aad4b4ddd5b7ed45a64bf4.jpg",
+        "threshold": 0.25,
+        "expiry": "Tue Jul 27 2021 16:55:51 GMT+0100 (BST)",
+        "health": ["alcohol-free", "crustacean-free"],
+        "diet": ["low-carb"]
+    }, {
+        "foodId": "alphafoxtrot",
+        "name": "Unicorn hair",
+        "foodCategory": "Mythical",
+        "location": "Dreams",
+        "unit": "Strand",
+        "quantity": 1,
+        "weight": 0.10000000149011612,
+        "imageUrl": "https://w7.pngwing.com/pngs/673/645/png-transparent-unicorn-drawing-bright-unicorn-hair-horse-black-hair-female-hair.png",
+        "threshold": 1,
+        "expiry": "Tue Jul 27 2021 16:55:51 GMT+0100 (BST)",
+        "health": ["alcohol-free", "crustacean-free"],
+        "diet": ["low-carb"]
+    }, {
+        "foodId": "food_bmyxrshbfao9s1amjrvhoauob6mo",
+        "name": "Chicken",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 100,
+        "imageUrl": "https://www.edamam.com/food-img/d33/d338229d774a743f7858f6764e095878.jpg",
+        "expiry": "2021-07-30T08:51:09.403Z"
+    }, {
+        "foodId": "food_b1d1icuad3iktrbqby0hiagafaz7",
+        "name": "Olive Oil",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "expiry": "2021-07-30T08:55:50.399Z"
+    }, {
+        "foodId": "food_a8jjbx4biqndasapojdb5by3e92e",
+        "name": "Cumin",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/07e/07e2a4eb77ce46591033846504817d35.jpg",
+        "expiry": "2021-07-30T10:33:05.344Z"
+    }, {
+        "foodId": "food_beu5dozavhrqdpblca414a55qow3",
+        "name": "Chocolate",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg",
+        "expiry": "2021-07-30T10:41:08.653Z"
+    }, {
+        "foodId": "899",
+        "name": "new form test",
+        "foodCategory": "testing cat",
+        "location": "test storage",
+        "weight": 123,
+        "imageUrl": "http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg",
+        "expiry": "2021-07-30T12:34:18.488Z"
+    }, {
+        "foodId": "food_bknby1la98smrsbwnthinbam42nj",
+        "name": "Beef",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/bab/bab88ab3ea40d34e4c8ae35d6b30344a.jpg",
+        "expiry": "2021-07-30T12:35:33.388Z"
+    }, {
+        "foodId": "food_b83hz1dbrydiwzag8btahb15lu4l",
+        "name": "Caster Sugar",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/ecb/ecb3f5aaed96d0188c21b8369be07765.jpg",
+        "expiry": "2021-07-30T13:14:55.562Z"
+    }, {
+        "foodId": "food_a3qcdxyb09op1hbwstv5cbmoqc3d",
+        "name": "Raisins",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/159/159e247350db62e1f87b0636a53687f5.jpg",
+        "expiry": "2021-07-30T13:15:49.611Z"
+    }, {
+        "foodId": "food_b5maw38amr54vpat8d5vhbgmqfxn",
+        "name": "Pineapple",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/2da/2da6f2397ab64ed185c082edebc4dd7c.jpg",
+        "expiry": "2021-07-30T13:19:32.587Z"
+    }, {
+        "foodId": "food_b8pgy4cbnid3sfawqjg92a63pq85",
+        "name": "Peaches, Raw",
+        "foodCategory": "Generic foods",
+        "location": "fruit bowl",
+        "weight": 25,
+        "imageUrl": "https://www.edamam.com/food-img/437/4378245cfab2121c9e6eb9e3c3dc9ac8.jpg",
+        "expiry": "2021-07-30T13:20:25.875Z"
+    }, {
+        "foodId": "food_bu5s7alaj4fjv8bf9qxvnba38oay",
+        "name": "Tuna",
+        "foodCategory": "Generic foods",
+        "location": "Cupboard",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/022/022db6571bd5b3dfbd3ef8941c775d12.jpg",
+        "expiry": "2021-07-30T13:28:18.491Z"
+    }, {
+        "foodId": "food_bjsfxtcaidvmhaa3afrbna43q3hu",
+        "name": "Banana",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/9f6/9f6181163a25c96022ee3fc66d9ebb11.jpg",
+        "expiry": "2021-07-29"
+    }, {
+        "foodId": "food_bd97wcfb5tcjnybmibiyeaqrernd",
+        "name": "Ham",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 100,
+        "imageUrl": "https://www.edamam.com/food-img/a4b/a4ba02f547d69f0ab89ae266903f1e49.jpg",
+        "expiry": "2021-08-05"
+    }, {
+        "foodId": "food_bhpradua77pk16aipcvzeayg732r",
+        "name": "Egg",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 100,
+        "imageUrl": "https://www.edamam.com/food-img/a7e/a7ec7c337cb47c6550b3b118e357f077.jpg",
+        "expiry": "2021-08-05"
+    }, {
+        "foodId": "food_bhppgmha1u27voagb8eptbp9g376",
+        "name": "Cheese",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 50,
+        "expiry": "2021-08-05"
+    }, {
+        "foodId": "food_afcmkjjaqwjkezbfz7htdb7mpkwz",
+        "name": "Cocoa",
+        "foodCategory": "Generic foods",
+        "location": "Cupboard",
+        "weight": 50,
+        "imageUrl": "https://www.edamam.com/food-img/89a/89af89595db3cf2c3007f2b064c5fef6.jpg",
+        "expiry": "2021-08-19"
+    }, {
+        "foodId": "food_a8hs60uayl5icia1qe8qoba1kwp8",
+        "name": "Spaghetti",
+        "foodCategory": "Generic foods",
+        "location": "Cupboard",
+        "weight": 99,
+        "expiry": "2021-08-02T17:54:15.849Z"
+    }, {
+        "foodId": "food_aft8y4gab0fvs5bcgjac6boztho3",
+        "name": "Peanut",
+        "foodCategory": "Generic foods",
+        "location": "unknown",
+        "weight": 99,
+        "imageUrl": "https://www.edamam.com/food-img/6f4/6f41e31c53bb58cc1b7331d0764963f7.jpg",
+        "expiry": "2021-08-03T10:33:39.634Z"
+    }, {
+        "foodId": "food_bvlose6arfl26ra396sjrb7hetqh",
+        "name": "Mushroom",
+        "foodCategory": "Generic foods",
+        "weight": 50,
+        "imageUrl": "https://www.edamam.com/food-img/d63/d639cf4a2afc7407c1d1ce286028136b.jpg",
+        "weightNeeded": 50
+    }],
+    "preferences": {
+        "allergies": ["crustaceans"],
+        "dietaryRequirements": ["vegan"],
+        "likes": ["Italian", "Blue cheese"],
+        "dislikes": ["Unicorn hair"]
+    },
+    "shoppingList": [],
+    "customRecipes": [{
+        "recipeName": "Boring Tomato Pasta",
+        "ingredients": [{
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 400
+        }, {
+            "foodId": "food_a8hs60uayl5icia1qe8qoba1kwp8",
+            "name": "Spaghetti",
+            "foodCategory": "Generic foods",
+            "weightNeeded": 120
+        }]
+    }, {
+        "recipeName": "hot chocolate",
+        "ingredients": [{
+            "foodId": "food_beu5dozavhrqdpblca414a55qow3",
+            "name": "Chocolate",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/0a1/0a1b6f30cb99e1842cac6167f6f424d7.jpg",
+            "weightNeeded": 150
+        }, {
+            "foodId": "food_b49rs1kaw0jktabzkg2vvanvvsis",
+            "name": "Milk",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/7c9/7c9962acf83654a8d98ea6a2ade93735.jpg",
+            "weightNeeded": 100
+        }]
+    }, {
+        "recipeId": "6107b5dce76fa45aa6ae64b1",
+        "recipeName": "cheese and biscuits",
+        "ingredients": [{
+            "foodId": "food_bngjmfmb13ckgcaefl7gta8r5zx5",
+            "name": "Cracker",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/533/5335c3d911793785012a46379a6ad2d3.jpg",
+            "weightNeeded": 150
+        }, {
+            "foodId": "food_bhppgmha1u27voagb8eptbp9g376",
+            "name": "Cheddar",
+            "foodCategory": "Generic foods",
+            "weightNeeded": 150
+        }]
+    }, {
+        "recipeId": "6107bc51e76fa45aa6ae64b2",
+        "recipeName": "Stuffed peppers",
+        "ingredients": [{
+            "foodId": "food_bz8rcwobbzm7zhb3wh2n7aznivou",
+            "name": "Peppers",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/629/629dc9fddc1f8aec27fa337dd6ce2b7c.jpg",
+            "weightNeeded": 80
+        }, {
+            "foodId": "food_bhppgmha1u27voagb8eptbp9g376",
+            "name": "Cheese",
+            "foodCategory": "Generic foods",
+            "weightNeeded": 65
+        }, {
+            "foodId": "food_bpumdjzb5rtqaeabb0kbgbcgr4t9",
+            "name": "Rice",
+            "foodCategory": "Generic foods",
+            "weightNeeded": 40
+        }, {
+            "foodId": "food_aq6acefaz2zqp1anqb7iiatc27q6",
+            "name": "Sun Dried Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/023/0231ec1c0873483bd9747d71d57e6215.jpeg",
+            "weightNeeded": 25
+        }]
+    }, {
+        "recipeId": "6107cabbe76fa45aa6ae64ba",
+        "recipeName": "Tuna and Chocolate",
+        "ingredients": [{
+            "foodId": "food_bu5s7alaj4fjv8bf9qxvnba38oay",
+            "name": "Tuna",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/022/022db6571bd5b3dfbd3ef8941c775d12.jpg",
+            "weightNeeded": 150
+        }, {
+            "foodId": "food_beu5dozavhrqdpblca414a55qow3",
+            "name": "Chocolate",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/0a1/0a1b6f30cb99e1842cac6167f6f424d7.jpg",
+            "weightNeeded": 50
+        }]
+    }, {
+        "recipeId": "6107f3afbf9aa648ecefd781",
+        "recipeName": "cheese and pineapple on sticks",
+        "ingredients": [{
+            "foodId": "food_b5maw38amr54vpat8d5vhbgmqfxn",
+            "name": "Pineapple",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/2da/2da6f2397ab64ed185c082edebc4dd7c.jpg",
+            "weightNeeded": 10
+        }, {
+            "foodId": "food_bhppgmha1u27voagb8eptbp9g376",
+            "name": "Cheese",
+            "foodCategory": "Generic foods",
+            "weightNeeded": 10
+        }]
+    }, {
+        "recipeId": "6107f4eabf9aa648ecefd782",
+        "recipeName": "Ham cheese mushroom omelette",
+        "ingredients": [{
+            "foodId": "food_bd97wcfb5tcjnybmibiyeaqrernd",
+            "name": "Ham",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/a4b/a4ba02f547d69f0ab89ae266903f1e49.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_bhppgmha1u27voagb8eptbp9g376",
+            "name": "Cheese",
+            "foodCategory": "Generic foods",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_bhpradua77pk16aipcvzeayg732r",
+            "name": "Egg",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/a7e/a7ec7c337cb47c6550b3b118e357f077.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bvlose6arfl26ra396sjrb7hetqh",
+            "name": "Mushroom",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d63/d639cf4a2afc7407c1d1ce286028136b.jpg",
+            "weightNeeded": 50
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "61097322b61ff467c361de5b",
+        "recipeName": "bacon",
+        "ingredients": [{
+            "foodId": "food_byse3xdbqq3282b2fqkoea7m20vz",
+            "name": "Chestnut",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/c50/c504cfb40bafb475c594efe93bfe9bf4.jpg",
+            "weightNeeded": 15
+        }]
+    }],
+    "savedRecipes": [],
+    "draftRecipe": [],
+    "recentRecipes": [{
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "61097322b61ff467c361de5b",
+        "recipeName": "bacon",
+        "ingredients": [{
+            "foodId": "food_byse3xdbqq3282b2fqkoea7m20vz",
+            "name": "Chestnut",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/c50/c504cfb40bafb475c594efe93bfe9bf4.jpg",
+            "weightNeeded": 15
+        }]
+    }, {
+        "recipeId": "61097322b61ff467c361de5b",
+        "recipeName": "bacon",
+        "ingredients": [{
+            "foodId": "food_byse3xdbqq3282b2fqkoea7m20vz",
+            "name": "Chestnut",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/c50/c504cfb40bafb475c594efe93bfe9bf4.jpg",
+            "weightNeeded": 15
+        }]
+    }, {
+        "recipeId": "61097322b61ff467c361de5b",
+        "recipeName": "bacon",
+        "ingredients": [{
+            "foodId": "food_byse3xdbqq3282b2fqkoea7m20vz",
+            "name": "Chestnut",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/c50/c504cfb40bafb475c594efe93bfe9bf4.jpg",
+            "weightNeeded": 15
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }, {
+        "recipeId": "61097322b61ff467c361de5b",
+        "recipeName": "bacon",
+        "ingredients": [{
+            "foodId": "food_byse3xdbqq3282b2fqkoea7m20vz",
+            "name": "Chestnut",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/c50/c504cfb40bafb475c594efe93bfe9bf4.jpg",
+            "weightNeeded": 15
+        }]
+    }],
+    "restockList": [{
+        "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+        "name": "Bacon",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+        "weightNeeded": 100
+    }, {
+        "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+        "name": "Lettuce",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+        "weightNeeded": 50
+    }, {
+        "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+        "name": "Tomato",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+        "weightNeeded": 149
+    }, {
+        "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+        "name": "Bread",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+        "weightNeeded": 250
+    }, {
+        "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+        "name": "Bacon",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+        "weightNeeded": 100
+    }, {
+        "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+        "name": "Lettuce",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+        "weightNeeded": 50
+    }, {
+        "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+        "name": "Tomato",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+        "weightNeeded": 149
+    }, {
+        "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+        "name": "Bread",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+        "weightNeeded": 250
+    }, {
+        "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+        "name": "Bacon",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+        "weightNeeded": 100
+    }, {
+        "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+        "name": "Lettuce",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+        "weightNeeded": 50
+    }, {
+        "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+        "name": "Tomato",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+        "weightNeeded": 149
+    }, {
+        "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+        "name": "Bread",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+        "weightNeeded": 250
+    }, {
+        "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+        "name": "Bacon",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+        "weightNeeded": 200
+    }, {
+        "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+        "name": "Lettuce",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+        "weightNeeded": 100
+    }, {
+        "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+        "name": "Tomato",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+        "weightNeeded": 298
+    }, {
+        "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+        "name": "Bread",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+        "weightNeeded": 500
+    }, {
+        "foodId": "food_byse3xdbqq3282b2fqkoea7m20vz",
+        "name": "Chestnut",
+        "foodCategory": "Generic foods",
+        "weight": 0,
+        "imageUrl": "https://www.edamam.com/food-img/c50/c504cfb40bafb475c594efe93bfe9bf4.jpg",
+        "weightNeeded": 15
+    }],
+    "mealPlanner": [{
+        "recipeId": "6107fa1ce8a3955ec75f605d",
+        "recipeName": "BLT",
+        "ingredients": [{
+            "foodId": "food_av0awb0bgs18qub01sd9kbx44b61",
+            "name": "Bacon",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/d42/d426884a125fa39a70d5a5d7217864ec.jpg",
+            "weightNeeded": 100
+        }, {
+            "foodId": "food_bf5fxtkbc9alwoajuvsi7amonr5w",
+            "name": "Lettuce",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/719/71996625d0cb47e197093ecd52c97dc2.jpg",
+            "weightNeeded": 50
+        }, {
+            "foodId": "food_a6k79rrahp8fe2b26zussa3wtkqh",
+            "name": "Tomato",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/23e/23e727a14f1035bdc2733bb0477efbd2.jpg",
+            "weightNeeded": 149
+        }, {
+            "foodId": "food_a3049hmbqj5wstaeeb3udaz6uaqv",
+            "name": "Bread",
+            "foodCategory": "Generic foods",
+            "imageUrl": "https://www.edamam.com/food-img/886/886960f6ce6ccec5b9163bacf2996853.jpg",
+            "weightNeeded": 250
+        }]
+    }],
+    "_class": "com.app.model.User"
+}
