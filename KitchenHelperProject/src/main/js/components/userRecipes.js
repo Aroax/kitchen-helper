@@ -73,8 +73,6 @@ const userRecipes = (props) => {
       recipe.ingredients.map((recipeIngredient) => {
           found = false;
           pantry.forEach((pantryIngredient) => {
-              // console.log('recipe Ing', recipeIngredient);
-              // console.log('pantry Ing', pantryIngredient);
               if (recipeIngredient.foodId === pantryIngredient.foodId) {
                   found = true;
                   addRequiredAmount(recipeIngredient, pantryIngredient);
@@ -88,23 +86,17 @@ const userRecipes = (props) => {
     }
   
     const addRequiredAmount = (recipeIng, pantryIng) => {
-      console.log('top of amount reqIng', requiredIngredients);
-      // let weightNeeded;
       (pantryIng.weight >= recipeIng.weightNeeded) ? null : modifyIngredient(recipeIng, pantryIng);
     }
   
-      const modifyIngredient = (recipeIng, pantryIng) => {
-          
-          let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
-          let modifiedIngredient = recipeIng;
-          modifiedIngredient.weightNeeded = weightNeeded;
-          // console.log('mod Ing inside anon', modifiedIngredient);
-          requiredIngredients.push(modifiedIngredient);
-      }
+    const modifyIngredient = (recipeIng, pantryIng) => {
+        let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
+        let modifiedIngredient = recipeIng;
+        modifiedIngredient.weightNeeded = weightNeeded;
+        requiredIngredients.push(modifiedIngredient);
+    }
   
     const addToShoppingList = () => {
-      // event.preventDefault();
-      console.log(requiredIngredients);
       axios({
         method: 'patch',
         url: `/users/${props.user.id}/shopping-list/add-multiple`,
@@ -114,6 +106,18 @@ const userRecipes = (props) => {
           console.log(response);
           // location.reload();
       })
+    }
+
+    const addRecipeToMealPlanner = (recipe) => {
+      axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/mealplanner/add`,
+          headers: { 'Content-Type': 'application/json' },
+          data: recipe
+        }).then((response) => {
+            console.log(response);
+            // location.reload();
+      });
     }
 
       const button = (props.type === "saved" ? 
@@ -127,6 +131,7 @@ const userRecipes = (props) => {
         <div>
           <button onClick={ () => { compareIngredientsAndBuild(recipe) } }>Add Recipe to Shopping List</button>
           <button onClick={ () => { cookRecipe(recipe) } }>Cook Now! (subtract items)</button>
+          <button onClick={ () => { addRecipeToMealPlanner(recipe) } }>Add to meal planner</button>
         </div>
       )
 
