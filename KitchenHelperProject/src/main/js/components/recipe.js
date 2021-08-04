@@ -168,6 +168,11 @@ const recipeCard = (props)  =>{
         {/* <IconButton aria-label="add to shopping list">
           <AddShoppingCartIcon color="secondary" />
         </IconButton> */}
+        {(props.actionButtons ?
+        props.actionButtons
+        :
+        null
+        )}
         <Button href={props.data.recipe.url} size="small" color="secondary" disableElevation>
           view recipe
         </Button>
