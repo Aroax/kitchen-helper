@@ -59,7 +59,7 @@ const MealPlanner = (props) => {
   }
 
   const dayDisplay = (meals) => {
-    console.log('meals in day display', meals)
+    // console.log('meals in day display', meals)
     return(
       meals.map((recipe) => {
         return(
@@ -93,7 +93,7 @@ const MealPlanner = (props) => {
 
       const displayAssignedMeals = () => {
         sortMealPlannerRecipes();
-        console.log('in displayAssignedMeals', assignedMeals);
+        // console.log('in displayAssignedMeals', assignedMeals);
 
         return Object.entries(assignedMeals).map(([day, meals]) => {
           return (
@@ -120,19 +120,7 @@ const MealPlanner = (props) => {
                 Day: {recipe.mealPlannerDay}
                 <br></br>
 
-                <DayDropDown />
-                {/* <label for="day"> Assign Day: </label>
-                <select onChange={() => { assignDay(event, recipe) }}>
-                  <option value="unassigned">Please Select...</option>
-                  <option value="Monday">Monday</option>
-                  <option value="Tuesday">Tuesday</option>
-                  <option value="Wednesday">Wednesday</option>
-                  <option value="Thursday">Thursday</option>
-                  <option value="Friday">Friday</option>
-                  <option value="Saturday">Saturday</option>
-                  <option value="Sunday">Sunday</option>
-                </select> */}
-                
+                <DayDropDown />                
 
               </table>
 
@@ -191,7 +179,7 @@ const MealPlanner = (props) => {
       }
 
       const removeFromMealPlanner = (recipe) => {
-        console.log('remove this recipe');
+        // console.log('remove this recipe');
         axios({
           method: 'patch',
           url: `/users/${props.user.id}/mealplanner/remove`,
@@ -208,31 +196,32 @@ const MealPlanner = (props) => {
       const addAllRecipesToShoppingList = () => {
         let total = [];
         mealPlanner.map((recipe) => {  
-          let comparison = compareIngredientsArrayAndBuild(allMealPlanIngredients, recipe.ingredients);
-          console.log('comparison', comparison);
-          comparison.forEach((ingredient) => {
-            console.log('ingredient', ingredient);
-            allMealPlanIngredients.push(ingredient);
+          // console.log(`top of map, ${allMealPlanIngredients}`);
+           total = compareIngredientsArrayAndBuild(total, recipe.ingredients, true);
+          // console.log('comparison', comparison);
+          // total.forEach((ingredient) => {
+          //   // console.log('ingredient', ingredient);
+          //   allMealPlanIngredients.push(ingredient);
+          // });
+            // console.log(`in loop, ${allMealPlanIngredients}`);
           });
-            console.log(`in loop, added ${recipe.ingredients} to ${allMealPlanIngredients}`);
-          });
-          console.log('finished iterating');
+        console.log('finished iterating total', total);
   
 
 
-        let pantry = props.user.pantry;
-        let vettedIngredients = compareIngredientsArrayAndBuild(pantry, allMealPlanIngredients)
-        console.log('allMealPlanIngredients in axios', allMealPlanIngredients);
-        console.log('vetted ingredients', vettedIngredients);
-        axios({
-          method: 'patch',
-          url: `/users/${props.user.id}/shopping-list/add-multiple`,
-          headers: { 'Content-Type': 'application/json' },
-          data: vettedIngredients
-        }).then((response) => {
-          console.log(response);
-          // location.reload();
-        })
+        // let pantry = props.user.pantry;
+        // let vettedIngredients = compareIngredientsArrayAndBuild(pantry, allMealPlanIngredients)
+        // console.log('allMealPlanIngredients in axios', allMealPlanIngredients);
+        // console.log('vetted ingredients', vettedIngredients);
+        // axios({
+        //   method: 'patch',
+        //   url: `/users/${props.user.id}/shopping-list/add-multiple`,
+        //   headers: { 'Content-Type': 'application/json' },
+        //   data: vettedIngredients
+        // }).then((response) => {
+        //   console.log(response);
+        //   // location.reload();
+        // })
       }
 
 

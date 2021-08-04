@@ -1,30 +1,42 @@
 
 
-const compareIngredientsArrayAndBuild = (pantry, ingredients) => {
+const compareIngredientsArrayAndBuild = (pantry, ingredients, recursive=false) => {
     let found;
-    let requiredIngredients = [];
+    let requiredIngredients = pantry;
 
-    // console.log('recipe', recipe);
+
+    // console.log('ingredients', ingredients);
     // console.log('pantry', pantry);
     // console.log('top of compare', requiredIngredients);
-    // console.log('recipe ingredients', recipe.ingredients);
+    
     
     ingredients.map((recipeIngredient) => {
+        // console.log('recipe ingredient', recipeIngredient);
         found = false;
+        if (pantry.length > 0) {
         pantry.forEach((pantryIngredient) => {
             // console.log('recipe Ing', recipeIngredient);
             // console.log('pantry Ing', pantryIngredient);
             if (recipeIngredient.foodId === pantryIngredient.foodId) {
                 found = true;
-                console.log(found, recipeIngredient);
-                addRequiredAmount(recipeIngredient, pantryIngredient);
+                // console.log('pantry in comparison', pantryIngredient);
+                if (recursive == true) {
+                    amalgamateIngredients(recipeIngredient, pantryIngredient);
+                } else {
+                    addRequiredAmount(recipeIngredient, pantryIngredient);  
+                };
             }; 
         });
         found ? null : requiredIngredients.push(recipeIngredient);
-        console.log('at ternary', recipeIngredient);
-
+        // console.log('at ternary', recipeIngredient);
+        
+    }
+    else {
+        requiredIngredients.push(recipeIngredient);
+        // console.log('gone to else, reqIngredient', requiredIngredients);
+    }
     })
-    console.log('end of compare', requiredIngredients);
+    // console.log('end of compare', requiredIngredients);
     
   
 
@@ -39,8 +51,16 @@ const compareIngredientsArrayAndBuild = (pantry, ingredients) => {
         let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
         let modifiedIngredient = recipeIng;
         modifiedIngredient.weightNeeded = weightNeeded;
-        console.log('mod Ing inside anon', modifiedIngredient);
+        // console.log('mod Ing inside anon', modifiedIngredient);
         requiredIngredients.push(modifiedIngredient);
+    }
+
+    const amalgamateIngredients = (recipeIng, pantryIng) => {
+        let modifiedIngredient = recipeIng;
+        modifiedIngredient.weightNeeded = pantryIng.weightNeeded + recipeIng.weightNeeded;
+        console.log('modIng inside amalgamate', modifiedIngredient);
+        requiredIngredients.push(modifiedIngredient);
+        console.log('reqIng inside amalgamate', requiredIngredient);
     }
 
 
@@ -58,6 +78,7 @@ const compareIngredientsArrayAndBuild = (pantry, ingredients) => {
 //     })
 //   }
 
+console.log('FINAL required ing array', requiredIngredients);
     return requiredIngredients;
 }
 
