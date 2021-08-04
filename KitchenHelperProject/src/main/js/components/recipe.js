@@ -71,7 +71,8 @@ const recipeCard = (props)  =>{
     {
       foodId: ingredient.foodId,
       name: ingredient.text,
-      weight: ingredient.weight,
+      weight: Math.ceil(ingredient.weight),
+      weightNeeded: Math.ceil(ingredient.weight),
       imageUrl: ingredient.image,
       foodCategory: ingredient.foodCategory,
       text: ingredient.text

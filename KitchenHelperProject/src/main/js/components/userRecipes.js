@@ -18,6 +18,7 @@ const userRecipes = (props) => {
             foodId: ingredient.foodId,
             name: ingredient.name,
             weight: ingredient.weight,
+            weightNeeded: ingredient.weightNeeded,
             image: ingredient.imageUrl,
             foodCategory: ingredient.foodCategory,
             text: ingredient.text
