@@ -2,13 +2,14 @@
 
 const compareIngredientsArrayAndBuild = (pantry, ingredients, recursive=false) => {
     let found;
-    let requiredIngredients = pantry;
+    let requiredIngredients = [];
+    
 
 
     // console.log('ingredients', ingredients);
     // console.log('pantry', pantry);
     // console.log('top of compare', requiredIngredients);
-    
+    console.log('recursive', recursive);
     
     ingredients.map((recipeIngredient) => {
         // console.log('recipe ingredient', recipeIngredient);
@@ -21,8 +22,16 @@ const compareIngredientsArrayAndBuild = (pantry, ingredients, recursive=false) =
                 found = true;
                 // console.log('pantry in comparison', pantryIngredient);
                 if (recursive == true) {
-                    amalgamateIngredients(recipeIngredient, pantryIngredient);
+                    console.log('before call to amalgamate');
+                    // amalgamateIngredients(recipeIngredient, pantryIngredient);
+                    let modifiedIngredient = recipeIngredient;
+                    // console.log('modIng before weight needed', modifiedIngredient);
+                    modifiedIngredient.weightNeeded = pantryIngredient.weightNeeded + recipeIngredient.weightNeeded;
+                    // console.log('modIng inside amalgamate', modifiedIngredient);
+                    requiredIngredients.push(modifiedIngredient);
+                    // console.log('reqIng inside amalgamate', requiredIngredient);
                 } else {
+                    console.log('before call to required amount');
                     addRequiredAmount(recipeIngredient, pantryIngredient);  
                 };
             }; 
@@ -56,7 +65,9 @@ const compareIngredientsArrayAndBuild = (pantry, ingredients, recursive=false) =
     }
 
     const amalgamateIngredients = (recipeIng, pantryIng) => {
+        console.log('top of amalgamate');
         let modifiedIngredient = recipeIng;
+        console.log('modIng before weight needed', modifiedIngredient);
         modifiedIngredient.weightNeeded = pantryIng.weightNeeded + recipeIng.weightNeeded;
         console.log('modIng inside amalgamate', modifiedIngredient);
         requiredIngredients.push(modifiedIngredient);
