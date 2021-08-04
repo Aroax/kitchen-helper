@@ -1,26 +1,33 @@
 import React from 'React';
 import ExternalRecipeLookup from "./externalRecipeLookup"
 import ManualRecipe from "./manualRecipe";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    toolbar: theme.mixins.toolbar,
+}));
 
 const RecipesHub = (props) => {
+    const classes = useStyles();
 
     const saveRecipeToMealPlanner = () => {
-        return ( 
+        return (
             null
-         );
+        );
     }
-     
-   
 
-    return ( 
+
+
+    return (
         <div className='container'>
-            <ExternalRecipeLookup user={props.user}/>
+            <div className={classes.toolbar}/>
+            <ExternalRecipeLookup user={props.user} />
             <hr />
             {/* {props.user ?  <ManualRecipe user={props.user} /> : <div>Loading...</div>}
             <savedRecipes />
             <customRecipes  /> */}
         </div>
-     );
+    );
 }
- 
+
 export default RecipesHub;
