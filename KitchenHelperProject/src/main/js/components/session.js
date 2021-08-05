@@ -11,6 +11,7 @@ import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './navBar';
 import Profile from './profile';
 import RestockList from "./restockList";
+import ExpiringIngredients from "./expiringIngredients";
 
 const user = () => {
     const [user, setUser] = React.useState();
@@ -51,6 +52,7 @@ const user = () => {
     const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourites" refreshUser={handleUserChange}></UserRecipes> : <div></div>
     const mealPlanner = user ? <MealPlanner user={user} refreshUser={handleUserChange}/> : <div></div>
     const restockList = user ? <RestockList user={user} refreshUser={handleUserChange} /> : <div></div>
+    const expiringIngredients = user ? <ExpiringIngredients user={user} refreshUser={handleUserChange} /> : <div></div>
 
     return (
         <div className="container">
@@ -62,6 +64,7 @@ const user = () => {
                         <hr />
                     </Route>
                     <Route exact path="/">
+                        {expiringIngredients}
                         {pantry}
                         <button onClick={showProps}>DEBUG: Show Props</button>
                     </Route>
