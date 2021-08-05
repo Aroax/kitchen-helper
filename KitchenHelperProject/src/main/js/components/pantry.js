@@ -41,7 +41,7 @@ const pantry = (props) => {
     return pantry.reverse().map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} weight={ingredient.weight} location={ingredient.location}></Ingredient>
+          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} location={ingredient.location}></Ingredient>
         </Grid>
       )
     });

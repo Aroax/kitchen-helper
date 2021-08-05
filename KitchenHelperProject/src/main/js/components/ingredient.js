@@ -18,6 +18,7 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-between",
     maxWidth: 400,
+    border: "2px solid #fff",
     borderRadius: "7px"
   },
   details: {
@@ -64,14 +65,58 @@ const useStyles = makeStyles((theme) => ({
   }
 }));
 
+const getRemainingDays = (expiryDateString) => {
+  const expiryDate = new Date(expiryDateString)
+  const today = new Date();
+  const diff = expiryDate - today;
+  return Math.floor(diff / (1000 * 60 * 60 * 24));
+}
+
+const remainingDaysFormatter = (days) => {
+  if ((days <= 15) && (days > 0)) {
+    return `${days}d`;
+  }
+  else if (days === 0) {
+    return `today`;
+  }
+  else if (days < 0) {
+    return `expired`;
+  }
+  else if (days > 15 && days < 23) {
+    return `3w`;
+  }
+  else if (days > 23 && days < 30) {
+    return `4w`;
+  }
+  else if (days > 30 && days < 90) {
+    return `1mo+`;
+  }
+  else if (days > 90 && days < 180) {
+    return `3mo+`;
+  }
+  else if (days > 180 && days < 365) {
+    return `6mo+`;
+  }
+  else if (days > 365) {
+    return `1y+`;
+  }
+}
+
 export default function IngredientCard(props) {
   const classes = useStyles();
 
   // const [condition, setCondition] = React.useState("");
   // const [isFresh, setIsFresh] = React.useState(false);
   // const [isImminent, setIsImminent] = React.useState(false);
-  // const [isExpired, setIsExpired] = React.useState(false);
+  const [isExpired, setIsExpired] = React.useState(false);
 
+  React.useEffect(() => {
+    let remainingDays = getRemainingDays(props.data.expiry);
+
+    if (remainingDays <= 0) {
+      setIsExpired(true)
+    }
+  }, [props.data.expiry])
 
   const [weightNeeded, setWeightNeeded] = React.useState(props.data.weightNeeded);
 
@@ -80,74 +125,43 @@ export default function IngredientCard(props) {
     setWeightNeeded(event.target.value);
   };
 
-  const expiryCalculator = () => {
-    const expiryDate = new Date(props.data.expiry)
-    const today = new Date();
-    const diff = expiryDate - today;
-    let remainingDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-    return remainingDaysFormatter(remainingDays);
-  }
-
-  const remainingDaysFormatter = (days) => {
-    if ((days <= 15) && (days > 0)) {
-      // setCondition("yellow");
-      // setIsImminent(true)
-      return `${days}d`;
-    }
-    else if (days === 0) {
-      // setCondition("expired");
-      // setIsExpired(true)
-      return `today`;
-    }
-    else if (days < 0) {
-      // setCondition("expired");
-      // setIsExpired(true)
-      return `expired`;
-    }
-    else if (days > 15 && days < 23) {
-      // setCondition("fresh");
-      // setIsFresh(true)
-      return `3w`;
-    }
-    else if (days > 23 && days < 30) {
-      return `4w`;
-    }
-    else if (days > 30 && days < 90) {
-      return `1mo+`;
-    }
-    else if (days > 90 && days < 180) {
-      return `3mo+`;
-    }
-    else if (days > 180 && days < 365) {
-      return `6mo+`;
-    }
-    else if (days > 365) {
-      return `1y+`;
-    }
-  }
-
   const getClassNames = () => {
-    if (condition === "expired") {
+    if (isExpired) {
       return `${classes.ingrContainer} ${classes.red}`;
-    } else if (condition === "fresh") {
-      return `${classes.ingrContainer} ${classes.green}`;
-    } else if (condition === "imminent") {
-      return `${classes.ingrContainer} ${classes.yellow}`;
-    } else if (condition === "") {
+    } else {
       return `${classes.ingrContainer}`
     }
   };
+
+  // const expiryCalculator = () => {
+  //   const expiryDate = new Date(props.data.expiry)
+  //   const today = new Date();
+  //   const diff = expiryDate - today;
+  //   let remainingDays = Math.floor(diff / (1000 * 60 * 60 * 24));
+  //   return remainingDaysFormatter(remainingDays);
+  // }
+
+  // const getClassNames = () => {
+  //   if (condition === "expired") {
+  //     return `${classes.ingrContainer} ${classes.red}`;
+  //   } else if (condition === "fresh") {
+  //     return `${classes.ingrContainer} ${classes.green}`;
+  //   } else if (condition === "imminent") {
+  //     return `${classes.ingrContainer} ${classes.yellow}`;
+  //   } else if (condition === "") {
+  //     return `${classes.ingrContainer}`
+  //   }
+  // };
 
   const foodCategory = props.foodCategory ? props.foodCategory : null;
   const location = props.location ? props.location : null;
   const weight = props.weight ? `${props.weight}g total` : null;
   // const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;
-
   // console.log('ing props', props)
 
   return (
-    // <Card className={getClassNames()}>
-    <Card className={`${classes.ingrContainer}`}>
+    <Card className={getClassNames()}>
+      {/* <Card className={`${classes.ingrContainer}`}> */}
       {/* <Card className={clsx(classes.ingrContainer, {[classes.red]: isExpired, [classes.green]: !isExpired})}> */}
       <div className={classes.details}>
         <CardContent>
@@ -155,34 +169,33 @@ export default function IngredientCard(props) {
             <Typography component="h5" variant="h5">
               {props.data.name}
             </Typography>
-          </Grid>
-          <Grid container className={classes.content}>
-            {/* <Divider
+            <Grid item className={classes.content}>
+              {/* <Divider
               className={classes.verticalDiv}
               orientation="vertical"
               flexItem
             /> */}
-            <Typography variant="subtitle1" color="textSecondary">
-              {weight}
-            </Typography>
-            <Typography variant="subtitle1" color="textSecondary">
-              {props.type === "shopping-list"
-                ? (
-                  <td><input value={weightNeeded} onChange={handleWeightNeededChange}></input>g</td>
-                )
-                : (
-                  <td>{props.data.weightNeeded}g</td>
-                )
-              }
-            </Typography>
-
+              <Typography variant="subtitle1" color="textSecondary">
+                {weight}
+              </Typography>
+              <Typography variant="subtitle1" color="textSecondary">
+                {props.type === "shopping-list"
+                  ? (
+                    <input value={weightNeeded} onChange={handleWeightNeededChange}></input>
+                  )
+                  : (
+                    <p>{props.data.weightNeeded}g</p>
+                  )
+                }
+              </Typography>
+            </Grid>
           </Grid>
           <Grid item className={classes.row}>
             <Grid item>
               <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
             </Grid>
             <Grid item>
-              <Typography variant="subtitle2" color="textSecondary">{expiryCalculator()}</Typography>
+              <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
             </Grid>
           </Grid>
           <Grid item className={classes.row}>
