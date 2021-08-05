@@ -19,45 +19,11 @@ import Typography from "@material-ui/core/Typography";
 import FavoriteIcon from "@material-ui/icons/Favorite";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import PeopleAltIcon from "@material-ui/icons/PeopleAlt";
-import AccessTimeIcon from "@material-ui/icons/AccessTime";
+import MoreVertIcon from '@material-ui/icons/MoreVert';
 import MenuBookIcon from "@material-ui/icons/MenuBook";
 import Divider from "@material-ui/core/Divider";
-
-const useStyles = makeStyles((theme) => ({
-  recipeCardContainer: {
-    maxWidth: 350
-  },
-  media: {
-    height: 0,
-    paddingTop: "56.25%" // 16:9
-  },
-  expand: {
-    transform: "rotate(0deg)",
-    marginLeft: "auto",
-    transition: theme.transitions.create("transform", {
-      duration: theme.transitions.duration.shortest
-    })
-  },
-  expandOpen: {
-    transform: "rotate(180deg)"
-  },
-  row: {
-    display: "flex",
-    flexDirection: "row",
-    justifyContent: "flex-start",
-    alignItems: "center",
-    paddingLeft: theme.spacing(2)
-  },
-  iconsContainer: {
-    display: "flex",
-    flexDirection: "row",
-    alignItems: "center"
-  },
-  title: {
-    fontSize: "18px",
-    textAlign: "left"
-  }
-}));
+import Menu from '@material-ui/core/Menu';
+import MenuItem from '@material-ui/core/MenuItem';
 
 const recipeCard = (props) => {
   const classes = useStyles();
@@ -68,45 +34,73 @@ const recipeCard = (props) => {
   };
 
   const ingredients = props.data.recipe.ingredients.map((ingredient) => {
-    return(
-    {
+    return {
       foodId: ingredient.foodId,
       name: ingredient.text,
       weight: Math.ceil(ingredient.weight),
       weightNeeded: Math.ceil(ingredient.weight),
       imageUrl: ingredient.image,
       foodCategory: ingredient.foodCategory,
-      text: ingredient.text
-    })
-  })
-  
+      text: ingredient.text,
+    };
+  });
+
   const getEdamamRecipeId = () => {
     let edamamRecipeUri = props.data.recipe.uri;
     let splitUri = edamamRecipeUri.split("_");
     return splitUri[1];
-  }
+  };
 
   const addToSavedRecipes = () => {
     console.log(props.data.recipe);
     axios({
-      method: 'patch',
+      method: "patch",
       url: `/users/${props.userId}/recipes/saved/add`,
-      headers: { 'Content-Type': 'application/json' },
+      headers: { "Content-Type": "application/json" },
       data: {
-          recipeName: props.data.recipe.label,
-          recipeId: getEdamamRecipeId(),
-          ingredients: ingredients,
-          image: props.data.recipe.image,
-          yield: props.data.recipe.yield,
-          url: props.data.recipe.url,
-          source: props.data.recipe.source,
-      }
+        recipeName: props.data.recipe.label,
+        recipeId: getEdamamRecipeId(),
+        ingredients: ingredients,
+        image: props.data.recipe.image,
+        yield: props.data.recipe.yield,
+        url: props.data.recipe.url,
+        source: props.data.recipe.source,
+      },
     }).then((response) => {
       console.log(response);
       props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
-  }
+  };
+
+  // Button Menu
+  const [anchorEl, setAnchorEl] = React.useState(null);
+
+  const handleClick = (event) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleClose = () => {
+    setAnchorEl(null);
+  };
+
+  const buttonMenu = (
+    <div>
+      <IconButton aria-controls="more-menu" aria-haspopup="true" onClick={handleClick}>
+        <MoreVertIcon />
+      </IconButton>
+      <Menu
+        id="simple-menu"
+        anchorEl={anchorEl}
+        keepMounted
+        open={Boolean(anchorEl)}
+        onClose={handleClose}
+      >
+        <MenuItem onClick={handleClose}>Add recipe to shopping list</MenuItem>
+        <MenuItem onClick={handleClose}>Cook now (subtract ingredients)</MenuItem>
+        <MenuItem onClick={handleClose}>Add to meal planner</MenuItem>
+      </Menu>
+    </div>
+  )
 
   return (
     <Card className={classes.recipeCardContainer}>
@@ -121,14 +115,14 @@ const recipeCard = (props) => {
         <Typography component="h5" variant="button" className={classes.title}>
           {props.data.recipe.label}
         </Typography>
-        <Typography
+        {/* <Typography
           variant="caption"
           color="textSecondary"
           component="p"
           align="left"
         >
           X missing ingredients
-        </Typography>
+        </Typography> */}
       </CardContent>
       <Grid className={classes.iconsContainer} spacing={1}>
         <Grid container className={classes.row} spacing={1}>
@@ -141,16 +135,6 @@ const recipeCard = (props) => {
             </Typography>
           </Grid>
         </Grid>
-        {/* <Grid container className={classes.row} spacing={1}>
-          <Grid item>
-            <AccessTimeIcon color="secondary" />
-          </Grid>
-          <Grid item>
-            <Typography variant="subtitle2" color="textSecondary">
-              5 mins
-            </Typography>
-          </Grid>
-        </Grid> */}
         <Grid container className={classes.row} spacing={1}>
           <Grid item>
             <MenuBookIcon color="secondary" />
@@ -166,27 +150,23 @@ const recipeCard = (props) => {
         {/* <IconButton aria-label="add to my recipes" onClick={addToSavedRecipes}>
           <PostAddIcon color="#secondary" />
         </IconButton> */}
-        {(props.button ? 
-        props.button 
-        :
-        <Button
-          onClick={addToSavedRecipes}
-          variant="contained"
-          size="small"
-          color="primary"
-          disableElevation
-          style={{ marginRight: 8 }}
-          aria-label="add to my recipes"
-        >
-          save
-        </Button>
+        {props.button ? (
+          props.button
+        ) : (
+          <Button
+            onClick={addToSavedRecipes}
+            variant="contained"
+            size="small"
+            color="primary"
+            disableElevation
+            style={{ marginRight: 8 }}
+            aria-label="add to my recipes"
+          >
+            save
+          </Button>
         )}
-        {(props.actionButtons ?
-        props.actionButtons
-        :
-        null
-        )}
-        <Button
+        {props.actionButtons ? props.actionButtons : null}
+        {/* <Button
           onClick={props.onMealPlannerClick}
           size="small"
           variant="outlined"
@@ -195,11 +175,12 @@ const recipeCard = (props) => {
           aria-label="add to meal planner"
         >
           add to meal planner
-        </Button>
+        </Button> */}
+        {buttonMenu}
         <IconButton
           color="secondary"
           className={clsx(classes.expand, {
-            [classes.expandOpen]: expanded
+            [classes.expandOpen]: expanded,
           })}
           onClick={handleExpandClick}
           aria-expanded={expanded}
@@ -214,15 +195,15 @@ const recipeCard = (props) => {
           <Typography variant="overline">Ingredients</Typography>
           <Divider />
           <Typography paragraph>
-            {
-              ingredients.map((ingr) => (
-                <ListItem>
-                  <ListItemIcon>-</ListItemIcon>
-                  <Typography variant="subtitle2">{ingr.text}: {Math.round(ingr.weight)}g</Typography>
-                  {/* foodID = {ingr.foodId} */}
-                </ListItem>
-              ))
-            }
+            {ingredients.map((ingr) => (
+              <ListItem>
+                <ListItemIcon>-</ListItemIcon>
+                <Typography variant="subtitle2">
+                  {ingr.text}: {Math.round(ingr.weight)}g
+                </Typography>
+                {/* foodID = {ingr.foodId} */}
+              </ListItem>
+            ))}
           </Typography>
           <Divider />
           <Typography variant="overline">Source</Typography>
@@ -238,6 +219,42 @@ const recipeCard = (props) => {
       </Collapse>
     </Card>
   );
-}
+};
 
 export default recipeCard;
+
+const useStyles = makeStyles((theme) => ({
+  recipeCardContainer: {
+    maxWidth: 350,
+  },
+  media: {
+    height: 0,
+    paddingTop: "56.25%", // 16:9
+  },
+  expand: {
+    transform: "rotate(0deg)",
+    marginLeft: "auto",
+    transition: theme.transitions.create("transform", {
+      duration: theme.transitions.duration.shortest,
+    }),
+  },
+  expandOpen: {
+    transform: "rotate(180deg)",
+  },
+  row: {
+    display: "flex",
+    flexDirection: "row",
+    justifyContent: "flex-start",
+    alignItems: "center",
+    paddingLeft: theme.spacing(2),
+  },
+  iconsContainer: {
+    display: "flex",
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  title: {
+    fontSize: "18px",
+    textAlign: "left",
+  },
+}));
