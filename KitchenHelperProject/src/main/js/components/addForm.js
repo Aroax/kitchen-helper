@@ -47,9 +47,9 @@ const locations = [
 export default function addToPantryForm(props) {
   const classes = useStyles();
 
-  const [location, setlocation] = React.useState();
+  const [location, setLocation] = React.useState();
   const handleLocationChange = (event) => {
-    setlocation(event.target.value);
+    setLocation(event.target.value);
   };
 
   return (
