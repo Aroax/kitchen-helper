@@ -67,9 +67,9 @@ const user = () => {
                         {pantry}
                         <button onClick={showProps}>DEBUG: Show Props</button>
                     </Route>
-                    <Route path="/recipes">
+                    {/* <Route path="/recipes">
                         {recipes}
-                    </Route>
+                    </Route> */}
                     <Route path="/shopping-list">
                         {restockList}
                         {shoppingList}

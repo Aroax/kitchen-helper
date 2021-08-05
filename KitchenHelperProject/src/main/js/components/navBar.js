@@ -1,68 +1,3 @@
-// import React from "react";
-// import { makeStyles } from "@material-ui/core/styles";
-// import CssBaseline from "@material-ui/core/CssBaseline";
-// import AppBar from "@material-ui/core/AppBar";
-// import Toolbar from "@material-ui/core/Toolbar";
-// import IconButton from "@material-ui/core/IconButton";
-// import Typography from "@material-ui/core/Typography";
-// import Button from "@material-ui/core/Button";
-// import AccountCircle from "@material-ui/icons/AccountCircle";
-// import { Link as RouterLink } from "react-router-dom";
-// import { NavLink } from "react-router-dom";
-
-// export default function navBar() {
-//     const classes = useStyles();
-
-//     return (
-//         <div className={classes.navContainer}>
-//             <CssBaseline />
-//             <AppBar position="fixed">
-//                 <Toolbar disableElevation>
-//                     <IconButton
-//                         edge="start"
-//                         className={classes.profileIcon}
-//                         color="inherit"
-//                         aria-label="profile"
-//                         component={RouterLink}
-//                         to="/profile"
-//                     >
-//                         <AccountCircle />
-//                     </IconButton>
-//                     <Typography className={classes.navLinks}>
-//                         <NavLink
-//                             to="/"
-//                             exact={true}
-//                             className={classes.navLink}
-//                             activeClassName={classes.navLinkActive}
-//                         >
-//                             PANTRY
-//                         </NavLink>
-//                         <NavLink
-//                             to="/recipes"
-//                             className={classes.navLink}
-//                             activeClassName={classes.navLinkActive}
-//                         >
-//                             RECIPES
-//                         </NavLink>
-//                         <NavLink
-//                             to="/shopping-list"
-//                             className={classes.navLink}
-//                             activeClassName={classes.navLinkActive}
-//                         >
-//                             SHOPPING
-//                         </NavLink>
-//                         <NavLink to='/saved' className={classes.navLink}
-//                             activeClassName={classes.navLinkActive}>Saved Recipes</NavLink>
-//                         <NavLink to='/favourites' className={classes.navLink}
-//                             activeClassName={classes.navLinkActive}>Favourite Recipes</NavLink>
-//                     </Typography>
-//                     <Button color="inherit">Logout</Button>
-//                 </Toolbar>
-//             </AppBar>
-//         </div>
-//     );
-// }
-
 import React from "react";
 import { makeStyles, useTheme } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -72,8 +7,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import { NavLink } from "react-router-dom";
 import Drawer from "@material-ui/core/Drawer";
-import List from "@material-ui/core/List";
-import ListItem from "@material-ui/core/ListItem";
 import Divider from "@material-ui/core/Divider";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import MenuItem from "@material-ui/core/MenuItem";
@@ -108,6 +41,7 @@ export default function LeftDrawerNav(props) {
           exact={true}
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
+          onClick={handleDrawerToggle}
         >
           <MenuItem button key="Pantry">
             <ListItemIcon>
@@ -120,6 +54,7 @@ export default function LeftDrawerNav(props) {
           to="/favourites"
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
+          onClick={handleDrawerToggle}
         >
           <MenuItem button key="Recipes">
             <ListItemIcon>
@@ -133,6 +68,7 @@ export default function LeftDrawerNav(props) {
             to="/search-recipes"
             className={classes.navLink}
             activeClassName={classes.navLinkActive}
+            onClick={handleDrawerToggle}
           >
             <MenuItem button key="Saved">
               Search
@@ -142,22 +78,25 @@ export default function LeftDrawerNav(props) {
             to="/saved"
             className={classes.navLink}
             activeClassName={classes.navLinkActive}
+            onClick={handleDrawerToggle}
           >
             <MenuItem button key="Saved">
               Saved
             </MenuItem>
           </NavLink>
-          <NavLink
+          {/* <NavLink
             to="/favourites"
             className={classes.navLink}
             activeClassName={classes.navLinkActive}
+            onClick={handleDrawerToggle}
           >
             <MenuItem>Favourites</MenuItem>
-          </NavLink>
+          </NavLink> */}
           <NavLink
             to="/custom"
             className={classes.navLink}
             activeClassName={classes.navLinkActive}
+            onClick={handleDrawerToggle}
           >
             <MenuItem>Custom</MenuItem>
           </NavLink>
@@ -166,6 +105,7 @@ export default function LeftDrawerNav(props) {
           to="/shopping-list"
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
+          onClick={handleDrawerToggle}
         >
           <MenuItem button key="Shopping">
             <ListItemIcon>
@@ -178,6 +118,7 @@ export default function LeftDrawerNav(props) {
           to="/profile"
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
+          onClick={handleDrawerToggle}
         >
           <MenuItem button key="Profile">
             <ListItemIcon>
@@ -190,6 +131,7 @@ export default function LeftDrawerNav(props) {
           to="/meal-planner"
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
+          onClick={handleDrawerToggle}
         >
           <MenuItem button key="Mealplanner">
             <ListItemIcon>
