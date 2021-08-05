@@ -47,6 +47,7 @@ const RecipeList = (props) => {
       const recipeObject = {
         recipe: recipe
       }
+      console.log('recipeObject', recipeObject);
 
       const addToFavouriteRecipes = () => {
         axios({
@@ -84,7 +85,7 @@ const RecipeList = (props) => {
 
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Recipe data={recipeObject} userId={props.user.id} button={button} actionButtons={actionButtons} refreshUser={props.refreshUser}></Recipe>
+          <Recipe data={recipeObject} ingredients={recipeObject.recipe.ingredients} userId={props.user.id} button={button} actionButtons={actionButtons} refreshUser={props.refreshUser}></Recipe>
         </Grid>
       )
     });
