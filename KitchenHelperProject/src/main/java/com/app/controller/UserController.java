@@ -312,4 +312,31 @@ public class UserController {
 		userRepository.save(user);
 	}
 	
+	@PatchMapping("/users/{id}/restock-list/remove")
+	public void removeFromRestockList(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+    ArrayList<Ingredient> restockList = user.getRestockList();
+    int index = -1;
+
+    for (Ingredient ing : restockList) {
+        if (ing.getName().equals(ingredient.getName())) {
+            index = restockList.indexOf(ing);
+        }
+    }
+
+    user.getRestockList().remove(index);
+
+		userRepository.save(user);
+	}
+	
+
+	@PatchMapping("/users/{id}/restock-list/remove-all")
+	public void removeAllFromRestockList(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredients) {
+    User user = userRepository.findById(id).orElseGet(User::new);
+
+    user.setRestockList(new ArrayList<Ingredient>());
+
+    userRepository.save(user);
+	}
+	
 }
