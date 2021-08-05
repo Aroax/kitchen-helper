@@ -80,6 +80,8 @@ const MealPlanner = (props) => {
         </table>
 
         <button onClick={() => { removeFromMealPlanner(recipe) }}>Remove From Meal Planner</button>
+
+        <button onClick={() => { cookRecipe(recipe) }}>I've cooked this</button>
         <br></br>
       </div>
       )
@@ -186,6 +188,19 @@ const MealPlanner = (props) => {
           props.refreshUser();
         })
       }
+
+      const cookRecipe = (recipe) => {
+        console.log(recipe);
+      axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
+          headers: { 'Content-Type': 'application/json' },
+          data: recipe
+        }).then((response) => {
+            console.log(response);
+            props.refreshUser();
+        });
+    }
 
       const removeAllFromMealPlanner = () => {
         axios({
