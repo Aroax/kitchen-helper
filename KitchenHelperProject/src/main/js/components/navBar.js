@@ -1,19 +1,3 @@
-// import { NavLink } from "react-router-dom";
-// import React from "react";
-
-// const navBar = () => {
-//     return (
-//         <nav>
-//             <NavLink to='/' exact={true}>Pantry</NavLink>
-//             <NavLink to='/recipes'>Recipes</NavLink>
-//             <NavLink to='/shopping-list'>Shopping</NavLink>
-//         </nav>
-
-//     );
-// }
-
-// export default navBar;
-
 // import React from "react";
 // import { makeStyles } from "@material-ui/core/styles";
 // import CssBaseline from "@material-ui/core/CssBaseline";
@@ -25,31 +9,6 @@
 // import AccountCircle from "@material-ui/icons/AccountCircle";
 // import { Link as RouterLink } from "react-router-dom";
 // import { NavLink } from "react-router-dom";
-
-// const useStyles = makeStyles((theme) => ({
-//     navContainer: {
-//         display: "flex",
-//         flexGrow: 1
-//     },
-//     appBar: {
-//         width: "100%"
-//     },
-//     profileIcon: {
-//         marginRight: theme.spacing(2)
-//     },
-//     navLinks: {
-//         flexGrow: 1
-//     },
-//     navLink: {
-//         fontSize: "14px",
-//         color: "#333",
-//         textDecoration: "none",
-//         marginLeft: "12px"
-//     },
-//     navLinkActive: {
-//         borderBottom: "2px solid #333"
-//     }
-// }));
 
 // export default function navBar() {
 //     const classes = useStyles();
@@ -125,6 +84,7 @@ import RestaurantMenuIcon from "@material-ui/icons/RestaurantMenu";
 import PersonIcon from "@material-ui/icons/Person";
 import Hidden from "@material-ui/core/Hidden";
 import MenuIcon from "@material-ui/icons/Menu";
+import EventNoteIcon from '@material-ui/icons/EventNote';
 
 const drawerWidth = 240;
 
@@ -183,7 +143,7 @@ export default function LeftDrawerNav(props) {
             className={classes.navLink}
             activeClassName={classes.navLinkActive}
           >
-            <MenuItem>Favourite</MenuItem>
+            <MenuItem>Favourites</MenuItem>
           </NavLink>
           <NavLink
             to="/custom"
@@ -217,9 +177,20 @@ export default function LeftDrawerNav(props) {
             PROFILE
           </MenuItem>
         </NavLink>
+        <NavLink
+          to="/meal-planner"
+          className={classes.navLink}
+          activeClassName={classes.navLinkActive}
+        >
+          <MenuItem button key="Mealplanner">
+            <ListItemIcon>
+              <EventNoteIcon />
+            </ListItemIcon>
+            MEAL PLANNER
+          </MenuItem>
+        </NavLink>
       </MenuList>
       <Divider />
-      <MenuList></MenuList>
     </div>
   );
 
