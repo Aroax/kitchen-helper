@@ -1,8 +1,6 @@
 import React from 'React';
 import ExternalRecipeLookup from "./externalRecipeLookup"
 import ManualRecipe from "./manualRecipe";
-import MealPlanner from './mealPlanner';
-import RecipeList from './recipeList';
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles((theme) => ({
@@ -18,10 +16,6 @@ const RecipesHub = (props) => {
         );
     }
 
- 
-
-
-
     return (
         <div className='container'>
             <div className={classes.toolbar}/>
@@ -30,9 +24,6 @@ const RecipesHub = (props) => {
             <hr />
             {props.user ?  <ManualRecipe user={props.user} /> : <div>Loading...</div>}
             <hr />
-            
-            <hr />
-            <MealPlanner user={props.user} />
         </div>
     );
 }

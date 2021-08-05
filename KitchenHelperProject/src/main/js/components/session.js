@@ -3,10 +3,9 @@ import axios from "axios";
 import Pantry from "./pantry";
 import ShoppingList from "./shoppingList";
 import RecipesHub from "./recipesHub"
-
+import MealPlanner from "./mealPlanner";
 // import ManualRecipe from "./manualRecipe";
 import UserRecipes from "./userRecipes";
-
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './navBar';
@@ -16,8 +15,7 @@ const user = () => {
     const [user, setUser] = React.useState();
     const [ongoingRecipe, setOngoingRecipe] = React.useState([]);
     const refresh = (recipe) => {
-        console.log("bananas");
-        console.log(recipe);
+        // console.log(recipe);
         setOngoingRecipe(recipe)
     };
 
@@ -38,11 +36,11 @@ const user = () => {
     const recipes = user ? <RecipesHub user={user} /> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
     const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved"></UserRecipes> : <div></div>
-    const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite"></UserRecipes> : <div></div>
+    const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourites"></UserRecipes> : <div></div>
+    const mealPlanner = user ? <MealPlanner user={user} /> : <div></div>
 
     return (
         <div className="container">
-            <button onClick={showProps}>DEBUG: Show Props</button>
             <Router>
                 <NavBar />
                 <Switch>
@@ -52,6 +50,7 @@ const user = () => {
                     </Route>
                     <Route exact path="/">
                         {pantry}
+                        <button onClick={showProps}>DEBUG: Show Props</button>
                     </Route>
                     <Route path="/recipes">
                         {recipes}
@@ -64,6 +63,9 @@ const user = () => {
                     </Route>
                     <Route path="/favourites">
                         {favouriteRecipes}
+                    </Route>
+                    <Route path="/meal-planner">
+                        {mealPlanner}
                     </Route>
                 </Switch>
             </Router>

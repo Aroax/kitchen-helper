@@ -155,13 +155,15 @@ export default function IngredientCard(props) {
             <Typography component="h5" variant="h5">
               {props.data.name}
             </Typography>
+          </Grid>
+          <Grid container className={classes.content}>
             {/* <Divider
               className={classes.verticalDiv}
               orientation="vertical"
               flexItem
             /> */}
             <Typography variant="subtitle1" color="textSecondary">
-              -{weight}
+              {weight}
             </Typography>
             <Typography variant="subtitle1" color="textSecondary">
               {props.type === "shopping-list"
@@ -195,7 +197,7 @@ export default function IngredientCard(props) {
         <Divider variant="middle" />
         <div className={classes.controls}>
           <CardActions>
-            <Button
+            {/* <Button
               href=""
               variant="outlined"
               size="small"
@@ -204,9 +206,9 @@ export default function IngredientCard(props) {
               className={classes.btn}
             >
               Edit
-            </Button>
+            </Button> */}
             <Button href="" size="small" disableElevation>
-              Delete
+              Remove
             </Button>
           </CardActions>
         </div>
