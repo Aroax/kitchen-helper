@@ -10,14 +10,15 @@ import UserRecipes from "./userRecipes";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
 import NavBar from './navBar';
+import Profile from './profile';
 
 const user = () => {
     const [user, setUser] = React.useState();
     const [ongoingRecipe, setOngoingRecipe] = React.useState([]);
     const refresh = (recipe) => {
-      console.log("bananas");
-      console.log(recipe);
-      setOngoingRecipe(recipe)
+        console.log("bananas");
+        console.log(recipe);
+        setOngoingRecipe(recipe)
     };
 
     useEffect(() => {
@@ -31,7 +32,7 @@ const user = () => {
         })
     }, [])
 
-    const userName = user ? <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
+    const userName = user ? <Profile user={user.displayName} /> : <div>Loading...</div>
     const pantry = user ? <Pantry user={user}></Pantry> : <div></div>
     const shoppingList = user ? <ShoppingList user={user}></ShoppingList> : <div></div>
     const recipes = user ? <RecipesHub user={user} /> : <div></div>
@@ -41,13 +42,15 @@ const user = () => {
 
     return (
         <div className="container">
-        <button onClick={showProps}>DEBUG: Show Props</button>
+            <button onClick={showProps}>DEBUG: Show Props</button>
             <Router>
-                <NavBar/>
+                <NavBar />
                 <Switch>
-                    <Route exact path="/">
+                    <Route path="/profile">
                         {userName}
                         <hr />
+                    </Route>
+                    <Route exact path="/">
                         {pantry}
                     </Route>
                     <Route path="/recipes">

@@ -2,12 +2,15 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 import compareIngredientsArrayAndBuild from "./compareIngredientsArrayAndBuild";
+import { getShoppingList, buildShoppingListFromMealPlanner }from "./utilities/amalgamate";
 
 
 const MealPlanner = (props) => {
   // const mealPlanner = props.user.mealPlanner;
+  let pantry = props.user.pantry;
+  let allMealPlanIngredients = [];
+  let requiredIngredients = [];
   const [mealPlanner, setMealPlanner] = useState(props.user.mealPlanner);
-  
   const [assignedMeals, setAssigedMeals] = useState(
     {
       Unassigned: [],
@@ -21,7 +24,7 @@ const MealPlanner = (props) => {
     }
   );
 
-  let allMealPlanIngredients = [];
+  
 
   const sortMealPlannerRecipes = () => {
     mealPlanner.forEach((recipe) => {
@@ -59,7 +62,7 @@ const MealPlanner = (props) => {
   }
 
   const dayDisplay = (meals) => {
-    console.log('meals in day display', meals)
+    // console.log('meals in day display', meals)
     return(
       meals.map((recipe) => {
         return(
@@ -93,7 +96,7 @@ const MealPlanner = (props) => {
 
       const displayAssignedMeals = () => {
         sortMealPlannerRecipes();
-        console.log('in displayAssignedMeals', assignedMeals);
+        // console.log('in displayAssignedMeals', assignedMeals);
 
         return Object.entries(assignedMeals).map(([day, meals]) => {
           return (
@@ -120,19 +123,7 @@ const MealPlanner = (props) => {
                 Day: {recipe.mealPlannerDay}
                 <br></br>
 
-                <DayDropDown />
-                {/* <label for="day"> Assign Day: </label>
-                <select onChange={() => { assignDay(event, recipe) }}>
-                  <option value="unassigned">Please Select...</option>
-                  <option value="Monday">Monday</option>
-                  <option value="Tuesday">Tuesday</option>
-                  <option value="Wednesday">Wednesday</option>
-                  <option value="Thursday">Thursday</option>
-                  <option value="Friday">Friday</option>
-                  <option value="Saturday">Saturday</option>
-                  <option value="Sunday">Sunday</option>
-                </select> */}
-                
+                <DayDropDown />                
 
               </table>
 
@@ -191,7 +182,7 @@ const MealPlanner = (props) => {
       }
 
       const removeFromMealPlanner = (recipe) => {
-        console.log('remove this recipe');
+        // console.log('remove this recipe');
         axios({
           method: 'patch',
           url: `/users/${props.user.id}/mealplanner/remove`,
@@ -199,29 +190,46 @@ const MealPlanner = (props) => {
           data: recipe
         }).then((response) => {
           console.log(response);
-          setMealPlanner(props.user.mealPlanner);
+          // setMealPlanner(props.user.mealPlanner);
+          // location.reload();
+        })
+      }
+
+      const removeAllFromMealPlanner = () => {
+        axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/mealplanner/remove-all`,
+          headers: { 'Content-Type': 'application/json' },
+          data: mealPlanner
+        }).then((response) => {
+          console.log(response);
           // location.reload();
         })
       }
 
 
       const addAllRecipesToShoppingList = () => {
-        let total = [];
-        mealPlanner.map((recipe) => {  
-          let comparison = compareIngredientsArrayAndBuild(allMealPlanIngredients, recipe.ingredients);
-          console.log('comparison', comparison);
-          comparison.forEach((ingredient) => {
-            console.log('ingredient', ingredient);
+        // let requiredIngredients = [];
+        let result = [];
+        mealPlanner.forEach((recipe) => {  
+          // console.log('top of map, allMealPlanIngredients', allMealPlanIngredients);
+           result = buildShoppingListFromMealPlanner(allMealPlanIngredients, recipe.ingredients);
+          //  console.log('result after call:', result);
+
+           result.forEach((ingredient) => {
             allMealPlanIngredients.push(ingredient);
+          //  console.log('total after second iteration:', allMealPlanIngredients);
           });
-            console.log(`in loop, added ${recipe.ingredients} to ${allMealPlanIngredients}`);
-          });
-          console.log('finished iterating');
+        
+           });
+           
+          // total = getShoppingList();
+        // console.log('finished iterating total', allMealPlanIngredients);
   
 
 
-        let pantry = props.user.pantry;
-        let vettedIngredients = compareIngredientsArrayAndBuild(pantry, allMealPlanIngredients)
+        
+        let vettedIngredients = compareIngredientsAndBuild(allMealPlanIngredients)
         console.log('allMealPlanIngredients in axios', allMealPlanIngredients);
         console.log('vetted ingredients', vettedIngredients);
         axios({
@@ -235,6 +243,47 @@ const MealPlanner = (props) => {
         })
       }
 
+      const compareIngredientsAndBuild = (ingredients) => {
+        let found;
+       
+        // console.log('pantry', pantry);
+        // console.log('top of compare', requiredIngredients);
+        
+        
+        ingredients.map((recipeIngredient) => {
+            found = false;
+            pantry.forEach((pantryIngredient) => {
+                // console.log('recipe Ing', recipeIngredient);
+                // console.log('pantry Ing', pantryIngredient);
+                if (recipeIngredient.foodId === pantryIngredient.foodId) {
+                    found = true;
+                    // console.log(found, recipeIngredient);
+                    addRequiredAmount(recipeIngredient, pantryIngredient);
+                }; 
+            });
+            found ? null : requiredIngredients.push(recipeIngredient);
+            // console.log('at ternary', recipeIngredient);
+    
+        })
+        // console.log('end of compare', requiredIngredients);
+        return requiredIngredients;
+      }
+    
+      const addRequiredAmount = (recipeIng, pantryIng) => {
+        // console.log('top of amount reqIng', requiredIngredients);
+        // let weightNeeded;
+        (pantryIng.weight >= recipeIng.weightNeeded) ? null : modifyIngredient(recipeIng, pantryIng);
+      }
+    
+        const modifyIngredient = (recipeIng, pantryIng) => {
+            
+            let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
+            let modifiedIngredient = recipeIng;
+            modifiedIngredient.weightNeeded = weightNeeded;
+            // console.log('mod Ing inside anon', modifiedIngredient);
+            requiredIngredients.push(modifiedIngredient);
+        }
+
 
       const View = () => {
         return (
@@ -242,11 +291,15 @@ const MealPlanner = (props) => {
             <h1>Meal Planner</h1>
             <button onClick={() => { addAllRecipesToShoppingList() }}>Add All Recipes to Shopping List</button>
             <br></br>
+            <button onClick={() => { removeAllFromMealPlanner() }}>Clear Meal Planner</button>
+            <br></br>
             {/* {getMealPlannerRecipes()} */}
             {displayAssignedMeals()}
             <br></br>
             <br></br>
             <button onClick={() => { addAllRecipesToShoppingList() }}>Add All Recipes to Shopping List</button>
+            <br></br>
+            <button onClick={() => { removeAllFromMealPlanner() }}>Clear Meal Planner</button>
           </div>
         );
       }

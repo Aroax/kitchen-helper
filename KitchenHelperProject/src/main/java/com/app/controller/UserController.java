@@ -285,6 +285,14 @@ public class UserController {
 
 		userRepository.save(user);
 	}
+
+	@PatchMapping("/users/{id}/mealplanner/remove-all") 
+	public void removeRecipeFromMealPlanner(@PathVariable final String id, @RequestBody ArrayList<CustomRecipe> recipes) {
+	    User user = userRepository.findById(id).orElseGet(User::new);
+		user.setMealPlanner(new ArrayList<CustomRecipe>());
+
+			userRepository.save(user);
+		}
 	
 	@PatchMapping("/users/{id}/mealplanner/update-recipe") 
 	public void updateRecipeFromMealPlanner(@PathVariable final String id, @RequestBody CustomRecipe recipe) {

@@ -1,7 +1,23 @@
 import React, { useState, useEffect } from "react";
 import Ingredient from "./ingredient";
 import Form from "./form";
+import { Grid } from "@material-ui/core";
+import { makeStyles } from "@material-ui/core/styles";
+import PrimaryButton from "./buttonPrimary";
 import axios from "axios";
+
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+  pantry: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3)
+  },
+  divider: {
+    padding: theme.spacing(0.15),
+    margin: "50px 0"
+  }
+}));
 
 const pantry = (props) => {
   const [showLookup, setShowLookup] = useState(false);
@@ -24,10 +40,10 @@ const pantry = (props) => {
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
       return (
-        <div>
-        <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} foodCategory={ingredient.foodCategory} weight={ingredient.weight}></Ingredient>
-      {/* <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button> */}
-      </div>
+        <Grid item xs={12} sm={6} md={4}>
+          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} foodCategory={ingredient.foodCategory} weight={ingredient.weight}></Ingredient>
+          {/* <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button> */}
+        </Grid>
       )
     });
   }
@@ -41,8 +57,8 @@ const pantry = (props) => {
       headers: { 'Content-Type': 'application/json' },
       data: ingredient
     }).then((response) => {
-        console.log(response);
-        // location.reload();
+      console.log(response);
+      // location.reload();
     })
   }
 
@@ -106,7 +122,7 @@ const pantry = (props) => {
         expiry: expiry,
       }
     }).then((response) => {
-        console.log(response);
+      console.log(response);
     })
     // setTimeout(location.reload.bind(location), 3000);
   }
@@ -114,21 +130,17 @@ const pantry = (props) => {
   const ingredientLookup = () => {
     event.preventDefault();
     // useEffect(() => {
-      axios({
-        method: 'get',
-        url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
-        // headers: { 'Content-Type': 'application/json' },
-      }).then((response) => {
-          // console.log(response);
-          // console.log(response.data);
-          // console.log(response.data.parsed);
-          // console.log(response.data.parsed[0]);
-          console.log(response.data.parsed[0].food.foodId);
+    axios({
+      method: 'get',
+      url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
+      // headers: { 'Content-Type': 'application/json' },
+    }).then((response) => {
+      console.log(response.data.parsed[0].food.foodId);
 
-          setStoredToState(response.data.parsed[0].food);
-          setStoredIngredient(response.data.parsed[0].food);
-          storedIngredient ? console.log(storedIngredient) : console.log("empty");
-      });
+      setStoredToState(response.data.parsed[0].food);
+      setStoredIngredient(response.data.parsed[0].food);
+      storedIngredient ? console.log(storedIngredient) : console.log("empty");
+    });
     // }, [])
   }
 
@@ -144,7 +156,7 @@ const pantry = (props) => {
   }
 
   const form =
-  <Form
+    <Form
       onNameChange={handleNameChange}
       onFoodCategoryChange={handleFoodCategoryChange}
       onLocationChange={handleLocationChange}
@@ -168,17 +180,19 @@ const pantry = (props) => {
   // }
 
   // Render below
+  const classes = useStyles();
 
   return (
-    <div className="container">
+    <main className={classes.pantry}>
+      <div className={classes.toolbar} />
       {showLookup ? <Lookup /> : null}
-      {storedIngredient ? form : <div>storage empty</div> }
-      <button onClick={addIngredient}>Add Ingredient</button>
-      <table>
+      {storedIngredient ? form : <div>storage empty</div>}
+      <PrimaryButton text="Add Ingredient" color="primary" onClick={addIngredient} />
+      <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
-      </table>
-    </div>
-    );
+      </Grid>
+    </main>
+  );
 }
 
 export default pantry;
