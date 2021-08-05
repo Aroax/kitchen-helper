@@ -68,6 +68,7 @@ const ShoppingList = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.toolbar} />
+      <h1>Shopping List</h1>
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
       </Grid>
