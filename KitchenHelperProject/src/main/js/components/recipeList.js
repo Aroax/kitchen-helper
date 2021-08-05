@@ -1,6 +1,8 @@
 import React from "react";
 import Recipe from "./recipe";
 import { Grid } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -23,18 +25,8 @@ const RecipeList = (props) => {
   }));
   const classes = useStyles();
 
-  const button = (<div></div>);
-
   const getCustomRecipes = () => {
     return customRecipes.map((recipe) => {
-      const actionButtons = (
-        <div>
-          <button onClick={() => { compareIngredientsAndBuild(recipe) }}>Add Recipe to Shopping List</button>
-          <button onClick={() => { cookRecipe(recipe) }}>Cook Now! (subtract items)</button>
-          <button onClick={() => { addRecipeToMealPlanner(recipe) }}>Add to meal planner</button>
-        </div>
-      )
-
       recipe.label = recipe.recipeName;
       const ingredients = recipe.ingredients.map((ingredient) => {
         return (
@@ -55,6 +47,40 @@ const RecipeList = (props) => {
       const recipeObject = {
         recipe: recipe
       }
+
+      const addToFavouriteRecipes = () => {
+        axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/recipes/favourites/add`,
+          headers: { 'Content-Type': 'application/json' },
+          data: {
+            recipeName: recipe.label,
+            recipeId: recipe.recipeId,
+            ingredients: recipe.ingredients,
+            image: recipe.image,
+            // yield: recipe.yield,
+            // url: recipe.url,
+            // source: recipe.source
+          }
+        }).then((response) => {
+            console.log(response);
+            props.refreshUser();
+        })
+      }
+    
+      const button = (
+        <IconButton aria-label="add to favourites" onClick={addToFavouriteRecipes}>
+          <FavoriteIcon color="secondary" />
+        </IconButton>
+      );
+      
+      const actionButtons = (
+        <div>
+          <button onClick={() => { compareIngredientsAndBuild(recipe) }}>Add Recipe to Shopping List</button>
+          <button onClick={() => { cookRecipe(recipe) }}>Cook Now! (subtract items)</button>
+          <button onClick={() => { addRecipeToMealPlanner(recipe) }}>Add to meal planner</button>
+        </div>
+      )
 
       return (
         <Grid item xs={12} sm={6} md={4}>
