@@ -2,7 +2,8 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import Pantry from "./pantry";
 import ShoppingList from "./shoppingList";
-import RecipesHub from "./recipesHub"
+import RecipesHub from "./recipesHub";
+import RestockList from "./restockList";
 
 // import ManualRecipe from "./manualRecipe";
 import UserRecipes from "./userRecipes";
@@ -39,7 +40,7 @@ const user = () => {
     const showProps = () => { user ? console.log(user) : null }
     const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved"></UserRecipes> : <div></div>
     const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite"></UserRecipes> : <div></div>
-    const restockList = user ? <restockList user={user} /> : <div></div>
+    const restockList = user ? <RestockList user={user} /> : <div></div>
 
     return (
         <div className="container">
