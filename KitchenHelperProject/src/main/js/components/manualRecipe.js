@@ -5,7 +5,7 @@ import axios from "axios";
 
 const ManualRecipe = (props) => {
   const [storedIngredient, setStoredIngredient] = useState();
-  const [draftRecipe, setDraftRecipe] = useState(props.user.draftRecipe);
+  let draftRecipe = props.user.draftRecipe;
 
   const [foodId, setFoodId] = useState("899");
   const [name, setName] = useState("test_ingredient");
@@ -77,8 +77,8 @@ const ManualRecipe = (props) => {
       data: customRecipe
     }).then((response) => {
         console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const addToDraftRecipeDb = (ingredient) => {
@@ -97,8 +97,8 @@ const ManualRecipe = (props) => {
       }
     }).then((response) => {
         console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const removeIngredientFromDraftRecipe = (ingredient) => {
@@ -111,8 +111,8 @@ const ManualRecipe = (props) => {
       data: ingredient
     }).then((response) => {
         console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
   
 
@@ -176,13 +176,10 @@ const ManualRecipe = (props) => {
       <DisplayRecipe />
       <SaveRecipeButton />
       <hr />
-      <RecipeList user={props.user} />
+      <RecipeList user={props.user} refreshUser={props.refreshUser}/>
     </div>
   );
 
 }
-
-
-
 
 export default ManualRecipe;

@@ -68,8 +68,8 @@ const recipeCard = (props) => {
       },
     }).then((response) => {
       console.log(response);
-    });
-    // setTimeout(location.reload.bind(location), 3000);
+      props.refreshUser();
+    })
   };
 
   // Button Menu

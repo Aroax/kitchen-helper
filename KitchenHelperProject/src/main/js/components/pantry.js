@@ -38,7 +38,7 @@ const pantry = (props) => {
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
 
   const getIngredients = (pantry) => {
-    return pantry.map((ingredient) => {
+    return pantry.reverse().map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
           <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} weight={ingredient.weight} location={ingredient.location}></Ingredient>
@@ -121,9 +121,9 @@ const pantry = (props) => {
         expiry: expiry,
       }
     }).then((response) => {
-      console.log(response);
+        console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const ingredientLookup = () => {
