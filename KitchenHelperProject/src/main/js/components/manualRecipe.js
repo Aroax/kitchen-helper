@@ -167,7 +167,6 @@ const ManualRecipe = (props) => {
      );
   }
 
-
   return (
     <div className="container">
       <h2>Add a Custom Recipe</h2>
@@ -179,7 +178,6 @@ const ManualRecipe = (props) => {
       <RecipeList user={props.user} refreshUser={props.refreshUser}/>
     </div>
   );
-
 }
 
 export default ManualRecipe;
