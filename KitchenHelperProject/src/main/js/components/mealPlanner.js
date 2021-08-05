@@ -182,6 +182,31 @@ const MealPlanner = (props) => {
     // console.log('finished iterating total', allMealPlanIngredients);
 
 
+    const cookRecipe = (recipe) => {
+      console.log(recipe);
+
+      axios({
+        method: 'patch',
+        url: `/users/${props.user.id}/mealplanner/cook`,
+        headers: { 'Content-Type': 'application/json' },
+        data: recipe
+      }).then((response) => {
+        console.log(response);
+        props.refreshUser();
+      });
+    }
+
+    const removeAllFromMealPlanner = () => {
+      axios({
+        method: 'patch',
+        url: `/users/${props.user.id}/mealplanner/remove-all`,
+        headers: { 'Content-Type': 'application/json' },
+        data: mealPlanner
+      }).then((response) => {
+        console.log(response);
+        props.refreshUser();
+      })
+    }
 
 
     let vettedIngredients = compareIngredientsAndBuild(allMealPlanIngredients)
@@ -289,7 +314,7 @@ const MealPlanner = (props) => {
           <Grid item>
             <h2>{day}</h2>
             <Divider />
-          </Grid>          
+          </Grid>
           <Grid item>
             {dayDisplay(meals)}
           </Grid>

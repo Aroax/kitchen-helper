@@ -43,7 +43,7 @@ const pantry = (props) => {
     return pantry.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} location={ingredient.location}></Ingredient>
+          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} location={ingredient.location} onRemoveClick={() => { removeFromPantry(event, ingredient)}}></Ingredient>
         </Grid>
       )
     });
@@ -60,6 +60,20 @@ const pantry = (props) => {
     }).then((response) => {
       console.log(response);
       // location.reload();
+    })
+  }
+
+  const removeFromPantry = (event, ingredient) => {
+    console.log('removing', ingredient);
+    event.preventDefault();
+    axios({
+      method: 'patch',
+      url: `/users/${props.user.id}/pantry/remove`,
+      headers: { 'Content-Type': 'application/json' },
+      data: ingredient
+    }).then((response) => {
+      console.log(response);
+      props.refreshUser();
     })
   }
 

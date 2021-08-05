@@ -31,7 +31,7 @@ const ShoppingList = (props) => {
     return shoppingList.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded}></Ingredient>
+          <Ingredient data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} onRemoveClick={() => { removeFromShoppingList(event, ingredient)}}></Ingredient>
         </Grid>
       )
 
@@ -51,10 +51,24 @@ const ShoppingList = (props) => {
     })
   }
 
+  const removeFromShoppingList = (event, ingredient) => {
+    event.preventDefault();
+    axios({
+      method: 'patch',
+      url: `/users/${props.user.id}/shopping-list/remove`,
+      headers: { 'Content-Type': 'application/json' },
+      data: ingredient
+    }).then((response) => {
+      console.log(response);
+      props.refreshUser();
+    })
+  }
+
 
   return (
     <div className={classes.container}>
       <div className={classes.toolbar} />
+      <h1>Shopping List</h1>
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
       </Grid>

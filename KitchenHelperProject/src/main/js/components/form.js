@@ -8,6 +8,7 @@ const Form = (props) => {
         <input type="text" placeholder="Name" value={props.name} onChange={props.onNameChange}></input>
         <input type="hidden" placeholder="Food Category" value={props.category} onChange={props.onFoodCategoryChange}></input>
         <label for="location"> Storage Location: </label><select onChange={props.onLocationChange}>
+           <option value="Please select" selected>Please select...</option>
            <option value="Fridge">Fridge</option>
            <option value="Freezer">Freezer</option>
            <option value="Cupboard">Cupboard</option>
