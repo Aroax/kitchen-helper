@@ -54,6 +54,7 @@ const ManualRecipe = (props) => {
     console.log('draftRecipe', draftRecipe);
     let customRecipe = {
       recipeName : draftRecipeName,
+      image: "https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1669&q=80",
       ingredients : draftRecipe
     };
     axios({
@@ -100,8 +101,6 @@ const ManualRecipe = (props) => {
         props.refreshUser();
     })
   }
-  
-
 
   const DisplayRecipe = () => {
       return (
