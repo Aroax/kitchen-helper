@@ -3,10 +3,11 @@ import Ingredient from "./ingredient";
 import RecipeList from "./recipeList";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
-
-const useStyles = makeStyles((theme) => ({
-    toolbar: theme.mixins.toolbar,
-}));
+import Grid from "@material-ui/core/Grid";
+import PrimaryButton from "./buttonPrimary";
+import Divider from "@material-ui/core/Divider";
+import SearchBar from "./searchBar";
+import TextField from "@material-ui/core/TextField";
 
 const ManualRecipe = (props) => {
   const [storedIngredient, setStoredIngredient] = useState();
@@ -38,12 +39,12 @@ const ManualRecipe = (props) => {
       method: 'get',
       url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
     }).then((response) => {
-        console.log(response);
-        console.log(response.data.parsed[0].food);
-        let ingredient = response.data.parsed[0].food;
-        setStoredIngredient(ingredient);
-        addToDraftRecipeDb(ingredient);
-        // draftRecipe.push(ingredient)
+      console.log(response);
+      console.log(response.data.parsed[0].food);
+      let ingredient = response.data.parsed[0].food;
+      setStoredIngredient(ingredient);
+      addToDraftRecipeDb(ingredient);
+      // draftRecipe.push(ingredient)
     });
   }
 
@@ -53,9 +54,9 @@ const ManualRecipe = (props) => {
     console.log('storedIngredient', storedIngredient);
     console.log('draftRecipe', draftRecipe);
     let customRecipe = {
-      recipeName : draftRecipeName,
+      recipeName: draftRecipeName,
       image: "https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1669&q=80",
-      ingredients : draftRecipe
+      ingredients: draftRecipe
     };
     axios({
       method: 'patch',
@@ -63,8 +64,8 @@ const ManualRecipe = (props) => {
       headers: { 'Content-Type': 'application/json' },
       data: customRecipe
     }).then((response) => {
-        console.log(response);
-        props.refreshUser();
+      console.log(response);
+      props.refreshUser();
     })
   }
 
@@ -83,8 +84,8 @@ const ManualRecipe = (props) => {
         imageUrl: ingredient.image
       }
     }).then((response) => {
-        console.log(response);
-        props.refreshUser();
+      console.log(response);
+      props.refreshUser();
     })
   }
 
@@ -97,31 +98,34 @@ const ManualRecipe = (props) => {
       headers: { 'Content-Type': 'application/json' },
       data: ingredient
     }).then((response) => {
-        console.log(response);
-        props.refreshUser();
+      console.log(response);
+      props.refreshUser();
     })
   }
 
   const DisplayRecipe = () => {
-      return (
-        <div>
-          <table>
-            {getIngredients(draftRecipe)}
-          </table>
-        </div>
-      )
+    return (
+      <Grid container direction="row" spacing={2} alignItems="flex-start">
+        {getIngredients(draftRecipe)}
+      </Grid>
+    )
   }
 
   const getIngredients = (recipe) => {
     return recipe.map((ingredient) => {
       return (
-        <div>
-          <Ingredient data={ingredient} userId={props.user.id} weightNeeded={ingredient.weightNeeded}></Ingredient>
-          {console.log(ingredient)}
-          <button onClick={() => {removeIngredientFromDraftRecipe(ingredient)} }>Remove Ingredient</button>
+        <Grid item>
+          <Ingredient data={ingredient} userId={props.user.id} weightNeeded={ingredient.weightNeeded} bool={false}></Ingredient>
           {/* Edit quantity button function required: */}
-          <button onClick="">Change Quantity</button>
-        </div>
+          <Grid container direction="row" alignItems="flex-start" spacing={1}>
+            <Grid item>
+              <PrimaryButton onClick={() => { removeIngredientFromDraftRecipe(ingredient) }} text="Remove Ingredient" ></PrimaryButton>
+            </Grid>
+            <Grid item>
+              <PrimaryButton color="secondary" onClick={() => console.log("not functional")} text="Change Quantity"></PrimaryButton>
+            </Grid>
+          </Grid>
+        </Grid>
       )
     });
   }
@@ -129,41 +133,59 @@ const ManualRecipe = (props) => {
 
   const Lookup = () => {
     return (
-      <div>
+      <Grid container direction="column" spacing={1} style={{ marginBottom: 10 }}>
         <h3>Enter each ingredient for the recipe</h3>
-        <form onSubmit={ingredientLookup}>
-          <input type="text" placeholder="Enter ingredient" onChange={handleLookupNameChange}></input>
-          <input type="text" placeholder="Weight required (in grams)" onChange={handleWeightNeededChange}></input>
-          <input type="submit" value="search" />
-        </form>
-      </div>
+        <Grid item xs={12}>
+          <TextField
+            label="Enter ingredient" color="secondary" variant="outlined" style={{ marginRight: 10 }} onChange={handleLookupNameChange}
+          />
+          <TextField type="number" label="Weight required (in grams)" color="secondary" variant="outlined" style={{ marginRight: 10, width: "30%" }} onChange={handleWeightNeededChange}
+          />
+          <PrimaryButton color="primary" text="search" onClick={ingredientLookup} />
+        </Grid>
+      </Grid>
     )
   }
 
   const SaveRecipeButton = () => {
-    return ( 
-      <div>
-      <form onSubmit={addDraftToCustomRecipes}>
-        <input type="text" placeholder="Give your recipe a name" onChange={handleDraftRecipeNameChange}></input>
-        {/* <input type="text" placeholder="Weight required (in grams)" onChange={handleWeightNeededChange}></input> */}
-        <input type="submit" value="Save Recipe" />
-      </form>
-    </div>
-     );
+    return (
+      <Grid container direction="row" spacing={1} style={{ marginBottom: 10 }}>
+        <Grid item xs={12}>
+          <TextField
+            label="Give your recipe a name" color="secondary" variant="outlined" style={{ marginRight: 10, width: "50%" }} onChange={handleDraftRecipeNameChange}
+          />
+        </Grid>
+        <Grid item xs={12}>
+          <PrimaryButton color="primary" text="save recipe" onClick={addDraftToCustomRecipes} />
+        </Grid>
+      </Grid>
+    );
   }
 
   return (
-    <div className="container">
-      <div className={classes.toolbar}/>
+    <div className={classes.recipes}>
+      <div className={classes.toolbar} />
       <h2>Add a Custom Recipe</h2>
       <Lookup />
-      <br></br>
+      <br />
       <DisplayRecipe />
+      <br />
       <SaveRecipeButton />
-      <hr />
-      <RecipeList user={props.user} refreshUser={props.refreshUser}/>
+      <br />
+      <Divider />
+      <br />
+      <RecipeList user={props.user} refreshUser={props.refreshUser} />
     </div>
   );
 }
 
 export default ManualRecipe;
+
+const useStyles = makeStyles((theme) => ({
+  toolbar: theme.mixins.toolbar,
+  recipes: {
+    flexGrow: 1,
+    backgroundColor: theme.palette.background.default,
+    padding: theme.spacing(3)
+  }
+}));

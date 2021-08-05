@@ -176,15 +176,17 @@ export default function IngredientCard(props) {
               </Typography>
             </Grid>
           </Grid>
-          <Grid item className={classes.row}>
-            <Grid item>
-              <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
-            </Grid>
-          </Grid>
-
+          {props.bool ?
+            (<Grid item className={classes.row}>
+              <Grid item>
+                <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
+              </Grid>
+            </Grid>)
+            : null
+          }
           {props.location ?
             (
               <Grid item className={classes.row}>
@@ -201,6 +203,8 @@ export default function IngredientCard(props) {
 
         </CardContent>
         <Divider variant="middle" />
+        {props.bool ?
+          (
         <div className={classes.controls}>
           <CardActions>
             {/* <Button
@@ -218,6 +222,9 @@ export default function IngredientCard(props) {
             </Button>
           </CardActions>
         </div>
+       )
+          : null
+        } 
       </div>
       <CardMedia
         className={classes.image}

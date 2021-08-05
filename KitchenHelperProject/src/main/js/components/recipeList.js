@@ -159,7 +159,6 @@ const RecipeList = (props) => {
   // Render below
   return (
     <main className={classes.container}>
-      <div className={classes.toolbar} />
       <h2>My Custom Recipes</h2>
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getCustomRecipes()}
