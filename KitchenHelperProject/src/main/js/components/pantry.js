@@ -41,7 +41,7 @@ const pantry = (props) => {
     return pantry.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} foodCategory={ingredient.foodCategory} weight={ingredient.weight}></Ingredient>
+          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} foodCategory={ingredient.foodCategory}></Ingredient>
           {/* <button onClick={ () => { addToShoppingList(event, ingredient) } }>Add to Shopping List</button> */}
         </Grid>
       )

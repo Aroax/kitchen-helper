@@ -39,10 +39,11 @@ const user = () => {
     const showProps = () => { user ? console.log(user) : null }
     const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved"></UserRecipes> : <div></div>
     const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite"></UserRecipes> : <div></div>
+    const restockList = user ? <restockList user={user} /> : <div></div>
 
     return (
         <div className="container">
-            <button onClick={showProps}>DEBUG: Show Props</button>
+            
             <Router>
                 <NavBar />
                 <Switch>
@@ -51,12 +52,15 @@ const user = () => {
                         <hr />
                     </Route>
                     <Route exact path="/">
+                        
                         {pantry}
                     </Route>
                     <Route path="/recipes">
                         {recipes}
                     </Route>
                     <Route path="/shopping-list">
+                        <button onClick={showProps}>DEBUG: Show Props</button>
+                        {restockList}
                         {shoppingList}
                     </Route>
                     <Route path="/saved">
