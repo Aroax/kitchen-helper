@@ -183,7 +183,13 @@ export default function IngredientCard(props) {
               <Typography variant="subtitle1" color="textSecondary">
                 {props.type === "shopping-list"
                   ? (
-                    <input value={weightNeeded} onChange={handleWeightNeededChange} />
+                    <Grid item>
+                      <Typography variant="caption" display="block" gutterBottom><label for="weightNeeded">Minimum weight needed </label></Typography>
+                      <Typography variant="caption" display="block" gutterBottom><label for="weightNeeded">for planned recipes: </label></Typography>
+                      <input value={weightNeeded} onChange={handleWeightNeededChange} />g
+                      <Typography variant="caption" display="block" gutterBottom>(please edit as appopriate </Typography>
+                      <Typography variant="caption" display="block" gutterBottom>for actual weight acquired)</Typography>
+                    </Grid>
                   )
                   : (
                     weightNeededElement
