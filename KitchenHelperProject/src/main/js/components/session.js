@@ -52,6 +52,7 @@ const user = () => {
     const customRecipes = user ? <ManualRecipe user={user} refreshUser={handleUserChange}></ManualRecipe> : <div></div>
     const mealPlanner = user ? <MealPlanner user={user} refreshUser={handleUserChange}/> : <div></div>
     const restockList = user ? <RestockList user={user} refreshUser={handleUserChange} /> : <div></div>
+    const searchRecipes = user ? <RecipesHub user={user} refreshUser={handleUserChange}/> : <div></div>
 
     return (
         <div className="container">
@@ -84,6 +85,9 @@ const user = () => {
                     </Route>
                     <Route path="/meal-planner">
                         {mealPlanner}
+                    </Route>
+                    <Route path="/search-recipes">
+                        {searchRecipes}
                     </Route>
                 </Switch>
             </Router>

@@ -117,7 +117,7 @@ export default function LeftDrawerNav(props) {
           </MenuItem>
         </NavLink>
         <NavLink
-          to="/recipes"
+          to="/favourites"
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
         >
@@ -129,6 +129,15 @@ export default function LeftDrawerNav(props) {
           </MenuItem>
         </NavLink>
         <MenuList className={classes.nested}>
+          <NavLink
+            to="/search-recipes"
+            className={classes.navLink}
+            activeClassName={classes.navLinkActive}
+          >
+            <MenuItem button key="Saved">
+              Search
+            </MenuItem>
+          </NavLink>
           <NavLink
             to="/saved"
             className={classes.navLink}
