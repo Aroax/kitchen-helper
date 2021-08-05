@@ -71,7 +71,7 @@ const getRemainingDays = (expiryDateString) => {
   const expiryDate = new Date(expiryDateString)
   const today = new Date();
   const diff = expiryDate - today;
-  return Math.floor(diff / (1000 * 60 * 60 * 24));
+  return Math.ceil(diff / (1000 * 60 * 60 * 24));
 }
 
 const remainingDaysFormatter = (days) => {
@@ -176,7 +176,7 @@ export default function IngredientCard(props) {
               <Typography variant="subtitle1" color="textSecondary">
                 {props.type === "shopping-list"
                   ? (
-                    <input value={weightNeeded} onChange={handleWeightNeededChange}></input>
+                    <input value={weightNeeded} onChange={handleWeightNeededChange} />
                   )
                   : (
                     <p>{props.data.weightNeeded}g</p>
@@ -193,14 +193,21 @@ export default function IngredientCard(props) {
               <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
             </Grid>
           </Grid>
-          <Grid item className={classes.row}>
-            <Grid item>
-              <PinDropIcon color="secondary" style={{ marginRight: "5" }} />
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2" color="textSecondary">{location}</Typography>
-            </Grid>
-          </Grid>
+
+          {props.location ?
+            (
+              <Grid item className={classes.row}>
+                <Grid item>
+                  <PinDropIcon color="secondary" style={{ marginRight: "5" }} />
+                </Grid>
+                <Grid item>
+                  <Typography variant="subtitle2" color="textSecondary">{props.location}</Typography>
+                </Grid>
+              </Grid>
+            ) :
+            (null)
+          }
+
         </CardContent>
         <Divider variant="middle" />
         <div className={classes.controls}>
