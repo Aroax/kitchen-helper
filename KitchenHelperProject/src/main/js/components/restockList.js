@@ -4,6 +4,7 @@ import IngredientCard from "./ingredient";
 import { Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PrimaryButton from "./buttonPrimary";
+import SecondaryButton from "./buttonSecondary";
 
 const RestockList = (props) => {
     let restockList = props.user.restockList;
@@ -15,13 +16,11 @@ const RestockList = (props) => {
         return list.map((ingredient) => {
             return (
                 <Grid item xs={12} sm={6} md={4}>
-
-
                     <IngredientCard data={ingredient} user={props.user} userId={props.user.id}></IngredientCard>
-                    <br></br>
-                    <button onClick={() => { addToShoppingList(event, ingredient) }}>Add to Shopping List</button>
-                    <button onClick={() => { dismissItem(event, ingredient) }}>Dismiss Item</button>
-
+                    <br>
+                    <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingList(event, ingredient) }}/>
+                    </br>
+                    <SecondaryButton text="Dismiss Item" onClick={(event) => { dismissItem(event, ingredient) }}/>
                 </Grid>
             )
         });
@@ -37,7 +36,8 @@ const RestockList = (props) => {
             data: ingredient
         }).then((response) => {
             console.log(response);
-            props.refreshUser();        })
+            props.refreshUser();
+        })
     }
 
     const dismissItem = (event, ingredient) => {
@@ -49,7 +49,8 @@ const RestockList = (props) => {
             data: ingredient
         }).then((response) => {
             console.log(response);
-            props.refreshUser();        })
+            props.refreshUser();
+        })
     }
 
 
@@ -61,13 +62,14 @@ const RestockList = (props) => {
             data: restockList
         }).then((response) => {
             console.log(response);
-            props.refreshUser();        })
+            props.refreshUser();
+        })
     }
 
 
     const View = () => {
         return (
-            <div>
+            <Grid container direction="row" alignItems="flex-start" spacing={1}>
                 <h2>Heads up! You've run out of these, would you like to add any to your shopping list?</h2>
                 {getRestockIngredients(restockList)}
                 <br></br>
@@ -75,19 +77,29 @@ const RestockList = (props) => {
                 <br></br>
                 <hr />
                 <br></br>
-            </div>
+            </Grid>
         );
     }
 
 
     const output = (restockList.length > 0) ? <View /> : null
-
+    const classes = useStyles();
 
     return (
-        <Grid container direction="row" alignItems="flex-start" spacing={1}>
+        <main className={classes.restock}>
+            <div className={classes.toolbar} />
             {output}
-        </Grid>
+        </main>
     );
 }
 
 export default RestockList;
+
+const useStyles = makeStyles((theme) => ({
+    toolbar: theme.mixins.toolbar,
+    restock: {
+        flexGrow: 1,
+        backgroundColor: theme.palette.background.default,
+        padding: theme.spacing(3)
+    }
+}));

@@ -55,7 +55,7 @@ const ShoppingList = (props) => {
   return (
     <div className={classes.container}>
       <div className={classes.toolbar} />
-      <Grid container direction="column" alignItems="flex-start" spacing={1}>
+      <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
       </Grid>
       <button onClick={addShoppingListToPantry}>Purchased All</button>
