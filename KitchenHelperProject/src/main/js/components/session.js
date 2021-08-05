@@ -4,7 +4,7 @@ import Pantry from "./pantry";
 import ShoppingList from "./shoppingList";
 import RecipesHub from "./recipesHub"
 import MealPlanner from "./mealPlanner";
-// import ManualRecipe from "./manualRecipe";
+import ManualRecipe from "./manualRecipe";
 import UserRecipes from "./userRecipes";
 // import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { HashRouter as Router, Route, Switch } from "react-router-dom";
@@ -46,6 +46,7 @@ const user = () => {
     const showProps = () => { user ? console.log(user) : null }
     const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved" refreshUser={handleUserChange}></UserRecipes> : <div></div>
     const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourites" refreshUser={handleUserChange}></UserRecipes> : <div></div>
+    const customRecipes = user ? <ManualRecipe user={user} refreshUser={handleUserChange}></ManualRecipe> : <div></div>
     const mealPlanner = user ? <MealPlanner user={user} refreshUser={handleUserChange}/> : <div></div>
 
     return (
@@ -72,6 +73,9 @@ const user = () => {
                     </Route>
                     <Route path="/favourites">
                         {favouriteRecipes}
+                    </Route>
+                    <Route path="/custom">
+                        {customRecipes}
                     </Route>
                     <Route path="/meal-planner">
                         {mealPlanner}

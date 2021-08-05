@@ -1,37 +1,30 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Ingredient from "./ingredient";
 import RecipeList from "./recipeList";
 import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles((theme) => ({
+    toolbar: theme.mixins.toolbar,
+}));
 
 const ManualRecipe = (props) => {
   const [storedIngredient, setStoredIngredient] = useState();
   let draftRecipe = props.user.draftRecipe;
-
-  const [foodId, setFoodId] = useState("899");
-  const [name, setName] = useState("test_ingredient");
-  const [foodCategory, setFoodCategory] = useState("test");
-  const [location, setLocation] = useState("unknown");
-  const [weight, setWeight] = useState("99");
-  const [expiry, setExpiry] = useState(new Date());
-  const [imageUrl, setImageUrl] = useState("http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg");
-
-  const ingredientsList = props.user.draftRecipe;
   let lookupName;
   let currentWeightNeeded;
-  let currentIngredientId;
   let draftRecipeName;
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
 
+  const classes = useStyles();
 
   const handleLookupNameChange = (event) => {
-    // event.preventDefault();
     lookupName = event.target.value;
   }
 
   const handleWeightNeededChange = (event) => {
-    // event.preventDefault();
     currentWeightNeeded = event.target.value;
   }
 
@@ -41,24 +34,17 @@ const ManualRecipe = (props) => {
 
   const ingredientLookup = () => {
     event.preventDefault();
-      axios({
-        method: 'get',
-        url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
-      }).then((response) => {
-          console.log(response);
-          console.log(response.data.parsed[0].food);
-          let ingredient = response.data.parsed[0].food;
-          setStoredIngredient(ingredient);
-          addToDraftRecipeDb(ingredient);
-          // draftRecipe.push(ingredient)
-      });
-  }
-
-  const setStoredToState = (edamamResult) => {
-    setFoodId(edamamResult.foodId);
-    setName(edamamResult.label);
-    setFoodCategory(edamamResult.category);
-    setImageUrl(edamamResult.image);
+    axios({
+      method: 'get',
+      url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
+    }).then((response) => {
+        console.log(response);
+        console.log(response.data.parsed[0].food);
+        let ingredient = response.data.parsed[0].food;
+        setStoredIngredient(ingredient);
+        addToDraftRecipeDb(ingredient);
+        // draftRecipe.push(ingredient)
+    });
   }
 
   const addDraftToCustomRecipes = () => {
@@ -169,6 +155,7 @@ const ManualRecipe = (props) => {
 
   return (
     <div className="container">
+      <div className={classes.toolbar}/>
       <h2>Add a Custom Recipe</h2>
       <Lookup />
       <br></br>
