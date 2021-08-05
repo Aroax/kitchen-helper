@@ -50,7 +50,8 @@ const userRecipes = (props) => {
             source: recipe.source
           }
         }).then((response) => {
-          console.log(response);
+            console.log(response);
+            props.refreshUser();
         })
       }
 
@@ -62,8 +63,8 @@ const userRecipes = (props) => {
           headers: { 'Content-Type': 'application/json' },
           data: recipe
         }).then((response) => {
-          console.log(response);
-          // location.reload();
+            console.log(response);
+            props.refreshUser();
         });
       }
 
@@ -107,9 +108,9 @@ const userRecipes = (props) => {
           data: requiredIngredients
         }).then((response) => {
           console.log(response);
-          // location.reload();
-        })
-      }
+          props.refreshUser();
+      })
+    }
 
       const addRecipeToMealPlanner = (recipe) => {
         axios({
@@ -118,10 +119,10 @@ const userRecipes = (props) => {
           headers: { 'Content-Type': 'application/json' },
           data: recipe
         }).then((response) => {
-          console.log(response);
-          // location.reload();
-        });
-      }
+            console.log(response);
+            props.refreshUser();
+      });
+    }
 
       const button = (props.type === "saved" ?
         <IconButton aria-label="add to favourites" onClick={addToFavouriteRecipes}>
@@ -140,7 +141,7 @@ const userRecipes = (props) => {
 
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Recipe data={recipeObject} userId={props.user.id} button={button} actionButtons={actionButtons}></Recipe>
+          <Recipe data={recipeObject} userId={props.user.id} button={button} actionButtons={actionButtons} refreshUser={props.refreshUser}></Recipe>
         </Grid>
       )
     });

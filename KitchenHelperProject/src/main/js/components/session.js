@@ -14,7 +14,13 @@ import Profile from './profile';
 
 const user = () => {
     const [user, setUser] = React.useState();
+    const [refreshUser, setRefreshUser] = React.useState(true);
     const [ongoingRecipe, setOngoingRecipe] = React.useState([]);
+
+    const handleUserChange = () => {
+      setRefreshUser(true);
+    }
+
     const refresh = (recipe) => {
         console.log("bananas");
         console.log(recipe);
@@ -22,23 +28,26 @@ const user = () => {
     };
 
     useEffect(() => {
+      if (refreshUser) {
         axios({
-            method: 'get',
-            url: `/users/name/mikeyMike`,
-            headers: { 'Content-Type': 'application/json' },
+          method: 'get',
+          url: `/users/name/mikeyMike`,
+          headers: { 'Content-Type': 'application/json' },
 
         }).then((response) => {
+            setRefreshUser(false);
             setUser(response.data);
         })
-    }, [])
+      }
+    });
 
     const userName = user ? <Profile user={user.displayName} /> : <div>Loading...</div>
-    const pantry = user ? <Pantry user={user}></Pantry> : <div></div>
-    const shoppingList = user ? <ShoppingList user={user}></ShoppingList> : <div></div>
-    const recipes = user ? <RecipesHub user={user} /> : <div></div>
+    const pantry = user ? <Pantry user={user} refreshUser={handleUserChange}></Pantry> : <div></div>
+    const shoppingList = user ? <ShoppingList user={user} refreshUser={handleUserChange}></ShoppingList> : <div></div>
+    const recipes = user ? <RecipesHub user={user} refreshUser={handleUserChange}/> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
-    const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved"></UserRecipes> : <div></div>
-    const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite"></UserRecipes> : <div></div>
+    const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved" refreshUser={handleUserChange}></UserRecipes> : <div></div>
+    const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite" refreshUser={handleUserChange}></UserRecipes> : <div></div>
 
     return (
         <div className="container">

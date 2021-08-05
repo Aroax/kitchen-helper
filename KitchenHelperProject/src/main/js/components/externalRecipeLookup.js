@@ -46,7 +46,7 @@ const externalRecipeLookup = (props) => {
     return recipes.map((recipe) => {
       return (
         <Grid item xs={12} sm={6} md={3}>
-          <Recipe data={recipe} userId={props.user.id}></Recipe>
+          <Recipe data={recipe} userId={props.user.id} refreshUser={props.refreshUser}></Recipe>
         </Grid>
       )
     });

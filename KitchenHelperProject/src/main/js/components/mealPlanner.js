@@ -1,30 +1,23 @@
-import React, { useState, useEffect } from "react";
-
+import React, { useState } from "react";
 import axios from "axios";
 import compareIngredientsArrayAndBuild from "./compareIngredientsArrayAndBuild";
 import { getShoppingList, buildShoppingListFromMealPlanner }from "./utilities/amalgamate";
 
-
 const MealPlanner = (props) => {
-  // const mealPlanner = props.user.mealPlanner;
   let pantry = props.user.pantry;
   let allMealPlanIngredients = [];
   let requiredIngredients = [];
-  const [mealPlanner, setMealPlanner] = useState(props.user.mealPlanner);
-  const [assignedMeals, setAssigedMeals] = useState(
-    {
-      Unassigned: [],
-      Monday: [],
-      Tuesday: [],
-      Wednesday: [],
-      Thursday: [],
-      Friday: [],
-      Saturday: [],
-      Sunday: []
-    }
-  );
-
-  
+  let mealPlanner = props.user.mealPlanner;
+  let assignedMeals = {
+    Unassigned: [],
+    Monday: [],
+    Tuesday: [],
+    Wednesday: [],
+    Thursday: [],
+    Friday: [],
+    Saturday: [],
+    Sunday: []
+  }
 
   const sortMealPlannerRecipes = () => {
     mealPlanner.forEach((recipe) => {
@@ -177,7 +170,7 @@ const MealPlanner = (props) => {
         }).then((response) => {
           console.log(response);
           sortMealPlannerRecipes();
-          // location.reload();
+          props.refreshUser();
         })
       }
 
@@ -190,8 +183,7 @@ const MealPlanner = (props) => {
           data: recipe
         }).then((response) => {
           console.log(response);
-          // setMealPlanner(props.user.mealPlanner);
-          // location.reload();
+          props.refreshUser();
         })
       }
 
@@ -203,7 +195,7 @@ const MealPlanner = (props) => {
           data: mealPlanner
         }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
         })
       }
 
@@ -239,7 +231,7 @@ const MealPlanner = (props) => {
           data: vettedIngredients
         }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
         })
       }
 

@@ -122,9 +122,9 @@ const pantry = (props) => {
         expiry: expiry,
       }
     }).then((response) => {
-      console.log(response);
+        console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const ingredientLookup = () => {

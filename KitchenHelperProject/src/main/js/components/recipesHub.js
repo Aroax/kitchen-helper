@@ -18,21 +18,17 @@ const RecipesHub = (props) => {
         );
     }
 
- 
-
-
-
     return (
         <div className='container'>
             <div className={classes.toolbar}/>
             <h1>Recipes Hub</h1>
-            <ExternalRecipeLookup user={props.user}/>
+            <ExternalRecipeLookup user={props.user} refreshUser={props.refreshUser}/>
             <hr />
-            {props.user ?  <ManualRecipe user={props.user} /> : <div>Loading...</div>}
+            {props.user ?  <ManualRecipe user={props.user} refreshUser={props.refreshUser}/> : <div>Loading...</div>}
             <hr />
             
             <hr />
-            <MealPlanner user={props.user} />
+            <MealPlanner user={props.user} refreshUser={props.refreshUser}/>
         </div>
     );
 }
