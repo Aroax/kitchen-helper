@@ -136,6 +136,13 @@ export default function IngredientCard(props) {
     setWeightNeeded(event.target.value);
   };
 
+  const [expiryDate, setExpiryDate] = React.useState(props.data.expiry);
+
+  const handleExpiryChange = (event) => {
+    props.updateExpiry(props.data.foodId, event.target.value);
+    setExpiryDate(event.target.value);
+  }
+
   const getClassNames = () => {
     if (condition === "expired") {
       return `${classes.ingrContainer} ${classes.grey}`;
@@ -186,13 +193,26 @@ export default function IngredientCard(props) {
             </Grid>
           </Grid>
           <Grid item className={classes.row}>
-            <Grid item>
-              <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
-            </Grid>
-            <Grid item>
-              <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
-            </Grid>
-          </Grid>
+            {props.type === "shopping-list"
+              ? (
+                <Grid item>
+                  <Typography><label for="expiry">Best before:</label></Typography>
+                  <input type="date" name="expiry-date" onChange={handleExpiryChange} />
+                </Grid>
+              )
+              : (
+                <Grid item>
+                  <Grid item>
+                    <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
+                  </Grid>
+                 <Grid item>
+                   <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
+                 </Grid>
+              </Grid>
+              )
+            }
+
+
 
           {props.location ?
             (
@@ -207,7 +227,7 @@ export default function IngredientCard(props) {
             ) :
             (null)
           }
-
+        </Grid>
         </CardContent>
         <Divider variant="middle" />
         <div className={classes.controls}>
