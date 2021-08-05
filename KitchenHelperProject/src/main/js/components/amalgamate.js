@@ -13,26 +13,22 @@ import React, { useState } from "react";
             ingredients.map((ingredient) => {
                 // console.log('requiredIngredients at the top', requiredIngredients);
                 found = false;
-                if (runningTotal.length > 0) {
+                // if (runningTotal.length > 0) {
                     // console.log('recipe ingredient', ingredient);
                     runningTotal.forEach((existingIngredient) => {
                         if (ingredient.foodId === existingIngredient.foodId) {
                             found = true;
-                            modifiedIngredient = ingredient;
-                            // console.log('existingIngredient.weightNeeded', existingIngredient.weightNeeded);
-                            // console.log('ingredient.weightNeeded', ingredient.weightNeeded);
-                            modifiedIngredient.weightNeeded = (existingIngredient.weightNeeded + ingredient.weightNeeded);
-                            console.log('modifiedIngredient', modifiedIngredient);
+                            existingIngredient.weightNeeded += ingredient.weightNeeded;
                             // console.log('existing', requiredIngredients);
                         } 
                     });
-                    found ? requiredIngredients.push(modifiedIngredient) : requiredIngredients.push(ingredient);
+                    found ? (null) : requiredIngredients.push(ingredient);
                     // console.log('pushed at ternary', requiredIngredients);
-                } else {
-                    requiredIngredients.push(ingredient);
+                // } else {
+                    // requiredIngredients.push(ingredient);
                     // console.log('first pass', ingredient);
                     // console.log('requiredIngredients', requiredIngredients);
-                };
+                // };
             });
         console.log('passing back requiredIngredients', requiredIngredients);
         return requiredIngredients;

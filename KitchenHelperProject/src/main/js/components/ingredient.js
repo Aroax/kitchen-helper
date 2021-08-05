@@ -60,7 +60,7 @@ const Ingredient = (props) => {
   const weight = props.weight ? `${props.weight}g total` : null; 
   const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;  
 
-  console.log('ing props', props)
+  // console.log('ing props', props)
   return (
     <tr>
       <td><img src={props.data.imageUrl} height="200px" width="250px"></img></td>
