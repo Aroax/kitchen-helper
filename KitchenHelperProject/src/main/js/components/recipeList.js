@@ -48,10 +48,10 @@ const RecipeList = (props) => {
 
   const compareIngredientsAndBuild = (recipe) => {
     let found;
-    console.log('recipe', recipe);
-    console.log('pantry', pantry);
-    console.log('top of compare', requiredIngredients);
-    console.log('recipe ingredients', recipe.ingredients);
+    // console.log('recipe', recipe);
+    // console.log('pantry', pantry);
+    // console.log('top of compare', requiredIngredients);
+    // console.log('recipe ingredients', recipe.ingredients);
     
     recipe.ingredients.map((recipeIngredient) => {
         found = false;
@@ -60,20 +60,20 @@ const RecipeList = (props) => {
             // console.log('pantry Ing', pantryIngredient);
             if (recipeIngredient.foodId === pantryIngredient.foodId) {
                 found = true;
-                console.log(found, recipeIngredient);
+                // console.log(found, recipeIngredient);
                 addRequiredAmount(recipeIngredient, pantryIngredient);
             }; 
         });
         found ? null : requiredIngredients.push(recipeIngredient);
-        console.log('at ternary', recipeIngredient);
+        // console.log('at ternary', recipeIngredient);
 
     })
-    console.log('end of compare', requiredIngredients);
+    // console.log('end of compare', requiredIngredients);
     addToShoppingList();
   }
 
   const addRequiredAmount = (recipeIng, pantryIng) => {
-    console.log('top of amount reqIng', requiredIngredients);
+    // console.log('top of amount reqIng', requiredIngredients);
     // let weightNeeded;
     (pantryIng.weight >= recipeIng.weightNeeded) ? null : modifyIngredient(recipeIng, pantryIng);
   }
@@ -83,7 +83,7 @@ const RecipeList = (props) => {
         let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
         let modifiedIngredient = recipeIng;
         modifiedIngredient.weightNeeded = weightNeeded;
-        console.log('mod Ing inside anon', modifiedIngredient);
+        // console.log('mod Ing inside anon', modifiedIngredient);
         requiredIngredients.push(modifiedIngredient);
     }
         

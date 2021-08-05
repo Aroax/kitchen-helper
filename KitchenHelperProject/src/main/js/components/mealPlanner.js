@@ -7,6 +7,7 @@ import compareIngredientsArrayAndBuild from "./compareIngredientsArrayAndBuild";
 const MealPlanner = (props) => {
   // const mealPlanner = props.user.mealPlanner;
   const [mealPlanner, setMealPlanner] = useState(props.user.mealPlanner);
+  let pantry = props.user.pantry;
   
   const [assignedMeals, setAssigedMeals] = useState(
     {
@@ -59,7 +60,7 @@ const MealPlanner = (props) => {
   }
 
   const dayDisplay = (meals) => {
-    console.log('meals in day display', meals)
+    // console.log('meals in day display', meals)
     return(
       meals.map((recipe) => {
         return(
@@ -82,7 +83,9 @@ const MealPlanner = (props) => {
             <option value="Sunday">Sunday</option>
           </select>
         </table>
-
+        
+        <button onClick={ () => { compareIngredientsAndBuild(recipe) } }>Add Recipe to Shopping List</button>
+        <button onClick={ () => { cookRecipe(recipe) } }>Cook Now! (subtract items)</button>
         <button onClick={() => { removeFromMealPlanner(recipe) }}>Remove From Meal Planner</button>
         <br></br>
       </div>
@@ -93,7 +96,7 @@ const MealPlanner = (props) => {
 
       const displayAssignedMeals = () => {
         sortMealPlannerRecipes();
-        console.log('in displayAssignedMeals', assignedMeals);
+        // console.log('in displayAssignedMeals', assignedMeals);
 
         return Object.entries(assignedMeals).map(([day, meals]) => {
           return (
@@ -107,41 +110,41 @@ const MealPlanner = (props) => {
           )});
       }
 
-      const getMealPlannerRecipes = () => {
+      // const getMealPlannerRecipes = () => {
         
-        return ( mealPlanner.map((recipe) => {
+      //   return ( mealPlanner.map((recipe) => {
           
           
-          return (
-            <div>
-              <table>
+      //     return (
+      //       <div>
+      //         <table>
 
-                <Recipe data={recipe} />
-                Day: {recipe.mealPlannerDay}
-                <br></br>
+      //           <Recipe data={recipe} />
+      //           Day: {recipe.mealPlannerDay}
+      //           <br></br>
 
-                <DayDropDown />
-                {/* <label for="day"> Assign Day: </label>
-                <select onChange={() => { assignDay(event, recipe) }}>
-                  <option value="unassigned">Please Select...</option>
-                  <option value="Monday">Monday</option>
-                  <option value="Tuesday">Tuesday</option>
-                  <option value="Wednesday">Wednesday</option>
-                  <option value="Thursday">Thursday</option>
-                  <option value="Friday">Friday</option>
-                  <option value="Saturday">Saturday</option>
-                  <option value="Sunday">Sunday</option>
-                </select> */}
+      //           <DayDropDown />
+      //           {/* <label for="day"> Assign Day: </label>
+      //           <select onChange={() => { assignDay(event, recipe) }}>
+      //             <option value="unassigned">Please Select...</option>
+      //             <option value="Monday">Monday</option>
+      //             <option value="Tuesday">Tuesday</option>
+      //             <option value="Wednesday">Wednesday</option>
+      //             <option value="Thursday">Thursday</option>
+      //             <option value="Friday">Friday</option>
+      //             <option value="Saturday">Saturday</option>
+      //             <option value="Sunday">Sunday</option>
+      //           </select> */}
                 
 
-              </table>
+      //         </table>
 
-              <button onClick={() => { removeFromMealPlanner(recipe) }}>Remove From Meal Planner</button>
-              <br></br>
-            </div>
-          )
-        }));
-      }
+      //         <button onClick={() => { removeFromMealPlanner(recipe) }}>Remove From Meal Planner</button>
+      //         <br></br>
+      //       </div>
+      //     )
+      //   }));
+      // }
 
       const Recipe = (recipeProps) => {
         //   console.log('in recipe props', props);
@@ -220,7 +223,7 @@ const MealPlanner = (props) => {
   
 
 
-        let pantry = props.user.pantry;
+        
         let vettedIngredients = compareIngredientsArrayAndBuild(pantry, allMealPlanIngredients)
         console.log('allMealPlanIngredients in axios', allMealPlanIngredients);
         console.log('vetted ingredients', vettedIngredients);
@@ -233,6 +236,60 @@ const MealPlanner = (props) => {
           console.log(response);
           // location.reload();
         })
+      }
+
+      const cookRecipe = (recipe) => {
+        console.log(recipe);
+      axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
+          headers: { 'Content-Type': 'application/json' },
+          data: recipe
+        }).then((response) => {
+            console.log(response);
+            // location.reload();
+        });
+    }
+
+    const compareIngredientsAndBuild = (recipe) => {
+      let found;
+      // console.log('recipe', recipe);
+      // console.log('pantry', pantry);
+      // console.log('top of compare', requiredIngredients);
+      // console.log('recipe ingredients', recipe.ingredients);
+      
+      recipe.ingredients.map((recipeIngredient) => {
+          found = false;
+          pantry.forEach((pantryIngredient) => {
+              // console.log('recipe Ing', recipeIngredient);
+              // console.log('pantry Ing', pantryIngredient);
+              if (recipeIngredient.foodId === pantryIngredient.foodId) {
+                  found = true;
+                  // console.log(found, recipeIngredient);
+                  addRequiredAmount(recipeIngredient, pantryIngredient);
+              }; 
+          });
+          found ? null : requiredIngredients.push(recipeIngredient);
+          // console.log('at ternary', recipeIngredient);
+  
+      })
+      // console.log('end of compare', requiredIngredients);
+      addToShoppingList();
+    }
+  
+    const addRequiredAmount = (recipeIng, pantryIng) => {
+      // console.log('top of amount reqIng', requiredIngredients);
+      // let weightNeeded;
+      (pantryIng.weight >= recipeIng.weightNeeded) ? null : modifyIngredient(recipeIng, pantryIng);
+    }
+  
+      const modifyIngredient = (recipeIng, pantryIng) => {
+          
+          let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
+          let modifiedIngredient = recipeIng;
+          modifiedIngredient.weightNeeded = weightNeeded;
+          // console.log('mod Ing inside anon', modifiedIngredient);
+          requiredIngredients.push(modifiedIngredient);
       }
 
 
