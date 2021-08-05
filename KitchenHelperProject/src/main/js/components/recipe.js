@@ -33,10 +33,15 @@ const recipeCard = (props) => {
     setExpanded(!expanded);
   };
 
-  const ingredients = props.data.recipe.ingredients.map((ingredient) => {
+  const recipeIngredients = props.ingredients ? props.ingredients : props.data.recipe.ingredients;
+  
+  console.log(props);
+ 
+
+  const ingredients = recipeIngredients.map((ingredient) => {
     return {
       foodId: ingredient.foodId,
-      name: ingredient.text,
+      name: (ingredient.name ? ingredient.name : ingredient.text),
       weight: Math.ceil(ingredient.weight),
       weightNeeded: Math.ceil(ingredient.weight),
       imageUrl: ingredient.image,
@@ -199,7 +204,7 @@ const recipeCard = (props) => {
               <ListItem>
                 <ListItemIcon>-</ListItemIcon>
                 <Typography variant="subtitle2">
-                  {ingr.text}: {Math.round(ingr.weight)}g
+                  {ingr.name}: {Math.round(ingr.weight)}g
                 </Typography>
                 {/* foodID = {ingr.foodId} */}
               </ListItem>

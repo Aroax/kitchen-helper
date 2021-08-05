@@ -27,11 +27,22 @@ const ShoppingList = (props) => {
     ingredientsList = updatedIngredientsList;
   }
 
+  const updateExpiry = (foodId, expiryDate) => {
+    const updatedIngredientsList = ingredientsList;
+    updatedIngredientsList.forEach((ingredient) => {
+      if (ingredient.foodId === foodId) {
+        ingredient.expiry = expiryDate;
+        console.log('ingredient in updateExpiry', ingredient);
+      }
+    });
+    ingredientsList = updatedIngredientsList;
+  }
+
   const getIngredients = (shoppingList) => {
     return shoppingList.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient bool={true} data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} onRemoveClick={() => { removeFromShoppingList(event, ingredient)}}></Ingredient>
+          <Ingredient bool={true} data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} updateExpiry={updateExpiry} onRemoveClick={() => { removeFromShoppingList(event, ingredient)}}></Ingredient>
         </Grid>
       )
 
