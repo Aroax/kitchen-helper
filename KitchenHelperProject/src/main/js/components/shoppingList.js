@@ -15,8 +15,7 @@ const useStyles = makeStyles((theme) => ({
 
 const ShoppingList = (props) => {
   const classes = useStyles();
-
-  const [ingredientsList, setIngredientsList] = React.useState(props.user.shoppingList);
+  let ingredientsList = props.user.shoppingList;
 
   const updateWeightNeeded = (foodId, weightNeeded) => {
     const updatedIngredientsList = ingredientsList;
@@ -25,7 +24,7 @@ const ShoppingList = (props) => {
         ingredient.weightNeeded = weightNeeded;
       }
     });
-    setIngredientsList(updatedIngredientsList);
+    ingredientsList = updatedIngredientsList;
   }
 
   const getIngredients = (shoppingList) => {
