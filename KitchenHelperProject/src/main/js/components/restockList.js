@@ -37,8 +37,7 @@ const RestockList = (props) => {
             data: ingredient
         }).then((response) => {
             console.log(response);
-            // location.reload();
-        })
+            props.refreshUser();        })
     }
 
     const dismissItem = (event, ingredient) => {
@@ -50,8 +49,7 @@ const RestockList = (props) => {
             data: ingredient
         }).then((response) => {
             console.log(response);
-            // location.reload();
-        })
+            props.refreshUser();        })
     }
 
 
@@ -63,8 +61,7 @@ const RestockList = (props) => {
             data: restockList
         }).then((response) => {
             console.log(response);
-            // location.reload();
-        })
+            props.refreshUser();        })
     }
 
 
