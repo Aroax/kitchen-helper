@@ -48,7 +48,7 @@ const ShoppingList = (props) => {
       data: ingredientsList
     }).then((response) => {
       console.log(response);
-      // location.reload();
+      props.refreshUser();
     })
   }
 
