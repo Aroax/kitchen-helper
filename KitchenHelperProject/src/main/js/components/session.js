@@ -13,7 +13,13 @@ import NavBar from './navBar';
 
 const user = () => {
     const [user, setUser] = React.useState();
+    const [refreshUser, setRefreshUser] = React.useState(true);
     const [ongoingRecipe, setOngoingRecipe] = React.useState([]);
+
+    const handleUserChange = () => {
+      setRefreshUser(true);
+    }
+
     const refresh = (recipe) => {
       console.log("bananas");
       console.log(recipe);
@@ -21,18 +27,21 @@ const user = () => {
     };
 
     useEffect(() => {
+      if (refreshUser) {
         axios({
-            method: 'get',
-            url: `/users/name/mikeyMike`,
-            headers: { 'Content-Type': 'application/json' },
+          method: 'get',
+          url: `/users/name/mikeyMike`,
+          headers: { 'Content-Type': 'application/json' },
 
         }).then((response) => {
+            setRefreshUser(false);
             setUser(response.data);
         })
-    }, [])
+      }
+    });
 
     const userName = user ? <p>Welcome, {user.displayName}</p> : <div>Loading...</div>
-    const pantry = user ? <Pantry user={user}></Pantry> : <div></div>
+    const pantry = user ? <Pantry user={user} refreshUser={handleUserChange}></Pantry> : <div></div>
     const shoppingList = user ? <ShoppingList user={user}></ShoppingList> : <div></div>
     const recipes = user ? <RecipesHub user={user} /> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
