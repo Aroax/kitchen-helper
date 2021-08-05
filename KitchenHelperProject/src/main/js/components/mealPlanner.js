@@ -177,7 +177,7 @@ const MealPlanner = (props) => {
         }).then((response) => {
           console.log(response);
           sortMealPlannerRecipes();
-          // location.reload();
+          props.refreshUser();
         })
       }
 
@@ -190,8 +190,8 @@ const MealPlanner = (props) => {
           data: recipe
         }).then((response) => {
           console.log(response);
+          props.refreshUser();
           // setMealPlanner(props.user.mealPlanner);
-          // location.reload();
         })
       }
 
@@ -203,7 +203,7 @@ const MealPlanner = (props) => {
           data: mealPlanner
         }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
         })
       }
 
@@ -239,7 +239,7 @@ const MealPlanner = (props) => {
           data: vettedIngredients
         }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
         })
       }
 
