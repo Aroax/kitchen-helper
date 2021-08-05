@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import CardMedia from "@material-ui/core/CardMedia";
-import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
 import PinDropIcon from '@material-ui/icons/PinDrop';
 
@@ -24,12 +23,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column"
   },
-  content: {
-    flex: "1 0 auto",
-    textAlign: "left",
-    display: "flex",
-    alignItems: "center"
-  },
   image: {
     minWidth: 200
   },
@@ -41,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   row: {
     display: "flex",
+    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     marginTop: theme.spacing(1),
@@ -160,16 +154,13 @@ export default function IngredientCard(props) {
     <Card className={getClassNames()}>
       <div className={classes.details}>
         <CardContent>
-          <Grid container className={classes.content}>
-            <Typography component="h5" variant="h5">
-              {props.data.name}
-            </Typography>
-            <Grid item className={classes.content}>
-              {/* <Divider
-              className={classes.verticalDiv}
-              orientation="vertical"
-              flexItem
-            /> */}
+          <Grid container direction="column" alignItems='flex-start' spacing={1}>
+            <Grid item >
+              <Typography component="h5" variant="h5">
+                {props.data.name}
+              </Typography>
+            </Grid>
+            <Grid item>
               <Typography variant="subtitle1" color="textSecondary">
                 {weight}
               </Typography>
