@@ -17,9 +17,8 @@ const RestockList = (props) => {
             return (
                 <Grid item xs={12} sm={6} md={4}>
                     <IngredientCard data={ingredient} user={props.user} userId={props.user.id}></IngredientCard>
-                    <br>
+                    <br/>
                     <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingList(event, ingredient) }}/>
-                    </br>
                     <SecondaryButton text="Dismiss Item" onClick={(event) => { dismissItem(event, ingredient) }}/>
                 </Grid>
             )
