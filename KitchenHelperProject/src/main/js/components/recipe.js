@@ -165,7 +165,7 @@ const recipeCard = (props) => {
             save
           </Button>
         )}
-        {props.actionButtons ? buttonMenu : null}
+        {props.actionButtons ? props.actionButtons : null}
         {/* <Button
           onClick={props.onMealPlannerClick}
           size="small"
@@ -176,7 +176,7 @@ const recipeCard = (props) => {
         >
           add to meal planner
         </Button> */}
-        {/* {buttonMenu} */}
+        {buttonMenu}
         <IconButton
           color="secondary"
           className={clsx(classes.expand, {
