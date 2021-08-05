@@ -44,6 +44,7 @@ const RecipeList = (props) => {
             weight: ingredient.weight,
             weightNeeded: ingredient.weightNeeded,
             image: ingredient.imageUrl,
+            imageUrl: ingredient.imageUrl,
             foodCategory: ingredient.foodCategory,
             text: ingredient.text
           }
