@@ -345,7 +345,8 @@ public class UserController {
 		    
 		  for (CustomRecipe rec : mealPlanner) {
 			if (rec.getRecipeId().equals(recipe.getRecipeId())) {
-				index = mealPlanner.indexOf(rec);   
+				index = mealPlanner.indexOf(rec);
+				System.out.println("recipe index is: " + index);
 			}
 		  }
 
