@@ -35,7 +35,9 @@ const user = () => {
 
         }).then((response) => {
             setRefreshUser(false);
-            setUser(response.data);
+            let currentUser = response.data;
+            currentUser.pantry = currentUser.pantry.reverse();
+            setUser(currentUser);
         })
       }
     });

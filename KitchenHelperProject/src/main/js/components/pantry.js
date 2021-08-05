@@ -37,8 +37,10 @@ const pantry = (props) => {
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
 
+  
+  
   const getIngredients = (pantry) => {
-    return pantry.reverse().map((ingredient) => {
+    return pantry.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
           <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} weight={ingredient.weight} location={ingredient.location}></Ingredient>
@@ -185,7 +187,7 @@ const pantry = (props) => {
     <main className={classes.pantry}>
       <div className={classes.toolbar} />
       {showLookup ? <Lookup /> : null}
-      {storedIngredient ? form : <div>storage empty</div>}
+      {storedIngredient ? form : <div></div>}
       <PrimaryButton text="Add Ingredient" color="primary" onClick={addIngredient} />
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
