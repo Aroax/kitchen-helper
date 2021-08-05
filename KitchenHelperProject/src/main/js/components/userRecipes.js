@@ -148,9 +148,15 @@ const userRecipes = (props) => {
     });
   }
 
+  const heading = (props.type === "saved" ?
+    <h2>My Saved Recipes</h2>
+    :
+    <h2>My Favourite Recipes</h2>)
+
   return (
     <main className={classes.container}>
       <div className={classes.toolbar} />
+      {heading}
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getUserRecipes()}
       </Grid>
