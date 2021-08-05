@@ -1,114 +1,136 @@
-import React, { useState, useEffect } from "react";
-import Ingredient from "./ingredient";
+import React from "react";
+import Recipe from "./recipe";
+import { Grid } from "@material-ui/core";
+import FavoriteIcon from "@material-ui/icons/Favorite";
+import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
+import { makeStyles } from "@material-ui/core/styles";
 
 const RecipeList = (props) => {
   let customRecipes = props.user.customRecipes;
   let requiredIngredients = [];
   let pantry = props.user.pantry;
-  let food_app_ID = "d3e7d692";
-  let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
-  let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
 
+  const useStyles = makeStyles((theme) => ({
+    toolbar: theme.mixins.toolbar,
+    container: {
+      flexGrow: 1,
+      backgroundColor: theme.palette.background.default,
+      padding: theme.spacing(3)
+    },
+    divider: {
+      padding: theme.spacing(0.15),
+      margin: "50px 0"
+    }
+  }));
+  const classes = useStyles();
 
-  
   const getCustomRecipes = () => {
     return customRecipes.map((recipe) => {
-      return (
+      recipe.label = recipe.recipeName;
+      const ingredients = recipe.ingredients.map((ingredient) => {
+        return (
+          {
+            foodId: ingredient.foodId,
+            name: ingredient.name,
+            weight: ingredient.weight,
+            weightNeeded: ingredient.weightNeeded,
+            image: ingredient.imageUrl,
+            imageUrl: ingredient.imageUrl,
+            foodCategory: ingredient.foodCategory,
+            text: ingredient.text
+          }
+        )
+      });
+
+      recipe.ingredients = ingredients;
+      const recipeObject = {
+        recipe: recipe
+      }
+
+      const addToFavouriteRecipes = () => {
+        axios({
+          method: 'patch',
+          url: `/users/${props.user.id}/recipes/favourites/add`,
+          headers: { 'Content-Type': 'application/json' },
+          data: {
+            recipeName: recipe.label,
+            recipeId: recipe.recipeId,
+            ingredients: recipe.ingredients,
+            image: recipe.image,
+            // yield: recipe.yield,
+            // url: recipe.url,
+            // source: recipe.source
+          }
+        }).then((response) => {
+            console.log(response);
+            props.refreshUser();
+        })
+      }
+    
+      const button = (
+        <IconButton aria-label="add to favourites" onClick={addToFavouriteRecipes}>
+          <FavoriteIcon color="secondary" />
+        </IconButton>
+      );
+      
+      const actionButtons = (
         <div>
-            <table>
-                <Recipe data={recipe} refreshUser={props.refreshUser}/>
-            </table>
-        
-      <button onClick={ () => { compareIngredientsAndBuild(recipe) } }>Add Recipe to Shopping List</button>
-      <button onClick={ () => { cookRecipe(recipe) } }>Cook Now! (subtract items)</button>
-      <button onClick={ () => { addRecipeToMealPlanner(recipe) } }>Add to meal planner</button>
-      </div>
+          <button onClick={() => { compareIngredientsAndBuild(recipe) }}>Add Recipe to Shopping List</button>
+          <button onClick={() => { cookRecipe(recipe) }}>Cook Now! (subtract items)</button>
+          <button onClick={() => { addRecipeToMealPlanner(recipe) }}>Add to meal planner</button>
+        </div>
+      )
+
+      return (
+        <Grid item xs={12} sm={6} md={4}>
+          <Recipe data={recipeObject} userId={props.user.id} button={button} actionButtons={actionButtons} refreshUser={props.refreshUser}></Recipe>
+        </Grid>
       )
     });
   }
 
   const cookRecipe = (recipe) => {
-      console.log(recipe);
     axios({
-        method: 'patch',
-        url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
-        headers: { 'Content-Type': 'application/json' },
-        data: recipe
-      }).then((response) => {
-          console.log(response);
-          props.refreshUser();
-
-      });
+      method: 'patch',
+      url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
+      headers: { 'Content-Type': 'application/json' },
+      data: recipe
+    }).then((response) => {
+        console.log(response);
+        props.refreshUser();
+    });
   }
 
   const compareIngredientsAndBuild = (recipe) => {
     let found;
-    // console.log('recipe', recipe);
-    // console.log('pantry', pantry);
-    // console.log('top of compare', requiredIngredients);
-    // console.log('recipe ingredients', recipe.ingredients);
     
     recipe.ingredients.map((recipeIngredient) => {
         found = false;
         pantry.forEach((pantryIngredient) => {
-            // console.log('recipe Ing', recipeIngredient);
-            // console.log('pantry Ing', pantryIngredient);
             if (recipeIngredient.foodId === pantryIngredient.foodId) {
                 found = true;
-                // console.log(found, recipeIngredient);
                 addRequiredAmount(recipeIngredient, pantryIngredient);
             }; 
         });
         found ? null : requiredIngredients.push(recipeIngredient);
-        // console.log('at ternary', recipeIngredient);
 
     })
-    // console.log('end of compare', requiredIngredients);
     addToShoppingList();
   }
 
   const addRequiredAmount = (recipeIng, pantryIng) => {
-    // console.log('top of amount reqIng', requiredIngredients);
-    // let weightNeeded;
     (pantryIng.weight >= recipeIng.weightNeeded) ? null : modifyIngredient(recipeIng, pantryIng);
   }
 
-    const modifyIngredient = (recipeIng, pantryIng) => {
-        
-        let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
-        let modifiedIngredient = recipeIng;
-        modifiedIngredient.weightNeeded = weightNeeded;
-        // console.log('mod Ing inside anon', modifiedIngredient);
-        requiredIngredients.push(modifiedIngredient);
-    }
-        
-        
-    
-    // console.log('modified Ing', modifiedIngredient);
-    
-    // console.log('modified Ing plus weight', modifiedIngredient);
-    
-    // console.log('bottom of amount reqIng', requiredIngredients);
-  
-  
-
-  const Recipe = (props) => {
-    //   console.log('in recipe props', props);
-      return (
-          <div>
-              <tr>
-              {props.data.recipeName}
-              
-              {/* <Ingredient data={ingredient} userId={props.user.id}></Ingredient> */}
-              </tr>
-          </div>
-
-      )
+  const modifyIngredient = (recipeIng, pantryIng) => {
+      let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
+      let modifiedIngredient = recipeIng;
+      modifiedIngredient.weightNeeded = weightNeeded;
+      requiredIngredients.push(modifiedIngredient);
   }
 
   const addToShoppingList = () => {
-    // event.preventDefault();
     console.log('required ingredients in addToShoppingList', requiredIngredients);
     axios({
       method: 'patch',
@@ -122,7 +144,6 @@ const RecipeList = (props) => {
   }
 
   const addRecipeToMealPlanner = (recipe) => {
-    // console.log('recipe', recipe);
     recipe.mealPlannerDay = "Unassigned";
     axios({
         method: 'patch',
@@ -135,22 +156,15 @@ const RecipeList = (props) => {
       });
 }
 
-  const View = () => {
-    return (
-        <div>
-          <h2>My Custom Recipes</h2>
-          {getCustomRecipes()}
-          <br></br>
-        </div>
-      );
-  }
-
   // Render below
-
   return (
-      <div>
-        <View />
-      </div>
+    <main className={classes.container}>
+      <div className={classes.toolbar} />
+      <h2>My Custom Recipes</h2>
+      <Grid container direction="row" alignItems="flex-start" spacing={1}>
+        {getCustomRecipes()}
+      </Grid>
+    </main>
     );
 }
 
