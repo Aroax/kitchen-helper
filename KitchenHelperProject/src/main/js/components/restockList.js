@@ -17,21 +17,21 @@ const RestockList = (props) => {
             return (
                 <Grid item xs={12} sm={6} md={4}>
                     <IngredientCard data={ingredient} user={props.user} userId={props.user.id}></IngredientCard>
-                    <br>
-                    <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingList(event, ingredient) }}/>
-                    </br>
+                    <br />
+                    <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingListFromRestock(event, ingredient) }}/>
+                    
                     <SecondaryButton text="Dismiss Item" onClick={(event) => { dismissItem(event, ingredient) }}/>
                 </Grid>
             )
         });
     }
 
-    const addToShoppingList = (event, ingredient) => {
+    const addToShoppingListFromRestock = (event, ingredient) => {
         event.preventDefault();
         ingredient.weightNeeded = 0;
         axios({
             method: 'patch',
-            url: `/users/${props.user.id}/shopping-list/add`,
+            url: `/users/${props.user.id}/shopping-list/add-from-restock`,
             headers: { 'Content-Type': 'application/json' },
             data: ingredient
         }).then((response) => {

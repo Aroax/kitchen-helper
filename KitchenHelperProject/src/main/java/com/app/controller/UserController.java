@@ -69,7 +69,7 @@ public class UserController {
     int index = -1;
 
     for (Ingredient ing : pantry) {
-        if (ing.getName().equals(ingredient.getName())) {
+        if (ing.getFoodId().equals(ingredient.getFoodId())) {
             index = pantry.indexOf(ing);
         }
     }
@@ -122,6 +122,25 @@ public class UserController {
 		userRepository.save(user);
 	}
   
+  @PatchMapping("/users/{id}/shopping-list/add-from-restock")
+ 	public void convertRestockToShoppingList(@PathVariable final String id, @RequestBody Ingredient ingredient) {
+     User user = userRepository.findById(id).orElseGet(User::new);
+     user.getShoppingList().add(ingredient);
+     
+     ArrayList<Ingredient> restockList = user.getRestockList();
+     int index = -1;
+
+     for (Ingredient ing : restockList) {
+         if (ing.getFoodId().equals(ingredient.getFoodId())) {
+             index = restockList.indexOf(ing);
+         }
+     }
+
+     user.getRestockList().remove(index);
+     
+ 		userRepository.save(user);
+ 	}
+  
   @PatchMapping("/users/{id}/shopping-list/add-multiple")
  	public void addAllToShoppingList(@PathVariable final String id, @RequestBody ArrayList<Ingredient> ingredients) {
      User user = userRepository.findById(id).orElseGet(User::new);
@@ -149,7 +168,7 @@ public class UserController {
     int index = -1;
     
     for (Ingredient ing : shoppingList) {
-        if (ing.getName().equals(ingredient.getName())) {
+        if (ing.getFoodId().equals(ingredient.getFoodId())) {
             index = shoppingList.indexOf(ing);   
         }
     }
@@ -175,7 +194,7 @@ public class UserController {
     int index = -1;
     
     for (Ingredient ing : draftRecipe) {
-        if (ing.getName().equals(ingredient.getName())) {
+        if (ing.getFoodId().equals(ingredient.getFoodId())) {
             index = draftRecipe.indexOf(ing);   
         }
     }
@@ -312,6 +331,30 @@ public class UserController {
 		userRepository.save(user);
 	}
 	
+	@PatchMapping("/users/{id}/mealplanner/cook")
+	  public void cookMealPlannerRecipe(@PathVariable final String id, @RequestBody CustomRecipe recipe) {
+		  System.out.println(recipe);
+		  recipe.showStats();
+		  User user = userRepository.findById(id).orElseGet(User::new);
+		  ArrayList<CustomRecipe> mealPlanner = user.getMealPlanner();
+		  int index = -1;
+		  
+		  for (Ingredient ingredient : recipe.getIngredients()) {
+			  user.decreasePantryIngredientAmount(ingredient.getFoodId(), ingredient.getWeightNeeded());
+		  }
+		    
+		  for (CustomRecipe rec : mealPlanner) {
+			if (rec.getRecipeId().equals(recipe.getRecipeId())) {
+				index = mealPlanner.indexOf(rec);   
+			}
+		  }
+
+		  user.getMealPlanner().remove(index);
+		  user.getRecentRecipes().add(recipe);
+		  user.pantrySpringClean();
+		  userRepository.save(user);
+	  }
+	
 	@PatchMapping("/users/{id}/restock-list/remove")
 	public void removeFromRestockList(@PathVariable final String id, @RequestBody Ingredient ingredient) {
     User user = userRepository.findById(id).orElseGet(User::new);
@@ -319,7 +362,7 @@ public class UserController {
     int index = -1;
 
     for (Ingredient ing : restockList) {
-        if (ing.getName().equals(ingredient.getName())) {
+        if (ing.getFoodId().equals(ingredient.getFoodId())) {
             index = restockList.indexOf(ing);
         }
     }

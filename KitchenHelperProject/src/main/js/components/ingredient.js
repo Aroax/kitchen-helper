@@ -222,7 +222,7 @@ export default function IngredientCard(props) {
             >
               Edit
             </Button> */}
-            <Button href="" size="small" disableElevation>
+            <Button size="small" disableElevation onClick={props.onRemoveClick}>
               Remove
             </Button>
           </CardActions>

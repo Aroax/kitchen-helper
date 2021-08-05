@@ -191,9 +191,10 @@ const MealPlanner = (props) => {
 
       const cookRecipe = (recipe) => {
         console.log(recipe);
-      axios({
+        
+        axios({
           method: 'patch',
-          url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
+          url: `/users/${props.user.id}/mealplanner/cook`,
           headers: { 'Content-Type': 'application/json' },
           data: recipe
         }).then((response) => {
