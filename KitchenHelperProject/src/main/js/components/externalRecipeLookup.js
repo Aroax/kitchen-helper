@@ -54,7 +54,7 @@ const externalRecipeLookup = (props) => {
 
   return (
     <main className={classes.recipes}>
-    <h2>Search Recipe API</h2>
+    <h2>Search Recipes</h2>
       <SearchBar
         color="secondary"
         label="Search for recipes"
