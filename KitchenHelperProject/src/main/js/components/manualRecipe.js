@@ -5,7 +5,7 @@ import axios from "axios";
 
 const ManualRecipe = (props) => {
   const [storedIngredient, setStoredIngredient] = useState();
-  const [draftRecipe, setDraftRecipe] = useState(props.user.draftRecipe);
+  let draftRecipe = props.user.draftRecipe;
 
   const [foodId, setFoodId] = useState("899");
   const [name, setName] = useState("test_ingredient");
