@@ -153,7 +153,7 @@ export default function IngredientCard(props) {
   const foodCategory = props.foodCategory ? props.foodCategory : null;
   const location = props.location ? props.location : null;
   const weight = props.weight ? `${props.weight}g total` : null;
-  // const weightNeeded = props.weightNeeded ? `${props.weightNeeded}g needed` : null;
+  const weightNeededElement = props.weightNeeded ? `${props.weightNeeded}g needed` : null;
   // console.log('ing props', props)
 
   return (
@@ -179,7 +179,7 @@ export default function IngredientCard(props) {
                     <input value={weightNeeded} onChange={handleWeightNeededChange} />
                   )
                   : (
-                    <p>{props.data.weightNeeded}g</p>
+                    weightNeededElement
                   )
                 }
               </Typography>

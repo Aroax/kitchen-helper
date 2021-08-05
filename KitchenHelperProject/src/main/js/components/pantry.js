@@ -40,9 +40,7 @@ const pantry = (props) => {
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
-
-
-
+  
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
       return (
@@ -51,20 +49,6 @@ const pantry = (props) => {
         </Grid>
       )
     });
-  }
-
-  const addToShoppingList = (event, ingredient) => {
-    console.log(ingredient);
-    event.preventDefault();
-    axios({
-      method: 'patch',
-      url: `/users/${props.user.id}/shopping-list/add`,
-      headers: { 'Content-Type': 'application/json' },
-      data: ingredient
-    }).then((response) => {
-      console.log(response);
-      // location.reload();
-    })
   }
 
   const removeFromPantry = (event, ingredient) => {
@@ -148,11 +132,9 @@ const pantry = (props) => {
 
   const ingredientLookup = () => {
     event.preventDefault();
-    // useEffect(() => {
     axios({
       method: 'get',
       url: `${food_api_url}?app_id=${food_app_ID}&app_key=${food_app_key}&ingr=${lookupName}&nutrition-type=cooking`,
-      // headers: { 'Content-Type': 'application/json' },
     }).then((response) => {
       console.log(response.data.parsed[0].food.foodId);
 
@@ -160,7 +142,6 @@ const pantry = (props) => {
       setStoredIngredient(response.data.parsed[0].food);
       storedIngredient ? console.log(storedIngredient) : console.log("empty");
     });
-    // }, [])
   }
 
   const Lookup = () => {
@@ -191,21 +172,13 @@ const pantry = (props) => {
       imageUrl={imageUrl}
     />
 
-  // const LookupDisplayConfirmation = () => {
-  //   return(
-  //     <div>
-  //     <Ingredient data={storedIngredient} />
-  //       <button onClick={addToPantry}>Add this ingredient to pantry</button>
-  //     </div>
-  //   )
-  // }
-
   // Render below
   const classes = useStyles();
 
   return (
     <main className={classes.pantry}>
       <div className={classes.toolbar} />
+      <h1>My Pantry</h1>
       <PrimaryButton text="Add Ingredient" color="primary" onClick={addIngredient} />
       <br/>
       {showLookup ? <Lookup /> : null}
