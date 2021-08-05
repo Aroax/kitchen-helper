@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 
 import axios from "axios";
 import compareIngredientsArrayAndBuild from "./compareIngredientsArrayAndBuild";
-import { getShoppingList, buildShoppingListFromMealPlanner }from "./amalgamate";
+import { getShoppingList, buildShoppingListFromMealPlanner }from "./utilities/amalgamate";
 
 
 const MealPlanner = (props) => {
