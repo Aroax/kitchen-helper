@@ -19,7 +19,7 @@ const useStyles = makeStyles((theme) => ({
   },
   col: {
     display: "flex",
-    flexDirection: "column",
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center"
   }
@@ -27,24 +27,24 @@ const useStyles = makeStyles((theme) => ({
 
 const locations = [
   {
-    value: "User Fridge",
+    value: null,
+    label: "Not selected.."
+  },
+  {
+    value: "Fridge",
     label: "Fridge"
   },
   {
-    value: "User Cupboard",
+    value: "Cupboard",
     label: "Cupboard"
   },
   {
-    value: "User Freezer",
+    value: "Freezer",
     label: "Freezer"
-  },
-  {
-    value: "Not Applicable",
-    label: "N/A"
   }
 ];
 
-export default function addToPantryForm() {
+export default function addToPantryForm(props) {
   const classes = useStyles();
 
   const [location, setlocation] = React.useState();
@@ -61,11 +61,11 @@ export default function addToPantryForm() {
           variant="outlined"
         >
           <TextField
-            id="outlined-basic"
-            label="Ingredient name"
+            helperText="Ingredient name"
             variant="outlined"
             color="secondary"
             defaultValue=""
+            value={props.name} onChange={props.onNameChange}
           />
         </FormControl>
       </Grid>
@@ -75,42 +75,39 @@ export default function addToPantryForm() {
           variant="outlined"
         >
           <TextField
-            id="outlined-basic"
+            type="number"
             label="Weight"
             variant="outlined"
             color="secondary"
             helperText="in grams"
-            value=""
+            onChange={props.onWeightChange}
           />
-          {/* <FormHelperText id="outlined-weight-helper-text">
-            grams
-          </FormHelperText> */}
         </FormControl>
       </Grid>
-      <Grid item>
+      {/* <Grid item>
         <FormControl
           className={clsx(classes.margin, classes.textField)}
           variant="outlined"
         >
           <TextField
-            id="outlined-basic"
+             
             label="Food category"
-            defaultValue=""
+            
             variant="outlined"
             color="secondary"
+            value={props.category} onChange={props.onFoodCategoryChange}
           />
         </FormControl>
-      </Grid>
+      </Grid> */}
       <Grid item>
         <FormControl
           className={clsx(classes.margin, classes.textField)}
           variant="outlined"
         >
           <TextField
-            id="outlined-select-currency-native"
             select
             value={location}
-            onChange={handleLocationChange}
+            onChange={props.onLocationChange}
             SelectProps={{
               native: true
             }}
@@ -132,11 +129,11 @@ export default function addToPantryForm() {
           variant="outlined"
         >
           <TextField
-            id="outlined-basic"
             type="date"
             variant="outlined"
             color="secondary"
             helperText="Enter best before date"
+            onChange={props.onExpiryChange}
           />
         </FormControl>
       </Grid>
@@ -147,8 +144,8 @@ export default function addToPantryForm() {
         >
           <PrimaryButton
             text="add to pantry"
-            color="primary"
-            onClick={() => console.log("button clicked")}
+            color="secondary"
+            onClick={props.onButtonClick}
           />
         </FormControl>
       </Grid>

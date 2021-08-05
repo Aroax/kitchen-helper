@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import Ingredient from "./ingredient";
-import Form from "./form";
-import { Grid } from "@material-ui/core";
+import Form from "./addForm";
+import { Divider, Grid } from "@material-ui/core";
 import { makeStyles } from "@material-ui/core/styles";
 import PrimaryButton from "./buttonPrimary";
 import axios from "axios";
+import SearchBar from "./searchBar";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -16,6 +17,9 @@ const useStyles = makeStyles((theme) => ({
   divider: {
     padding: theme.spacing(0.15),
     margin: "50px 0"
+  },
+  lookup: {
+    marginTop: theme.spacing(2)
   }
 }));
 
@@ -41,7 +45,7 @@ const pantry = (props) => {
     return pantry.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} location={ingredient.location} onRemoveClick={() => { removeFromPantry(event, ingredient)}}></Ingredient>
+          <Ingredient data={ingredient} userId={props.user.id} weight={ingredient.weight} location={ingredient.location} onRemoveClick={() => { removeFromPantry(event, ingredient) }}></Ingredient>
         </Grid>
       )
     });
@@ -121,8 +125,8 @@ const pantry = (props) => {
         expiry: expiry,
       }
     }).then((response) => {
-        console.log(response);
-        props.refreshUser();
+      console.log(response);
+      props.refreshUser();
     })
   }
 
@@ -142,12 +146,14 @@ const pantry = (props) => {
 
   const Lookup = () => {
     return (
-      <div>
-        <form onSubmit={ingredientLookup}>
-          <input type="text" placeholder="Ingredient name" onChange={handleLookupNameChange}></input>
-          <input type="submit" value="search" />
-        </form>
-      </div>
+      <Grid container className={classes.lookup}>
+        <SearchBar
+          label="Search for ingredient"
+          color="secondary"
+          onClick={ingredientLookup}
+          onChange={handleLookupNameChange}
+        />
+      </Grid>
     )
   }
 
@@ -173,9 +179,13 @@ const pantry = (props) => {
     <main className={classes.pantry}>
       <div className={classes.toolbar} />
       <h1>My Pantry</h1>
+      <PrimaryButton text="Add Ingredient" color="primary" onClick={addIngredient} />
+      <br/>
       {showLookup ? <Lookup /> : null}
       {storedIngredient ? form : <div></div>}
-      <PrimaryButton text="Add Ingredient" color="primary" onClick={addIngredient} />
+      <br/>
+      <Divider/>
+      <br/>
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
       </Grid>
