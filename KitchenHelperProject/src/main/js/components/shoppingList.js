@@ -42,7 +42,7 @@ const ShoppingList = (props) => {
     return shoppingList.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} updateExpiry={updateExpiry} onRemoveClick={() => { removeFromShoppingList(event, ingredient)}}></Ingredient>
+          <Ingredient bool={true} data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} updateExpiry={updateExpiry} onRemoveClick={() => { removeFromShoppingList(event, ingredient)}}></Ingredient>
         </Grid>
       )
 

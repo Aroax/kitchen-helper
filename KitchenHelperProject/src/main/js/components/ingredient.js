@@ -8,7 +8,6 @@ import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import AccessTimeIcon from "@material-ui/icons/AccessTime";
 import CardMedia from "@material-ui/core/CardMedia";
-import IconButton from "@material-ui/core/IconButton";
 import Divider from "@material-ui/core/Divider";
 import PinDropIcon from '@material-ui/icons/PinDrop';
 
@@ -24,12 +23,6 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     flexDirection: "column"
   },
-  content: {
-    flex: "1 0 auto",
-    textAlign: "left",
-    display: "flex",
-    alignItems: "center"
-  },
   image: {
     minWidth: 200
   },
@@ -41,6 +34,7 @@ const useStyles = makeStyles((theme) => ({
   },
   row: {
     display: "flex",
+    flex: 1,
     flexDirection: "row",
     alignItems: "center",
     marginTop: theme.spacing(1),
@@ -167,16 +161,13 @@ export default function IngredientCard(props) {
     <Card className={getClassNames()}>
       <div className={classes.details}>
         <CardContent>
-          <Grid container className={classes.content}>
-            <Typography component="h5" variant="h5">
-              {props.data.name}
-            </Typography>
-            <Grid item className={classes.content}>
-              {/* <Divider
-              className={classes.verticalDiv}
-              orientation="vertical"
-              flexItem
-            /> */}
+          <Grid container direction="column" alignItems='flex-start' spacing={1}>
+            <Grid item >
+              <Typography component="h5" variant="h5">
+                {props.data.name}
+              </Typography>
+            </Grid>
+            <Grid item>
               <Typography variant="subtitle1" color="textSecondary">
                 {weight}
               </Typography>
@@ -187,7 +178,7 @@ export default function IngredientCard(props) {
                       <Typography variant="caption" display="block" gutterBottom><label for="weightNeeded">Minimum weight needed </label></Typography>
                       <Typography variant="caption" display="block" gutterBottom><label for="weightNeeded">for planned recipes: </label></Typography>
                       <input value={weightNeeded} onChange={handleWeightNeededChange} />g
-                      <Typography variant="caption" display="block" gutterBottom>(please edit as appopriate </Typography>
+                      <Typography variant="caption" display="block" gutterBottom>(please edit as appropriate </Typography>
                       <Typography variant="caption" display="block" gutterBottom>for actual weight acquired)</Typography>
                     </Grid>
                   )
@@ -198,6 +189,17 @@ export default function IngredientCard(props) {
               </Typography>
             </Grid>
           </Grid>
+          {props.bool ?
+            (<Grid item className={classes.row}>
+              <Grid item>
+                <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
+              </Grid>
+              <Grid item>
+                <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
+              </Grid>
+            </Grid>)
+            : null
+          }
           <Grid item className={classes.row}>
             {props.type === "shopping-list"
               ? (
@@ -218,8 +220,6 @@ export default function IngredientCard(props) {
               )
             }
 
-
-
           {props.location ?
             (
               <Grid item className={classes.row}>
@@ -236,6 +236,8 @@ export default function IngredientCard(props) {
         </Grid>
         </CardContent>
         <Divider variant="middle" />
+        {props.bool ?
+          (
         <div className={classes.controls}>
           <CardActions>
             {/* <Button
@@ -253,6 +255,9 @@ export default function IngredientCard(props) {
             </Button>
           </CardActions>
         </div>
+       )
+          : null
+        } 
       </div>
       <CardMedia
         className={classes.image}
