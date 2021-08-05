@@ -115,19 +115,6 @@ export default function LeftDrawerNav(props) {
           </MenuItem>
         </NavLink>
         <NavLink
-          to="/profile"
-          className={classes.navLink}
-          activeClassName={classes.navLinkActive}
-          onClick={handleDrawerToggle}
-        >
-          <MenuItem button key="Profile">
-            <ListItemIcon>
-              <PersonIcon />
-            </ListItemIcon>
-            PROFILE
-          </MenuItem>
-        </NavLink>
-        <NavLink
           to="/meal-planner"
           className={classes.navLink}
           activeClassName={classes.navLinkActive}
@@ -138,6 +125,19 @@ export default function LeftDrawerNav(props) {
               <EventNoteIcon />
             </ListItemIcon>
             MEAL PLANNER
+          </MenuItem>
+        </NavLink>
+        <NavLink
+          to="/profile"
+          className={classes.navLink}
+          activeClassName={classes.navLinkActive}
+          onClick={handleDrawerToggle}
+        >
+          <MenuItem button key="Profile">
+            <ListItemIcon>
+              <PersonIcon />
+            </ListItemIcon>
+            PROFILE
           </MenuItem>
         </NavLink>
       </MenuList>

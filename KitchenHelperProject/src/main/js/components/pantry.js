@@ -200,6 +200,7 @@ const pantry = (props) => {
   return (
     <main className={classes.pantry}>
       <div className={classes.toolbar} />
+      <h1>My Pantry</h1>
       {showLookup ? <Lookup /> : null}
       {storedIngredient ? form : <div></div>}
       <PrimaryButton text="Add Ingredient" color="primary" onClick={addIngredient} />
