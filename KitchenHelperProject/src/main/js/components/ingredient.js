@@ -60,8 +60,11 @@ const useStyles = makeStyles((theme) => ({
   green: {
     borderColor: "#93f850"
   },
-  yellow: {
-    borderColor: "#f6e018"
+  blue: {
+    borderColor: "#67c3f1"
+  },
+  grey: {
+    backgroundColor: '#f0f0f0'
   }
 }));
 
@@ -105,16 +108,28 @@ const remainingDaysFormatter = (days) => {
 export default function IngredientCard(props) {
   const classes = useStyles();
 
-  // const [condition, setCondition] = React.useState("");
+  const [condition, setCondition] = React.useState("");
   // const [isFresh, setIsFresh] = React.useState(false);
   // const [isImminent, setIsImminent] = React.useState(false);
-  const [isExpired, setIsExpired] = React.useState(false);
+  // const [isExpired, setIsExpired] = React.useState(false);
 
   React.useEffect(() => {
     let remainingDays = getRemainingDays(props.data.expiry);
 
-    if (remainingDays <= 0) {
-      setIsExpired(true)
+    if (remainingDays < 0) {
+      setCondition("expired");
+    }
+    else if (remainingDays >= 0 && remainingDays < 3) {
+      setCondition("due");
+    }
+    else if (remainingDays <= 15 && remainingDays > 4) {
+      setCondition("fresh");
+    }
+    else if (remainingDays > 15 && remainingDays < 30) {
+      setCondition("imminent");
+    }
+    else {
+      return
     }
   }, [props.data.expiry])
 
@@ -126,8 +141,14 @@ export default function IngredientCard(props) {
   };
 
   const getClassNames = () => {
-    if (isExpired) {
+    if (condition === "expired") {
+      return `${classes.ingrContainer} ${classes.grey}`;
+    } else if (condition === "due") {
       return `${classes.ingrContainer} ${classes.red}`;
+    } else if (condition === "fresh") {
+      return `${classes.ingrContainer} ${classes.green}`;
+    } else if (condition === "imminent") {
+      return `${classes.ingrContainer} ${classes.blue}`;
     } else {
       return `${classes.ingrContainer}`
     }
@@ -147,7 +168,7 @@ export default function IngredientCard(props) {
   //   } else if (condition === "fresh") {
   //     return `${classes.ingrContainer} ${classes.green}`;
   //   } else if (condition === "imminent") {
-  //     return `${classes.ingrContainer} ${classes.yellow}`;
+  //     return `${classes.ingrContainer} ${classes.blue}`;
   //   } else if (condition === "") {
   //     return `${classes.ingrContainer}`
   //   }
