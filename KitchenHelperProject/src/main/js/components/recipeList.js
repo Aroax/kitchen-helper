@@ -3,12 +3,7 @@ import Ingredient from "./ingredient";
 import axios from "axios";
 
 const RecipeList = (props) => {
-
-
-    // console.log('props', props);
-  const customRecipes = props.user.customRecipes;
-  
-//   console.log('customRecipes', customRecipes)
+  let customRecipes = props.user.customRecipes;
   let requiredIngredients = [];
   let pantry = props.user.pantry;
   let food_app_ID = "d3e7d692";
@@ -22,7 +17,7 @@ const RecipeList = (props) => {
       return (
         <div>
             <table>
-                <Recipe data={recipe} />
+                <Recipe data={recipe} refreshUser={props.refreshUser}/>
             </table>
         
       <button onClick={ () => { compareIngredientsAndBuild(recipe) } }>Add Recipe to Shopping List</button>
@@ -42,7 +37,8 @@ const RecipeList = (props) => {
         data: recipe
       }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
+
       });
   }
 
@@ -121,7 +117,7 @@ const RecipeList = (props) => {
       data: requiredIngredients
     }).then((response) => {
         console.log(response);
-        // location.reload();
+        props.refreshUser();
     })
   }
 
@@ -135,7 +131,7 @@ const RecipeList = (props) => {
         data: recipe
       }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
       });
 }
 

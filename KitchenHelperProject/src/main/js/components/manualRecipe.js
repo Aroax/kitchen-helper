@@ -176,7 +176,7 @@ const ManualRecipe = (props) => {
       <DisplayRecipe />
       <SaveRecipeButton />
       <hr />
-      <RecipeList user={props.user} />
+      <RecipeList user={props.user} refreshUser={props.refreshUser}/>
     </div>
   );
 
