@@ -48,6 +48,7 @@ const userRecipes = (props) => {
           }
         }).then((response) => {
             console.log(response);
+            props.refreshUser();
         })
       }
 
@@ -60,7 +61,7 @@ const userRecipes = (props) => {
           data: recipe
         }).then((response) => {
             console.log(response);
-            // location.reload();
+            props.refreshUser();
         });
     }
   
@@ -104,7 +105,7 @@ const userRecipes = (props) => {
         data: requiredIngredients
       }).then((response) => {
           console.log(response);
-          // location.reload();
+          props.refreshUser();
       })
     }
 
@@ -116,7 +117,7 @@ const userRecipes = (props) => {
           data: recipe
         }).then((response) => {
             console.log(response);
-            // location.reload();
+            props.refreshUser();
       });
     }
 

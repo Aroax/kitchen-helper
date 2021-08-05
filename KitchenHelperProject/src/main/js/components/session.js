@@ -46,8 +46,8 @@ const user = () => {
     const shoppingList = user ? <ShoppingList user={user} refreshUser={handleUserChange}></ShoppingList> : <div></div>
     const recipes = user ? <RecipesHub user={user} /> : <div></div>
     const showProps = () => { user ? console.log(user) : null }
-    const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved"></UserRecipes> : <div></div>
-    const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite"></UserRecipes> : <div></div>
+    const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved" refreshUser={handleUserChange}></UserRecipes> : <div></div>
+    const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourite" refreshUser={handleUserChange}></UserRecipes> : <div></div>
 
     return (
         <div className="container">
