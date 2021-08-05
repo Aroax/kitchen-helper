@@ -77,8 +77,8 @@ const ManualRecipe = (props) => {
       data: customRecipe
     }).then((response) => {
         console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const addToDraftRecipeDb = (ingredient) => {
@@ -97,8 +97,8 @@ const ManualRecipe = (props) => {
       }
     }).then((response) => {
         console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
 
   const removeIngredientFromDraftRecipe = (ingredient) => {
@@ -111,8 +111,8 @@ const ManualRecipe = (props) => {
       data: ingredient
     }).then((response) => {
         console.log(response);
+        props.refreshUser();
     })
-    // setTimeout(location.reload.bind(location), 3000);
   }
   
 
@@ -181,8 +181,5 @@ const ManualRecipe = (props) => {
   );
 
 }
-
-
-
 
 export default ManualRecipe;

@@ -138,7 +138,7 @@ const userRecipes = (props) => {
 
       return (
         <div>
-          <Recipe data={recipeObject} userId={props.user.id} button={button} actionButtons={actionButtons}></Recipe>
+          <Recipe data={recipeObject} userId={props.user.id} button={button} actionButtons={actionButtons} refreshUser={props.refreshUser}></Recipe>
         </div>
       )
     });

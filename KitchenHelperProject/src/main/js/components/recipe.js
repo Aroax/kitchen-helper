@@ -103,6 +103,7 @@ const recipeCard = (props) => {
       }
     }).then((response) => {
       console.log(response);
+      props.refreshUser();
     })
     // setTimeout(location.reload.bind(location), 3000);
   }
