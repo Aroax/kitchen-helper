@@ -1,7 +1,6 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Card from "@material-ui/core/Card";
-import clsx from "clsx";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
@@ -109,9 +108,6 @@ export default function IngredientCard(props) {
   const classes = useStyles();
 
   const [condition, setCondition] = React.useState("");
-  // const [isFresh, setIsFresh] = React.useState(false);
-  // const [isImminent, setIsImminent] = React.useState(false);
-  // const [isExpired, setIsExpired] = React.useState(false);
 
   React.useEffect(() => {
     let remainingDays = getRemainingDays(props.data.expiry);
@@ -154,26 +150,6 @@ export default function IngredientCard(props) {
     }
   };
 
-  // const expiryCalculator = () => {
-  //   const expiryDate = new Date(props.data.expiry)
-  //   const today = new Date();
-  //   const diff = expiryDate - today;
-  //   let remainingDays = Math.floor(diff / (1000 * 60 * 60 * 24));
-  //   return remainingDaysFormatter(remainingDays);
-  // }
-
-  // const getClassNames = () => {
-  //   if (condition === "expired") {
-  //     return `${classes.ingrContainer} ${classes.red}`;
-  //   } else if (condition === "fresh") {
-  //     return `${classes.ingrContainer} ${classes.green}`;
-  //   } else if (condition === "imminent") {
-  //     return `${classes.ingrContainer} ${classes.blue}`;
-  //   } else if (condition === "") {
-  //     return `${classes.ingrContainer}`
-  //   }
-  // };
-
   const foodCategory = props.foodCategory ? props.foodCategory : null;
   const location = props.location ? props.location : null;
   const weight = props.weight ? `${props.weight}g total` : null;
@@ -182,8 +158,6 @@ export default function IngredientCard(props) {
 
   return (
     <Card className={getClassNames()}>
-      {/* <Card className={`${classes.ingrContainer}`}> */}
-      {/* <Card className={clsx(classes.ingrContainer, {[classes.red]: isExpired, [classes.green]: !isExpired})}> */}
       <div className={classes.details}>
         <CardContent>
           <Grid container className={classes.content}>
