@@ -112,6 +112,7 @@ const pantry = (props) => {
   }
 
   const addToPantry = () => {
+    addIngredient();
     event.preventDefault();
     axios({
       method: 'patch',

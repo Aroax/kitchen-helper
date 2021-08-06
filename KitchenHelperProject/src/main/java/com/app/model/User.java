@@ -170,14 +170,28 @@ public class User {
 	
 	public void removeEmptyPantryIngredients() {
 		ArrayList<Ingredient> runOut = new ArrayList<Ingredient>();
+		ArrayList<Ingredient> runOutDeduped = new ArrayList<Ingredient>();
 		for (Ingredient ing : pantry) {
 				if (ing.getWeight() <= 0.0) {
 					System.out.println("Cleaning empty item from Pantry: " + ing.getName());
 					runOut.add(ing);
+					if (!isIngredientOnRestockList(ing)) {
+						runOutDeduped.add(ing);
+					}
 			}
 		}
 		pantry.removeAll(runOut);
-		restockList.addAll(runOut);
+		restockList.addAll(runOutDeduped);
+	}
+	
+	public Boolean isIngredientOnRestockList(Ingredient ingredient) {
+		Boolean found = false;
+		for (Ingredient ing : restockList) {
+			if (ing.getFoodId().equals(ingredient.getFoodId())) {
+				found = true;
+			}
+		}
+		return found;
 	}
 	
 	public void checkPantryIngredientThresholds() {
