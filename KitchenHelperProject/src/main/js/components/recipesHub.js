@@ -12,6 +12,7 @@ const RecipesHub = (props) => {
     return (
         <div className='container'>
             <div className={classes.toolbar}/>
+            <br />
             <h1>Recipes Hub</h1>
             <ExternalRecipeLookup user={props.user} refreshUser={props.refreshUser}/>
         </div>

@@ -34,6 +34,7 @@ const recipeCard = (props) => {
   };
 
   const recipeIngredients = props.ingredients ? props.ingredients : props.data.recipe.ingredients;
+  const recipeHeroImage = props.data.recipe.image? props.data.recipe.image : "https://i0.wp.com/www.mimisrecipes.com/wp-content/uploads/2018/12/recipe-placeholder-featured.jpg";
   
   console.log(props);
  
@@ -43,10 +44,11 @@ const recipeCard = (props) => {
       foodId: ingredient.foodId,
       name: (ingredient.name ? ingredient.name : ingredient.text),
       weight: Math.ceil(ingredient.weight),
-      weightNeeded: Math.ceil(ingredient.weight),
+      weightNeeded: (ingredient.weightNeeded ? Math.ceil(ingredient.weightNeeded) : Math.ceil(ingredient.weight)),
       imageUrl: ingredient.image,
       foodCategory: ingredient.foodCategory,
       text: ingredient.text,
+      yield: (props.data.recipe.yield ? props.data.recipe.yield : "4")
     };
   });
 
@@ -112,7 +114,7 @@ const recipeCard = (props) => {
       <Link href={props.data.recipe.url}>
         <CardMedia
           className={classes.media}
-          image={props.data.recipe.image}
+          image={recipeHeroImage}
           title={props.data.recipe.label}
         />
       </Link>
@@ -136,7 +138,7 @@ const recipeCard = (props) => {
           </Grid>
           <Grid item>
             <Typography variant="subtitle2" color="textSecondary">
-              serves {props.data.recipe.yield}
+              serves {(props.data.recipe.yield ? props.data.recipe.yield : "4")}
             </Typography>
           </Grid>
         </Grid>
@@ -204,7 +206,7 @@ const recipeCard = (props) => {
               <ListItem>
                 <ListItemIcon>-</ListItemIcon>
                 <Typography variant="subtitle2">
-                  {ingr.name}: {Math.round(ingr.weight)}g
+                  {ingr.name}: {Math.round(ingr.weightNeeded)}g
                 </Typography>
                 {/* foodID = {ingr.foodId} */}
               </ListItem>

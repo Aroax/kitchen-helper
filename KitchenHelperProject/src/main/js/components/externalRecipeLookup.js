@@ -54,7 +54,8 @@ const externalRecipeLookup = (props) => {
 
   return (
     <main className={classes.recipes}>
-    <h2>Search Recipes</h2>
+    <h2>Search Online Recipes</h2>
+    <h3>Try a recipe name, dish type or a main ingredient</h3>
       <SearchBar
         color="secondary"
         label="Search for recipes"

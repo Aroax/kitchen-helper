@@ -18,6 +18,8 @@ import PersonIcon from "@material-ui/icons/Person";
 import Hidden from "@material-ui/core/Hidden";
 import MenuIcon from "@material-ui/icons/Menu";
 import EventNoteIcon from '@material-ui/icons/EventNote';
+import { CardMedia } from "@material-ui/core";
+// import thumbnailLogo from '../../../resources/static/images/stocrates-logo-trans-splat.png'
 
 const drawerWidth = 240;
 
@@ -26,6 +28,8 @@ export default function LeftDrawerNav(props) {
   const { window } = props;
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  const mediumLogo = "https://images2.imgbox.com/6c/98/kXicK4Zr_o.png";
+  // const fullLogo ="https://images2.imgbox.com/25/1c/DTTk8RTf_o.png"; 
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -71,7 +75,7 @@ export default function LeftDrawerNav(props) {
             onClick={handleDrawerToggle}
           >
             <MenuItem button key="Saved">
-              Search
+              Search Online
             </MenuItem>
           </NavLink>
           <NavLink
@@ -81,7 +85,7 @@ export default function LeftDrawerNav(props) {
             onClick={handleDrawerToggle}
           >
             <MenuItem button key="Saved">
-              Saved
+              Saved Recipes
             </MenuItem>
           </NavLink>
           {/* <NavLink
@@ -98,7 +102,7 @@ export default function LeftDrawerNav(props) {
             activeClassName={classes.navLinkActive}
             onClick={handleDrawerToggle}
           >
-            <MenuItem>Custom</MenuItem>
+            <MenuItem>My Recipes</MenuItem>
           </NavLink>
         </MenuList>
         <NavLink
@@ -111,7 +115,7 @@ export default function LeftDrawerNav(props) {
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
-            SHOPPING
+            SHOPPING LIST
           </MenuItem>
         </NavLink>
         <NavLink
@@ -150,7 +154,11 @@ export default function LeftDrawerNav(props) {
       <CssBaseline />
       <AppBar position="fixed">
         <Toolbar disableElevation>
-          <Typography className={classes.navLinks}>Kitchen Helper</Typography>
+          {/* <Typography className={classes.navLinks}>Kitchen Helper</Typography> */}
+          <CardMedia className={classes.logoThumb}
+        image={mediumLogo}
+        title="Stocrates Logo"
+      />
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -223,5 +231,10 @@ const useStyles = makeStyles((theme) => ({
   },
   nested: {
     paddingLeft: theme.spacing.unit * 10,
+  },
+  logoThumb: {
+    height: 100,
+    width: 100,
+    margin: 'auto',
   },
 }));

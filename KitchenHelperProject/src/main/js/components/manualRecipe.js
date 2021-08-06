@@ -15,6 +15,7 @@ const ManualRecipe = (props) => {
   let lookupName;
   let currentWeightNeeded;
   let draftRecipeName;
+  let draftRecipeYield;
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
@@ -32,6 +33,12 @@ const ManualRecipe = (props) => {
   const handleDraftRecipeNameChange = (event) => {
     draftRecipeName = event.target.value;
   }
+
+  const handleDraftRecipeYieldChange = (event) => {
+    draftRecipeYield = event.target.value;
+  }
+
+  
 
   const ingredientLookup = () => {
     event.preventDefault();
@@ -56,6 +63,7 @@ const ManualRecipe = (props) => {
     let customRecipe = {
       recipeName: draftRecipeName,
       image: "https://images.unsplash.com/photo-1542010589005-d1eacc3918f2?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1669&q=80",
+      yield: draftRecipeYield,
       ingredients: draftRecipe
     };
     axios({
@@ -153,6 +161,9 @@ const ManualRecipe = (props) => {
         <Grid item xs={12}>
           <TextField
             label="Give your recipe a name" color="secondary" variant="outlined" style={{ marginRight: 10, width: "50%" }} onChange={handleDraftRecipeNameChange}
+          />
+          <TextField
+            label="Serves how many people?" color="secondary" variant="outlined" style={{ marginRight: 10, width: "50%" }} onChange={handleDraftRecipeYieldChange}
           />
         </Grid>
         <Grid item xs={12}>
