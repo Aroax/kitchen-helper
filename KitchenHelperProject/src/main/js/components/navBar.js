@@ -75,7 +75,7 @@ export default function LeftDrawerNav(props) {
             onClick={handleDrawerToggle}
           >
             <MenuItem button key="Saved">
-              Search
+              Search Online
             </MenuItem>
           </NavLink>
           <NavLink
@@ -85,7 +85,7 @@ export default function LeftDrawerNav(props) {
             onClick={handleDrawerToggle}
           >
             <MenuItem button key="Saved">
-              Saved
+              Saved Recipes
             </MenuItem>
           </NavLink>
           {/* <NavLink
@@ -102,7 +102,7 @@ export default function LeftDrawerNav(props) {
             activeClassName={classes.navLinkActive}
             onClick={handleDrawerToggle}
           >
-            <MenuItem>Custom</MenuItem>
+            <MenuItem>My Recipes</MenuItem>
           </NavLink>
         </MenuList>
         <NavLink
@@ -115,7 +115,7 @@ export default function LeftDrawerNav(props) {
             <ListItemIcon>
               <ShoppingCartIcon />
             </ListItemIcon>
-            SHOPPING
+            SHOPPING LIST
           </MenuItem>
         </NavLink>
         <NavLink

@@ -34,6 +34,7 @@ const recipeCard = (props) => {
   };
 
   const recipeIngredients = props.ingredients ? props.ingredients : props.data.recipe.ingredients;
+  const recipeHeroImage = props.data.recipe.image? props.data.recipe.image : "https://i0.wp.com/www.mimisrecipes.com/wp-content/uploads/2018/12/recipe-placeholder-featured.jpg";
   
   console.log(props);
  
@@ -113,7 +114,7 @@ const recipeCard = (props) => {
       <Link href={props.data.recipe.url}>
         <CardMedia
           className={classes.media}
-          image={props.data.recipe.image}
+          image={recipeHeroImage}
           title={props.data.recipe.label}
         />
       </Link>
@@ -137,7 +138,7 @@ const recipeCard = (props) => {
           </Grid>
           <Grid item>
             <Typography variant="subtitle2" color="textSecondary">
-              serves {props.data.recipe.yield}
+              serves {(props.data.recipe.yield ? props.data.recipe.yield : "4")}
             </Typography>
           </Grid>
         </Grid>
