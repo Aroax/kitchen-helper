@@ -36,7 +36,7 @@ export default function LeftDrawerNav(props) {
   };
 
   const container = window !== undefined ? () => window().document.body : undefined;
-  
+
   const drawer = (
     <div>
       <MenuList>
@@ -154,11 +154,12 @@ export default function LeftDrawerNav(props) {
       <CssBaseline />
       <AppBar position="fixed">
         <Toolbar disableElevation>
-          {/* <Typography className={classes.navLinks}>Kitchen Helper</Typography> */}
-          <CardMedia className={classes.logoThumb}
-        image={mediumLogo}
-        title="Stocrates Logo"
-      />
+          <NavLink to="/" style={{ flexGrow: 1 }}>
+            <CardMedia className={classes.logoThumb}
+              image={mediumLogo}
+              title="Stocrates Logo"
+            />
+          </NavLink>
           <IconButton
             color="inherit"
             aria-label="open drawer"
