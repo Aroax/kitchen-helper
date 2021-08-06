@@ -88,14 +88,14 @@ export default function LeftDrawerNav(props) {
               Saved Recipes
             </MenuItem>
           </NavLink>
-          {/* <NavLink
+          <NavLink
             to="/favourites"
             className={classes.navLink}
             activeClassName={classes.navLinkActive}
             onClick={handleDrawerToggle}
           >
             <MenuItem>Favourites</MenuItem>
-          </NavLink> */}
+          </NavLink>
           <NavLink
             to="/custom"
             className={classes.navLink}
