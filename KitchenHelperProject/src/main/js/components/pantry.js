@@ -34,12 +34,14 @@ const pantry = (props) => {
   const [weight, setWeight] = useState("99");
   const [expiry, setExpiry] = useState(new Date());
   const [imageUrl, setImageUrl] = useState("http://www.amityinternational.com/wp-content/uploads/2019/02/product-placeholder.jpg");
+  const placeholderImage = "https://www.teahub.io/photos/full/17-174123_green-light-texture-light-green-light-background-texture.jpg";
 
   const ingredientsList = props.user.pantry;
   let lookupName;
   let food_app_ID = "d3e7d692";
   let food_app_key = "8147d1ff5bab97e50f29cc6c98459afd";
   let food_api_url = "https://api.edamam.com/api/food-database/v2/parser";
+  
   
   const getIngredients = (pantry) => {
     return pantry.map((ingredient) => {
@@ -121,7 +123,7 @@ const pantry = (props) => {
         foodCategory: foodCategory,
         location: location,
         weight: weight,
-        imageUrl: imageUrl,
+        imageUrl: (imageUrl ? imageUrl : placeholderImage),
         expiry: expiry,
       }
     }).then((response) => {
