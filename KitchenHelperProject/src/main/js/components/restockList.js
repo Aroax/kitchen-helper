@@ -16,11 +16,11 @@ const RestockList = (props) => {
         return list.map((ingredient) => {
             return (
                 <Grid item xs={12} sm={6} md={4}>
-                    <IngredientCard data={ingredient} user={props.user} userId={props.user.id} bool={true}></IngredientCard>
+                    <IngredientCard data={ingredient} user={props.user} userId={props.user.id} type="restock" onShoppingClick={() => { addToShoppingListFromRestock(event, ingredient) }} onRemoveClick={() => {dismissItem(event, ingredient)}}></IngredientCard>
                     <br />
                     <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingListFromRestock(event, ingredient) }}/>
                     
-                    <SecondaryButton text="Dismiss Item" onClick={(event) => { dismissItem(event, ingredient) }}/>
+                    {/* <SecondaryButton text="Dismiss Item" onClick={(event) => { dismissItem(event, ingredient) }}/> */}
                 </Grid>
             )
         });

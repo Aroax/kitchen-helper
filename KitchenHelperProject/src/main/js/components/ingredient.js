@@ -229,10 +229,19 @@ export default function IngredientCard(props) {
           </Grid>
         </CardContent>
         <Divider variant="middle" />
-        {props.bool ?
-          (
-            <div className={classes.controls}>
-              <CardActions>
+           <div className={classes.controls}>
+           {props.type==="restock" ?
+              (
+                <CardActions>
+                <Button size="small" disableElevation onClick={props.onShoppingClick}>
+                  Add to Shopping List
+                </Button>
+                <Button size="small" disableElevation onClick={props.onRemoveClick}>
+                  Dismiss Reminder
+                </Button>
+              </CardActions>
+              ) :
+              (<CardActions>
                 {/* <Button
               href=""
               variant="outlined"
@@ -246,11 +255,10 @@ export default function IngredientCard(props) {
                 <Button size="small" disableElevation onClick={props.onRemoveClick}>
                   Remove
                 </Button>
-              </CardActions>
-            </div>
-          )
-          : null
-        }
+              </CardActions>)
+            }
+          </div>
+        
       </div>
       <CardMedia
         className={classes.image}

@@ -123,11 +123,11 @@ const ManualRecipe = (props) => {
     return recipe.map((ingredient) => {
       return (
         <Grid item>
-          <Ingredient data={ingredient} userId={props.user.id} weightNeeded={ingredient.weightNeeded} bool={false}></Ingredient>
+          <Ingredient data={ingredient} userId={props.user.id} weightNeeded={ingredient.weightNeeded} onRemoveClick={() => { removeIngredientFromDraftRecipe(ingredient)} }></Ingredient>
           {/* Edit quantity button function required: */}
           <Grid container direction="row" alignItems="flex-start" spacing={1}>
             <Grid item>
-              <PrimaryButton onClick={() => { removeIngredientFromDraftRecipe(ingredient) }} text="Remove Ingredient" ></PrimaryButton>
+              {/* <PrimaryButton onClick={() => { removeIngredientFromDraftRecipe(ingredient) }} text="Remove Ingredient" ></PrimaryButton> */}
             </Grid>
             <Grid item>
               <PrimaryButton color="secondary" onClick={() => console.log("not functional")} text="Change Quantity"></PrimaryButton>
@@ -149,7 +149,7 @@ const ManualRecipe = (props) => {
           />
           <TextField type="number" label="Weight required (in grams)" color="secondary" variant="outlined" style={{ marginRight: 10, width: "30%" }} onChange={handleWeightNeededChange}
           />
-          <PrimaryButton color="primary" text="search" onClick={ingredientLookup} />
+          <PrimaryButton color="primary" text="Add Ingredient" onClick={ingredientLookup} />
         </Grid>
       </Grid>
     )
