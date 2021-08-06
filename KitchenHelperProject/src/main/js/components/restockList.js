@@ -69,8 +69,9 @@ const RestockList = (props) => {
 
     const View = () => {
         return (
+            <div>
+            <h2>Heads up! You've run out of these, would you like to add any to your shopping list?</h2>
             <Grid container direction="row" alignItems="flex-start" spacing={1}>
-                <h2>Heads up! You've run out of these, would you like to add any to your shopping list?</h2>
                 {getRestockIngredients(restockList)}
                 <br></br>
                 <button onClick={() => { dismissAll() }}>Dismiss All</button>
@@ -78,6 +79,7 @@ const RestockList = (props) => {
                 <hr />
                 <br></br>
             </Grid>
+            </div>
         );
     }
 
