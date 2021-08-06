@@ -209,38 +209,31 @@ export default function IngredientCard(props) {
                 </Grid>
               )
               : (
-                <Grid item>
-                  <Grid item>
-                    <AccessTimeIcon color="secondary" style={{ marginRight: "5" }} />
-                  </Grid>
-                 <Grid item>
-                   <Typography variant="subtitle2" color="textSecondary">{remainingDaysFormatter(getRemainingDays(props.data.expiry))}</Typography>
-                 </Grid>
-              </Grid>
+                null
               )
             }
 
-          {props.location ?
-            (
-              <Grid item className={classes.row}>
-                <Grid item>
-                  <PinDropIcon color="secondary" style={{ marginRight: "5" }} />
+            {props.location ?
+              (
+                <Grid item className={classes.row}>
+                  <Grid item>
+                    <PinDropIcon color="secondary" style={{ marginRight: "5" }} />
+                  </Grid>
+                  <Grid item>
+                    <Typography variant="subtitle2" color="textSecondary">{props.location}</Typography>
+                  </Grid>
                 </Grid>
-                <Grid item>
-                  <Typography variant="subtitle2" color="textSecondary">{props.location}</Typography>
-                </Grid>
-              </Grid>
-            ) :
-            (null)
-          }
-        </Grid>
+              ) :
+              (null)
+            }
+          </Grid>
         </CardContent>
         <Divider variant="middle" />
         {props.bool ?
           (
-        <div className={classes.controls}>
-          <CardActions>
-            {/* <Button
+            <div className={classes.controls}>
+              <CardActions>
+                {/* <Button
               href=""
               variant="outlined"
               size="small"
@@ -250,14 +243,14 @@ export default function IngredientCard(props) {
             >
               Edit
             </Button> */}
-            <Button size="small" disableElevation onClick={props.onRemoveClick}>
-              Remove
-            </Button>
-          </CardActions>
-        </div>
-       )
+                <Button size="small" disableElevation onClick={props.onRemoveClick}>
+                  Remove
+                </Button>
+              </CardActions>
+            </div>
+          )
           : null
-        } 
+        }
       </div>
       <CardMedia
         className={classes.image}

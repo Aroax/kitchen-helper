@@ -3,6 +3,7 @@ import Ingredient from "./ingredient";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import { Grid } from "@material-ui/core";
+import PrimaryButton from "./buttonPrimary";
 
 const useStyles = makeStyles((theme) => ({
   toolbar: theme.mixins.toolbar,
@@ -42,7 +43,7 @@ const ShoppingList = (props) => {
     return shoppingList.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient bool={true} data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} updateExpiry={updateExpiry} onRemoveClick={() => { removeFromShoppingList(event, ingredient)}}></Ingredient>
+          <Ingredient bool={true} data={ingredient} weightNeeded={ingredient.weightNeeded} type="shopping-list" updateWeightNeeded={updateWeightNeeded} updateExpiry={updateExpiry} onRemoveClick={() => { removeFromShoppingList(event, ingredient) }}></Ingredient>
         </Grid>
       )
 
@@ -83,7 +84,7 @@ const ShoppingList = (props) => {
       <Grid container direction="row" alignItems="flex-start" spacing={1}>
         {getIngredients(ingredientsList)}
       </Grid>
-      <button onClick={addShoppingListToPantry}>Purchased All</button>
+      < PrimaryButton text="Purchased All" color="secondary" onClick={addShoppingListToPantry}></ PrimaryButton>
     </div>
   );
 }
