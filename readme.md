@@ -139,3 +139,4 @@ db.users.update({
     }
   })
 ```
+safe
