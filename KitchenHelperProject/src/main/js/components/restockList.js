@@ -18,7 +18,7 @@ const RestockList = (props) => {
                 <Grid item xs={12} sm={6} md={4}>
                     <IngredientCard data={ingredient} user={props.user} userId={props.user.id} type="restock" onShoppingClick={() => { addToShoppingListFromRestock(event, ingredient) }} onRemoveClick={() => {dismissItem(event, ingredient)}}></IngredientCard>
                     <br />
-                    <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingListFromRestock(event, ingredient) }}/>
+                    {/* <PrimaryButton text="Add to Shopping List" onClick={(event) => { addToShoppingListFromRestock(event, ingredient) }}/> */}
                     
                     {/* <SecondaryButton text="Dismiss Item" onClick={(event) => { dismissItem(event, ingredient) }}/> */}
                 </Grid>
@@ -71,10 +71,12 @@ const RestockList = (props) => {
         return (
             <div>
             <h2>Heads up! You've run out of these, would you like to add any to your shopping list?</h2>
+            <p>< PrimaryButton text="Dismiss All Reminders" color="secondary" onClick={() => {dismissAll()}}></ PrimaryButton></p>
+            <br />
             <Grid container direction="row" alignItems="flex-start" spacing={1}>
                 {getRestockIngredients(restockList)}
                 <br></br>
-                <button onClick={() => { dismissAll() }}>Dismiss All</button>
+                {/* <button onClick={() => { dismissAll() }}>Dismiss All</button> */}
                 <br></br>
                 <hr />
                 <br></br>
