@@ -59,9 +59,9 @@ const RecipeList = (props) => {
             recipeId: recipe.recipeId,
             ingredients: recipe.ingredients,
             image: recipe.image,
-            // yield: recipe.yield,
-            // url: recipe.url,
-            // source: recipe.source
+            yield: (recipe.yield ? recipe.yield : null),
+            url: (recipe.url ? recipe.url : null),
+            source: (recipe.source ? recipe.source : null),
           }
         }).then((response) => {
             console.log(response);
