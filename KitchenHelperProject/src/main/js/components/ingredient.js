@@ -109,10 +109,10 @@ export default function IngredientCard(props) {
     if (remainingDays < 0) {
       setCondition("expired");
     }
-    else if (remainingDays >= 0 && remainingDays < 3) {
+    else if (remainingDays >= 0 && remainingDays <= 2) {
       setCondition("due");
     }
-    else if (remainingDays <= 15 && remainingDays > 4) {
+    else if (remainingDays <= 15 && remainingDays >= 3) {
       setCondition("fresh");
     }
     else if (remainingDays > 15 && remainingDays < 30) {
