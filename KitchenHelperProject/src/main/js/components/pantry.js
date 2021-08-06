@@ -100,7 +100,6 @@ const pantry = (props) => {
   }
 
   const handleLookupNameChange = (event) => {
-    // event.preventDefault();
     lookupName = event.target.value;
   }
 
@@ -129,6 +128,7 @@ const pantry = (props) => {
       }
     }).then((response) => {
       console.log(response);
+      setStoredIngredient();
       props.refreshUser();
     })
   }
