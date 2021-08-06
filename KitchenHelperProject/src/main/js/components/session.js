@@ -47,7 +47,7 @@ const user = () => {
     const pantry = user ? <Pantry user={user} refreshUser={handleUserChange}></Pantry> : <div></div>
     const shoppingList = user ? <ShoppingList user={user} refreshUser={handleUserChange}></ShoppingList> : <div></div>
     const recipes = user ? <RecipesHub user={user} refreshUser={handleUserChange}/> : <div></div>
-    const showProps = () => { user ? console.log(user) : null }
+    // const showProps = () => { user ? console.log(user) : null }
     const savedRecipes = user ? <UserRecipes user={user} recipes={user.savedRecipes} type="saved" refreshUser={handleUserChange}></UserRecipes> : <div></div>
     const favouriteRecipes = user ? <UserRecipes user={user} recipes={user.favouriteRecipes} type="favourites" refreshUser={handleUserChange}></UserRecipes> : <div></div>
     const customRecipes = user ? <ManualRecipe user={user} refreshUser={handleUserChange}></ManualRecipe> : <div></div>
@@ -66,7 +66,7 @@ const user = () => {
                     </Route>
                     <Route exact path="/">
                         {pantry}
-                        <button onClick={showProps}>DEBUG: Show Props</button>
+                        {/* <button onClick={showProps}>DEBUG: Show Props</button> */}
                     </Route>
                     {/* <Route path="/recipes">
                         {recipes}
