@@ -90,24 +90,24 @@ const recipeCard = (props) => {
     setAnchorEl(null);
   };
 
-  const buttonMenu = (
-    <div>
-      <IconButton aria-controls="more-menu" aria-haspopup="true" onClick={handleClick}>
-        <MoreVertIcon />
-      </IconButton>
-      <Menu
-        id="simple-menu"
-        anchorEl={anchorEl}
-        keepMounted
-        open={Boolean(anchorEl)}
-        onClose={handleClose}
-      >
-        <MenuItem onClick={handleClose}>Add recipe to shopping list</MenuItem>
-        <MenuItem onClick={handleClose}>Cook now (subtract ingredients)</MenuItem>
-        <MenuItem onClick={handleClose}>Add to meal planner</MenuItem>
-      </Menu>
-    </div>
-  )
+  // const buttonMenu = (
+  //   <div>
+  //     <IconButton aria-controls="more-menu" aria-haspopup="true" onClick={handleClick}>
+  //       <MoreVertIcon />
+  //     </IconButton>
+  //     <Menu
+  //       id="simple-menu"
+  //       anchorEl={anchorEl}
+  //       keepMounted
+  //       open={Boolean(anchorEl)}
+  //       onClose={handleClose}
+  //     >
+  //       <MenuItem onClick={handleClose}>Add recipe to shopping list</MenuItem>
+  //       <MenuItem onClick={handleClose}>Cook now (subtract ingredients)</MenuItem>
+  //       <MenuItem onClick={handleClose}>Add to meal planner</MenuItem>
+  //     </Menu>
+  //   </div>
+  // )
 
   return (
     <Card className={classes.recipeCardContainer}>
@@ -183,7 +183,6 @@ const recipeCard = (props) => {
         >
           add to meal planner
         </Button> */}
-        {buttonMenu}
         <IconButton
           color="secondary"
           className={clsx(classes.expand, {

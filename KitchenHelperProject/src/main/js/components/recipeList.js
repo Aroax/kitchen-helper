@@ -5,6 +5,7 @@ import FavoriteIcon from "@material-ui/icons/Favorite";
 import IconButton from "@material-ui/core/IconButton";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
+import ActionButtons from "./actionButtons";
 
 const RecipeList = (props) => {
   let customRecipes = props.user.customRecipes;
@@ -64,23 +65,26 @@ const RecipeList = (props) => {
             // source: recipe.source
           }
         }).then((response) => {
-            console.log(response);
-            props.refreshUser();
+          console.log(response);
+          props.refreshUser();
         })
       }
-    
+
       const button = (
         <IconButton aria-label="add to favourites" onClick={addToFavouriteRecipes}>
           <FavoriteIcon color="secondary" />
         </IconButton>
       );
-      
+
       const actionButtons = (
-        <div>
-          <button onClick={() => { compareIngredientsAndBuild(recipe) }}>Add Recipe to Shopping List</button>
-          <button onClick={() => { cookRecipe(recipe) }}>Cook Now! (subtract items)</button>
-          <button onClick={() => { addRecipeToMealPlanner(recipe) }}>Add to meal planner</button>
-        </div>
+        <ActionButtons
+          shopButtonTitle="Add Recipe to Shopping List"
+          cookButtonTitle="Cook Now! (subtract items)"
+          planButtonTitle="Add to meal planner"
+          shopButtonClick={() => { compareIngredientsAndBuild(recipe) }}
+          cookButtonClick={() => { cookRecipe(recipe) }}
+          planButtonClick={() => { addRecipeToMealPlanner(recipe) }}
+        />
       )
 
       return (
@@ -98,23 +102,23 @@ const RecipeList = (props) => {
       headers: { 'Content-Type': 'application/json' },
       data: recipe
     }).then((response) => {
-        console.log(response);
-        props.refreshUser();
+      console.log(response);
+      props.refreshUser();
     });
   }
 
   const compareIngredientsAndBuild = (recipe) => {
     let found;
-    
+
     recipe.ingredients.map((recipeIngredient) => {
-        found = false;
-        pantry.forEach((pantryIngredient) => {
-            if (recipeIngredient.foodId === pantryIngredient.foodId) {
-                found = true;
-                addRequiredAmount(recipeIngredient, pantryIngredient);
-            }; 
-        });
-        found ? null : requiredIngredients.push(recipeIngredient);
+      found = false;
+      pantry.forEach((pantryIngredient) => {
+        if (recipeIngredient.foodId === pantryIngredient.foodId) {
+          found = true;
+          addRequiredAmount(recipeIngredient, pantryIngredient);
+        };
+      });
+      found ? null : requiredIngredients.push(recipeIngredient);
 
     })
     addToShoppingList();
@@ -125,10 +129,10 @@ const RecipeList = (props) => {
   }
 
   const modifyIngredient = (recipeIng, pantryIng) => {
-      let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
-      let modifiedIngredient = recipeIng;
-      modifiedIngredient.weightNeeded = weightNeeded;
-      requiredIngredients.push(modifiedIngredient);
+    let weightNeeded = recipeIng.weightNeeded - pantryIng.weight;
+    let modifiedIngredient = recipeIng;
+    modifiedIngredient.weightNeeded = weightNeeded;
+    requiredIngredients.push(modifiedIngredient);
   }
 
   const addToShoppingList = () => {
@@ -139,23 +143,23 @@ const RecipeList = (props) => {
       headers: { 'Content-Type': 'application/json' },
       data: requiredIngredients
     }).then((response) => {
-        console.log(response);
-        props.refreshUser();
+      console.log(response);
+      props.refreshUser();
     })
   }
 
   const addRecipeToMealPlanner = (recipe) => {
     recipe.mealPlannerDay = "Unassigned";
     axios({
-        method: 'patch',
-        url: `/users/${props.user.id}/mealplanner/add`,
-        headers: { 'Content-Type': 'application/json' },
-        data: recipe
-      }).then((response) => {
-          console.log(response);
-          props.refreshUser();
-      });
-}
+      method: 'patch',
+      url: `/users/${props.user.id}/mealplanner/add`,
+      headers: { 'Content-Type': 'application/json' },
+      data: recipe
+    }).then((response) => {
+      console.log(response);
+      props.refreshUser();
+    });
+  }
 
   // Render below
   return (
@@ -165,7 +169,7 @@ const RecipeList = (props) => {
         {getCustomRecipes()}
       </Grid>
     </main>
-    );
+  );
 }
 
 export default RecipeList;
