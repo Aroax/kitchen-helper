@@ -18,6 +18,8 @@ import PersonIcon from "@material-ui/icons/Person";
 import Hidden from "@material-ui/core/Hidden";
 import MenuIcon from "@material-ui/icons/Menu";
 import EventNoteIcon from '@material-ui/icons/EventNote';
+import { CardMedia } from "@material-ui/core";
+// import thumbnailLogo from '../../../resources/static/images/stocrates-logo-trans-splat.png'
 
 const drawerWidth = 240;
 
@@ -26,6 +28,7 @@ export default function LeftDrawerNav(props) {
   const { window } = props;
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
+  // const mediumLogo = "https://images2.imgbox.com/6c/98/kXicK4Zr_o.png"; 
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -150,7 +153,11 @@ export default function LeftDrawerNav(props) {
       <CssBaseline />
       <AppBar position="fixed">
         <Toolbar disableElevation>
-          <Typography className={classes.navLinks}>Kitchen Helper</Typography>
+          {/* <Typography className={classes.navLinks}>Kitchen Helper</Typography> */}
+          <CardMedia className={classes.logoThumb}
+        image='https://images2.imgbox.com/cc/6c/aQ608XI0_o.png'
+        title="Stocrates Logo"
+      />
           <IconButton
             color="inherit"
             aria-label="open drawer"
@@ -223,5 +230,10 @@ const useStyles = makeStyles((theme) => ({
   },
   nested: {
     paddingLeft: theme.spacing.unit * 10,
+  },
+  logoThumb: {
+    height: 100,
+    width: 100,
+    margin: 'auto',
   },
 }));
