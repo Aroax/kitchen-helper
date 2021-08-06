@@ -139,9 +139,10 @@ const MealPlanner = (props) => {
 
   const cookRecipe = (recipe) => {
     console.log(recipe);
+
     axios({
       method: 'patch',
-      url: `/users/${props.user.id}/pantry/subtract-by-recipe`,
+      url: `/users/${props.user.id}/mealplanner/cook`,
       headers: { 'Content-Type': 'application/json' },
       data: recipe
     }).then((response) => {
@@ -180,34 +181,6 @@ const MealPlanner = (props) => {
 
     // total = getShoppingList();
     // console.log('finished iterating total', allMealPlanIngredients);
-
-
-    const cookRecipe = (recipe) => {
-      console.log(recipe);
-
-      axios({
-        method: 'patch',
-        url: `/users/${props.user.id}/mealplanner/cook`,
-        headers: { 'Content-Type': 'application/json' },
-        data: recipe
-      }).then((response) => {
-        console.log(response);
-        props.refreshUser();
-      });
-    }
-
-    const removeAllFromMealPlanner = () => {
-      axios({
-        method: 'patch',
-        url: `/users/${props.user.id}/mealplanner/remove-all`,
-        headers: { 'Content-Type': 'application/json' },
-        data: mealPlanner
-      }).then((response) => {
-        console.log(response);
-        props.refreshUser();
-      })
-    }
-
 
     let vettedIngredients = compareIngredientsAndBuild(allMealPlanIngredients)
     console.log('allMealPlanIngredients in axios', allMealPlanIngredients);
