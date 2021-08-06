@@ -14,6 +14,7 @@ const RestockList = (props) => {
 
     const getRestockIngredients = (list) => {
         return list.map((ingredient) => {
+            ingredient.expiry = null;
             return (
                 <Grid item xs={12} sm={6} md={4}>
                     <IngredientCard data={ingredient} user={props.user} userId={props.user.id} type="restock" onShoppingClick={() => { addToShoppingListFromRestock(event, ingredient) }} onRemoveClick={() => {dismissItem(event, ingredient)}}></IngredientCard>

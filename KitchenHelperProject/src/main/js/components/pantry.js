@@ -47,7 +47,7 @@ const pantry = (props) => {
     return pantry.map((ingredient) => {
       return (
         <Grid item xs={12} sm={6} md={4}>
-          <Ingredient data={ingredient} bool={true} userId={props.user.id} weight={ingredient.weight} location={ingredient.location} onRemoveClick={() => { removeFromPantry(event, ingredient) }}></Ingredient>
+          <Ingredient data={ingredient} bool={true} type="pantry" userId={props.user.id} weight={ingredient.weight} location={ingredient.location} onRemoveClick={() => { removeFromPantry(event, ingredient) }}></Ingredient>
         </Grid>
       )
     });
