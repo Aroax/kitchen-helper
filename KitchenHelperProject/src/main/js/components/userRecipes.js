@@ -136,7 +136,7 @@ const userRecipes = (props) => {
       const actionButtons = (     
         <ActionButtons
           shopButtonTitle="Add Recipe to Shopping List"
-          cookButtonTitle="Cook Now! (subtract items)"
+          cookButtonTitle="Cook Now!"
           planButtonTitle="Add to meal planner"
           shopButtonClick={() => { compareIngredientsAndBuild(recipe) }}
           cookButtonClick={() => { cookRecipe(recipe) }}
