@@ -43,10 +43,11 @@ const recipeCard = (props) => {
       foodId: ingredient.foodId,
       name: (ingredient.name ? ingredient.name : ingredient.text),
       weight: Math.ceil(ingredient.weight),
-      weightNeeded: Math.ceil(ingredient.weight),
+      weightNeeded: (ingredient.weightNeeded ? Math.ceil(ingredient.weightNeeded) : Math.ceil(ingredient.weight)),
       imageUrl: ingredient.image,
       foodCategory: ingredient.foodCategory,
       text: ingredient.text,
+      yield: (props.data.recipe.yield ? props.data.recipe.yield : "4")
     };
   });
 
@@ -204,7 +205,7 @@ const recipeCard = (props) => {
               <ListItem>
                 <ListItemIcon>-</ListItemIcon>
                 <Typography variant="subtitle2">
-                  {ingr.name}: {Math.round(ingr.weight)}g
+                  {ingr.name}: {Math.round(ingr.weightNeeded)}g
                 </Typography>
                 {/* foodID = {ingr.foodId} */}
               </ListItem>

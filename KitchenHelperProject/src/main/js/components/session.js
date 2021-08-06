@@ -37,6 +37,7 @@ const user = () => {
             setRefreshUser(false);
             let currentUser = response.data;
             currentUser.pantry = currentUser.pantry.reverse();
+            currentUser.customRecipes = currentUser.customRecipes.reverse();
             setUser(currentUser);
         })
       }

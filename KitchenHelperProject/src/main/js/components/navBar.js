@@ -28,7 +28,8 @@ export default function LeftDrawerNav(props) {
   const { window } = props;
   const theme = useTheme();
   const [drawerOpen, setDrawerOpen] = React.useState(false);
-  // const mediumLogo = "https://images2.imgbox.com/6c/98/kXicK4Zr_o.png"; 
+  const mediumLogo = "https://images2.imgbox.com/6c/98/kXicK4Zr_o.png";
+  // const fullLogo ="https://images2.imgbox.com/25/1c/DTTk8RTf_o.png"; 
 
   const handleDrawerToggle = () => {
     setDrawerOpen(!drawerOpen);
@@ -155,7 +156,7 @@ export default function LeftDrawerNav(props) {
         <Toolbar disableElevation>
           {/* <Typography className={classes.navLinks}>Kitchen Helper</Typography> */}
           <CardMedia className={classes.logoThumb}
-        image='https://images2.imgbox.com/cc/6c/aQ608XI0_o.png'
+        image={mediumLogo}
         title="Stocrates Logo"
       />
           <IconButton
